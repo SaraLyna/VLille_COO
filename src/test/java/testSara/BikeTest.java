@@ -1,5 +1,6 @@
-package feature;
+package bike;
 import feature.*;
+import station.Station;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +8,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import bike.Bike;
 
 
 public class BikeTest {
@@ -24,5 +27,12 @@ public class BikeTest {
 	public void TheBikeHasntFeatures() {
 		assertTrue(this.bike.getFeatures().isEmpty());
 	}
+	
+	@Test 
+	public void WeAddFeatureOnTheBike() {
+		
+	}
+	
+	
 
 }

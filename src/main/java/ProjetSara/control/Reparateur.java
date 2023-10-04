@@ -1,10 +1,23 @@
 package control;
 
 
-public class Reparateur{
+public class Repairer{
+	
+	private int number;
 
-  public Reparateur(){
+  public Repairer(int number){
+	  
 
     
+  }
+  
+  public int getNumber() {
+	  
+	  
+  }
+  
+  public void 	action() {
+	  
+	  
   }
 }
