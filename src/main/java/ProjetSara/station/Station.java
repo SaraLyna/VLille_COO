@@ -21,6 +21,11 @@ public class Station {
 
 	}
 
+	
+	
+	/**
+	 * @param bike
+	 */
 	public void addBike(Bike bike) {
 		
 		

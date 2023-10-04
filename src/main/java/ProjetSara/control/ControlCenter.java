@@ -20,19 +20,39 @@ public abstract class ControlCenter{
 
 	}
 	
+	
+	
+	/**
+	 * @return
+	 */
 	public Map<String,Station> getStationList() {
 		
 		return null;
 	}
 	
+	
+	
+	/**
+	 * @return
+	 */
 	public Map<Integer,State> getRepairerList() {
 		return null;
 	}
+	
+	
+	/**
+	 * @param station
+	 */
 	public void addStation(Station station) {
 		
 		
 	}
 	
+	
+	
+	/**
+	 * @param station
+	 */
 	public void sendRepairer(Station station) {
 		
 		
