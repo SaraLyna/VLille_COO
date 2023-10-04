@@ -1,9 +1,9 @@
-package control;
+package ProjetSara.control;
 
 import java.util.Map;
 
-import state.State;
-import station.Station;
+import ProjetSara.state.State;
+import ProjetSara.station.Station;
 
 /**
 *
@@ -22,11 +22,11 @@ public abstract class ControlCenter{
 	
 	public Map<String,Station> getStationList() {
 		
-		
+		return null;
 	}
 	
 	public Map<Integer,State> getRepairerList() {
-		
+		return null;
 	}
 	public void addStation(Station station) {
 		

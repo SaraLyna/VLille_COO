@@ -1,4 +1,4 @@
-package control;
+package ProjetSara.control;
 
 
 public class Repairer{
@@ -12,7 +12,7 @@ public class Repairer{
   }
   
   public int getNumber() {
-	  
+	  return 0;
 	  
   }
   

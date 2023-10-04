@@ -1,7 +1,10 @@
-package bike;
+package ProjetSara.bike;
+
+import ProjetSara.station.Station;
 
 public class ClassicBike extends Bike{
-	public ClassicBike(){
+	public ClassicBike(String skin,Station station){
+		super(skin,station);
 
 	}
 

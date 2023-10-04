@@ -1,4 +1,4 @@
-package feature;
+package ProjetSara.feature;
 
 public class Basket extends FeatureDeco{
 	
@@ -13,7 +13,7 @@ public class Basket extends FeatureDeco{
 	}
 	
 	public String toString() {
-		
+		return null;
 		
 	}
 	

@@ -1,4 +1,4 @@
-package feature;
+package ProjetSara.feature;
 
 public class PannierRack extends FeatureDeco{
 	
@@ -14,7 +14,7 @@ public class PannierRack extends FeatureDeco{
 	
 	public String toString() {
 		
-		
+		return null;
 	}
 	
 	

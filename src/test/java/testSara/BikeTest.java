@@ -1,15 +1,16 @@
-package bike;
-import feature.*;
-import station.Station;
+package testSara;
+import ProjetSara.feature.*;
+import ProjetSara.station.Station;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import bike.Bike;
+import ProjetSara.bike.Bike;
 
 
 public class BikeTest {
@@ -17,10 +18,10 @@ public class BikeTest {
 	private Station s;
 	private Bike bike;
 
-	@Before
+	@BeforeEach
 	public void init() {
-		this.s = new Station();
-		this.bike = new Bike(s);
+		this.s = new Station(0,null);
+		this.bike = new Bike(null,this.s);
 	}
 
 	@Test

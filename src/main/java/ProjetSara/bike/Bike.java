@@ -1,9 +1,9 @@
-package bike;
+package ProjetSara.bike;
 
 import java.util.*;
 
-import feature.FeatureDeco;
-import station.Station;
+import ProjetSara.feature.FeatureDeco;
+import ProjetSara.station.Station;
 
 /**
 *this is the Bike class representing the bikes

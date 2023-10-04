@@ -1,9 +1,9 @@
-package station;
+package ProjetSara.station;
 
 import java.util.Map;
 
-import bike.Bike;
-import state.State;
+import ProjetSara.bike.Bike;
+import ProjetSara.state.State;
 
 /**
 *this is the Station class representing the station

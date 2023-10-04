@@ -1,4 +1,4 @@
-package feature;
+package ProjetSara.feature;
 
 public abstract class FeatureDeco {
 	

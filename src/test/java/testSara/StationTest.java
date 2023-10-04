@@ -1,24 +1,25 @@
-package station;
-import feature.*;
+package testSara;
+import ProjetSara.feature.*;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
 
 
 public class StationTest {
 
 
 
-	@Before
+	@BeforeEach
 	public void init() {
 
 	}
 
-	@Test
+	//@Test
 
 
 }

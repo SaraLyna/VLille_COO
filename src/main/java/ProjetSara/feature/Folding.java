@@ -1,4 +1,4 @@
-package feature;
+package ProjetSara.feature;
 
 public class Folding extends FeatureDeco{
 	
@@ -13,7 +13,7 @@ public class Folding extends FeatureDeco{
 	}
 	
 	public String toString() {
-		
+		return null;
 		
 	}
 	
