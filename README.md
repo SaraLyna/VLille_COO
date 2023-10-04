@@ -2,7 +2,7 @@
 
 # Binôme:
 - Sara Lyna Ouyahia
-
+- Angel Hely
 
 # Présentation du projet :
 
@@ -25,7 +25,7 @@ Ce projet consiste à concevoir une simulation d'un système de location de vél
 
 ## UML
 
-[Diagramme UML (Lucid)](https://lucid.app/lucidchart/9dc501e0-0b7b-4537-9b5b-f93b645f211e/edit?viewport_loc=-117%2C-103%2C1365%2C609%2CCNEwwmiSjA0G&invitationId=inv_d51f50c2-f5b2-428b-91ec-7436d3d0eb45)
+[Diagramme UML (Lucid)](https://luci d.app/lucidchart/9dc501e0-0b7b-4537-9b5b-f93b645f211e/edit?viewport_loc=-117%2C-103%2C1365%2C609%2CCNEwwmiSjA0G&invitationId=inv_d51f50c2-f5b2-428b-91ec-7436d3d0eb45)
 
 ## Journal de bord
 
@@ -39,3 +39,14 @@ Mercredi 20 Septembre :
 - Mise en place des Tests : StationTest.java et BikeTest.java
 
 ### Semaine 3 :
+- Mardi 03 Octobre :
+- MIse en place des autres classes sur l'UML : Repairer, State, PannierRack, Folding, Basket, FeatureDeco (histoire de mettre le pattern Decorator)
+ClassicBike, ElectricBike.
+- Mise en place des Getteurs et Setteurs des différentes classes du projet.
+- Réflexion sur la façon d'implementer les méthodes, et la conception des différentes 
+classes tout en essayent d'utiliser le plus possibles les décorateurs et patterns vus 
+en cours.
+
+### Semaine 4 :
+
+
