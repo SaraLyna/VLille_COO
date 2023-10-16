@@ -1,7 +1,7 @@
 package ProjetSara.control;
 
 import java.util.Map;
-
+import java.util.HashMap;
 import ProjetSara.state.State;
 import ProjetSara.station.Station;
 
@@ -17,6 +17,8 @@ public abstract class ControlCenter{
 	*
 	*/
 	public ControlCenter(){
+		stationList = new HashMap<>();
+        	repairerList = new HashMap<>();
 
 	}
 	
@@ -27,7 +29,7 @@ public abstract class ControlCenter{
 	 */
 	public Map<String,Station> getStationList() {
 		
-		return null;
+		return stationList;
 	}
 	
 	
@@ -36,7 +38,7 @@ public abstract class ControlCenter{
 	 * @return
 	 */
 	public Map<Integer,State> getRepairerList() {
-		return null;
+		return repairerList;
 	}
 	
 	
@@ -44,7 +46,7 @@ public abstract class ControlCenter{
 	 * @param station
 	 */
 	public void addStation(Station station) {
-		
+		stationList.put(station.getId(), station);
 		
 	}
 	

@@ -15,9 +15,10 @@ import ProjetSara.station.Station;
 public class Bike {
 
 	protected Station station;
-	protected List<FeatureDeco> feature;
-	protected List<FeatureDeco> problemFeature;
+	protected List<FeatureDeco> features;
+	protected List<FeatureDeco> problemFeatures;
 	protected String skin; 
+	protected boolean inService;
 	
 
 
@@ -26,9 +27,10 @@ public class Bike {
 	*/
 	public Bike(String skin,Station station) {
 		this.station = station;
-		this.feature = new ArrayList<>();
-		this.problemFeature = new ArrayList<>();
+		this.features = new ArrayList<>();
+		this.problemFeatures = new ArrayList<>();
 		this.skin=skin;
+		this.inService = true;
 	}
 
 
@@ -37,7 +39,7 @@ public class Bike {
 	 * @return
 	 */
 	public List<FeatureDeco> getFeatures() {
-		return this.feature;
+		return this.features;
 	}
 	
 	
@@ -55,7 +57,7 @@ public class Bike {
 	 * @return
 	 */
 	public List<FeatureDeco> getProblemFeatures() {
-		return this.problemFeature;
+		return this.problemFeatures;
 	}
 	
 	
@@ -82,7 +84,7 @@ public class Bike {
 	 * @param f
 	 */
 	public void addProblem(FeatureDeco f) {
-		this.problemFeature.add(f);
+		this.problemFeatures.add(f);
 	}
 	
 	
@@ -91,17 +93,29 @@ public class Bike {
 	 * @param f
 	 */
 	public void removeProblem(FeatureDeco f) {
-		this.problemFeature.remove(f);
+		this.problemFeatures.remove(f);
 	}
 
 	
-	
+	public boolean isInService() {
+        return inService;
+    	}
+
+   	public void setInService(boolean inService) {
+        this.inService = inService;
+    	}
 
 	/**
 	 *
 	 */
 	public String toString() {
-		return null;
+		return "Bike{" +
+                "station=" + station +
+                ", features=" + features +
+                ", problemFeatures=" + problemFeatures +
+                ", skin='" + skin + '\'' +
+                ", inService=" + inService +
+                '}';
 		
 	}
 }

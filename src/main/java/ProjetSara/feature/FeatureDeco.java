@@ -11,7 +11,7 @@ public abstract class FeatureDeco {
 	* Constructor of the class Feature
 	*/
 	public FeatureDeco(){
-	
+		damaged = false;
 	}
 	
 	
@@ -20,26 +20,28 @@ public abstract class FeatureDeco {
 	 * 
 	 */
 	public void repair() {
-		
+		damaged = false;
 		
 	}
 	
 	
 	
 	/**
-	 * @return
-	 */
-	public Boolean isDamaged() {
-		return null;
-	}
+     	* Check if the feature is damaged.
+     	*
+     	* @return true if damaged, false otherwise
+     	*/
+    	public Boolean isDamaged() {
+        	return damaged;
+   	}
 	
 	
 	
 	/**
-	 * 
+	 * Mark the feature as damaged.
 	 */
 	public void takeDamage() {
-		
+		damaged = true;
 		
 	}
 	
@@ -49,8 +51,9 @@ public abstract class FeatureDeco {
 	 *
 	 */
 	public String toString() {
-		return null;
-		
+		return "FeatureDeco{" +
+                "damaged=" + damaged +
+                '}';
 		
 	}
 

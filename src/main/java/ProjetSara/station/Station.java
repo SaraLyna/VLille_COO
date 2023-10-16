@@ -18,16 +18,27 @@ public class Station {
 	* Constructor of the class Station
 	*/
 	public Station(int capacityMax, String id){
+		this.id = id;
+        	this.capacityMax = capacityMax;
+        	this.bikes = new HashMap<>();
 
 	}
 
-	
+	public String getId(){
+		return this.id;
+	}
 	
 	/**
+	 * Add a bike to the station.
 	 * @param bike
 	 */
 	public void addBike(Bike bike) {
-		
+		if (bikes.size() < capacityMax) {
+            		bikes.put(bike, State.AVAILABLE); 
+            		bike.setStation(this);
+        	} else {
+            		System.out.println("The station is at maximum capacity. Cannot add more bikes.");
+        	}
 		
 	}
 

@@ -40,7 +40,7 @@ Mercredi 20 Septembre :
 
 ### Semaine 3 :
 - Mardi 03 Octobre :
-- MIse en place des autres classes sur l'UML : Repairer, State, PannierRack, Folding, Basket, FeatureDeco (histoire de mettre le pattern Decorator)
+- Mise en place des autres classes sur l'UML : Repairer, State, PannierRack, Folding, Basket, FeatureDeco (histoire de mettre le pattern Decorator)
 ClassicBike, ElectricBike.
 - Mise en place des Getteurs et Setteurs des différentes classes du projet.
 - Réflexion sur la façon d'implementer les méthodes, et la conception des différentes 
@@ -48,5 +48,16 @@ classes tout en essayent d'utiliser le plus possibles les décorateurs et patter
 en cours.
 
 ### Semaine 4 :
+- Lundi 09 Octobre :
+- Codage de quelques méthodes des différentes classes,
+- Mise en place des décorateurs et des différents patterns.
+
+### Semaine 5 :
+- Lundi 16 Octobre :
+- Suite du codage,
+- Implémentation des tests.
+
+
+
 
 
