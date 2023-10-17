@@ -3,7 +3,8 @@ package ProjetSara.bike;
 import ProjetSara.station.Station;
 
 /**
- * 
+ * The class represents a type of bike
+ * the electric  one
  */
 public class ElectricBike extends Bike{
 	

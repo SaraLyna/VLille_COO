@@ -1,7 +1,15 @@
 package ProjetSara.feature;
 
+/**
+ * 
+ */
 public class PannierRack extends FeatureDeco{
 	
+	
+	
+	/**
+	 * Constructor of the class
+	 */
 	public PannierRack() {
 		
 		

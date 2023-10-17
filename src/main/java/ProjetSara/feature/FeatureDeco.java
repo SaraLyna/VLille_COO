@@ -1,14 +1,14 @@
 package ProjetSara.feature;
 
 /**
- * 
+ * Decorator class
  */
 public abstract class FeatureDeco {
 	
 	protected Boolean damaged;
 
 	/**
-	* Constructor of the class Feature
+	* Constructor of the class FeatureDeco
 	*/
 	public FeatureDeco(){
 		damaged = false;
@@ -26,14 +26,14 @@ public abstract class FeatureDeco {
 	
 	
 	
-	/**
+		/**
      	* Check if the feature is damaged.
      	*
      	* @return true if damaged, false otherwise
      	*/
     	public Boolean isDamaged() {
         	return damaged;
-   	}
+    	}
 	
 	
 	

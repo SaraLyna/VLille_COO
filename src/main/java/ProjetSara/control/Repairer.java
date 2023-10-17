@@ -2,7 +2,7 @@ package ProjetSara.control;
 
 
 /**
- * 
+ * the class that represent the repairer
  */
 public class Repairer{
 	
@@ -10,32 +10,32 @@ public class Repairer{
 
 	
 	
-  /**
- * @param number
- */
-public Repairer(int number){
-	  
+	/**
+	 * @param number
+	 */
+	public Repairer(int number){
+	  this.number = number;
 
     
-  }
+	}
   
 
 
   /**
- * @return
- */
-public int getNumber() {
-	  return 0;
+   * @return
+   */
+	public int getNumber() {
+	  return this.number;
 	  
-  }
+	}
   
   
   
   /**
- * 
- */
-public void 	action() {
+   * repair the bike
+   */
+	public void action() {
 	  
 	  
-  }
+	}
 }

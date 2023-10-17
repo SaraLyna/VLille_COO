@@ -7,12 +7,12 @@ public class User{
 
 	
 	
-  /**
- * 
- */
-public User(){
+	/**
+	 * Constructor of the class
+	 */
+	public User(){
     
-  }
+	}
 
 
 

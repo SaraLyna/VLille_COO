@@ -6,7 +6,7 @@ import ProjetSara.state.State;
 import ProjetSara.station.Station;
 
 /**
-*
+*The class that represent the control center
 */
 public abstract class ControlCenter{
 	private Map<String,Station> stationList;
@@ -14,18 +14,18 @@ public abstract class ControlCenter{
 	
 
 	/**
-	*
+	* Constructor of the class
 	*/
 	public ControlCenter(){
 		stationList = new HashMap<>();
-        	repairerList = new HashMap<>();
+        repairerList = new HashMap<>();
 
 	}
 	
 	
 	
 	/**
-	 * @return
+	 * @return stationList
 	 */
 	public Map<String,Station> getStationList() {
 		
@@ -35,7 +35,7 @@ public abstract class ControlCenter{
 	
 	
 	/**
-	 * @return
+	 * @return repairerList
 	 */
 	public Map<Integer,State> getRepairerList() {
 		return repairerList;

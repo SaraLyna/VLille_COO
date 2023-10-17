@@ -9,9 +9,6 @@ import ProjetSara.station.Station;
 *this is the Bike class representing the bikes
 *in the station
 */
-/**
- * 
- */
 public class Bike {
 
 	protected Station station;
@@ -53,6 +50,8 @@ public class Bike {
 	
 	
 	
+	
+	
 	/**
 	 * @return
 	 */
@@ -65,7 +64,7 @@ public class Bike {
 	/**
 	 * @param s
 	 */
-	public void setSation(Station s) {
+	public void setStation(Station s) {
 		this.station = s;
 	}
 	
