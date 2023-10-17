@@ -70,6 +70,7 @@ en cours.
 ### Semaine 5 :
 - Lundi 16 Octobre :
 - Suite du codage,
+- Création d'un package TwoWheeledVehicle qui represente tous les trucs qui ont deux roues: velos, trotinettes...
 - Implémentation des tests.
 
 ### Semaine 6 :

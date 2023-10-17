@@ -1,5 +1,5 @@
 package ProjetSara.feature;
-
+import ProjetSara.bike.*;
 /**
  * 
  */
@@ -10,8 +10,8 @@ public class Basket extends FeatureDeco{
 	/**
 	 * 
 	 */
-	public Basket() {
-		
+	public Basket(Bike b) {
+		super(b);
 		
 	}
 	
@@ -20,8 +20,8 @@ public class Basket extends FeatureDeco{
 	/**
 	 *
 	 */
-	public void repair() {
-		
+	public String Decorate() {
+		return null;
 		
 	}
 	

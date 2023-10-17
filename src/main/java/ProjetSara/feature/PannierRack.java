@@ -1,5 +1,5 @@
 package ProjetSara.feature;
-
+import ProjetSara.bike.*;
 /**
  * 
  */
@@ -10,13 +10,13 @@ public class PannierRack extends FeatureDeco{
 	/**
 	 * Constructor of the class
 	 */
-	public PannierRack() {
-		
+	public PannierRack(Bike b) {
+		super(b);
 		
 	}
 	
-	public void repair() {
-		
+	public String Decorate() {
+		return null;
 		
 	}
 	

@@ -2,6 +2,7 @@ package ProjetSara.station;
 
 import java.util.*;
 
+
 import ProjetSara.bike.Bike;
 import ProjetSara.state.State;
 
@@ -13,14 +14,16 @@ public class Station {
 	protected String id;
 	protected int capacityMax;
 	protected Map<Bike,State> bikes;
+	protected Boolean repairerPresent ;
 
 	/**
 	* Constructor of the class Station
 	*/
 	public Station(int capacityMax, String id){
-		this.id = id;
+			this.id = id;
         	this.capacityMax = capacityMax;
         	this.bikes = new HashMap<>();
+        	this.repairerPresent = false;
 
 	}
 

@@ -1,13 +1,12 @@
 package testSara;
-import ProjetSara.feature.*;
 import ProjetSara.station.Station;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+//import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+//import java.util.List;
 
 
 import ProjetSara.bike.Bike;
@@ -24,10 +23,7 @@ public class BikeTest {
 		this.bike = new Bike(null,this.s);
 	}
 
-	@Test
-	public void TheBikeHasntFeatures() {
-		assertTrue(this.bike.getFeatures().isEmpty());
-	}
+
 	
 	@Test 
 	public void WeAddFeatureOnTheBike() {

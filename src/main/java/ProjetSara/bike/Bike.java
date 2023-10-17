@@ -1,8 +1,7 @@
 package ProjetSara.bike;
 
-import java.util.*;
+//import java.util.*;
 
-import ProjetSara.feature.FeatureDeco;
 import ProjetSara.station.Station;
 
 /**
@@ -12,10 +11,8 @@ import ProjetSara.station.Station;
 public class Bike {
 
 	protected Station station;
-	protected List<FeatureDeco> features;
-	protected List<FeatureDeco> problemFeatures;
 	protected String skin; 
-	protected boolean inService;
+	protected boolean isDamaged;
 	
 
 
@@ -24,22 +21,13 @@ public class Bike {
 	*/
 	public Bike(String skin,Station station) {
 		this.station = station;
-		this.features = new ArrayList<>();
-		this.problemFeatures = new ArrayList<>();
 		this.skin=skin;
-		this.inService = true;
+		this.isDamaged= false;
 	}
 
 
 	
-	/**
-	 * @return
-	 */
-	public List<FeatureDeco> getFeatures() {
-		return this.features;
-	}
-	
-	
+
 	
 	/**
 	 * @return
@@ -50,14 +38,6 @@ public class Bike {
 	
 	
 	
-	
-	
-	/**
-	 * @return
-	 */
-	public List<FeatureDeco> getProblemFeatures() {
-		return this.problemFeatures;
-	}
 	
 	
 	
@@ -79,29 +59,14 @@ public class Bike {
 	
 	
 	
-	/**
-	 * @param f
-	 */
-	public void addProblem(FeatureDeco f) {
-		this.problemFeatures.add(f);
-	}
-	
-	
-	
-	/**
-	 * @param f
-	 */
-	public void removeProblem(FeatureDeco f) {
-		this.problemFeatures.remove(f);
-	}
 
 	
-	public boolean isInService() {
-        return inService;
+	public boolean isDamaged() {
+        return isDamaged;
     	}
 
-   	public void setInService(boolean inService) {
-        this.inService = inService;
+   	public void takeDamage() {
+        this.isDamaged= true;
     	}
 
 	/**
@@ -110,10 +75,8 @@ public class Bike {
 	public String toString() {
 		return "Bike{" +
                 "station=" + station +
-                ", features=" + features +
-                ", problemFeatures=" + problemFeatures +
                 ", skin='" + skin + '\'' +
-                ", inService=" + inService +
+                ", isDamaged=" + isDamaged +
                 '}';
 		
 	}
