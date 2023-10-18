@@ -73,8 +73,10 @@ Lundi 16 Octobre :
 - Création d'un package TwoWheeledVehicle qui represente tous les trucs qui ont deux roues: velos, trotinettes...
 - Implémentation des tests.
 - Création du makefile
+
 Mardi 18 Octobre :
 - création de méthode initCapacityMax() et InitBikeInStation() + test Station 
+- Mise en place des Classes Available, Unavailable et OutOfService pour le pattern state
 
 ### Semaine 6 :
 
