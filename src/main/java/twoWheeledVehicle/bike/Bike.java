@@ -1,12 +1,13 @@
 package twoWheeledVehicle.bike;
 
 import station.Station;
+import twoWheeledVehicle.*;
 
 /**
 *this is the Bike class representing the bikes
 *in the station
 */
-public class Bike {
+public class Bike implements TwoWheeledVehicle {
 
 	protected Station station;
 	protected String skin; 
@@ -77,5 +78,13 @@ public class Bike {
                 ", isDamaged=" + isDamaged +
                 '}';
 		
+	}
+
+
+
+
+
+	public void repair() {
+		this.isDamaged=false;		
 	}
 }

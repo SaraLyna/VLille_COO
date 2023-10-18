@@ -1,5 +1,6 @@
 package feature;
-import twoWheeledVehicle.bike.Bike;
+import twoWheeledVehicle.TwoWheeledVehicle;
+
 /**
  * 
  */
@@ -10,8 +11,8 @@ public class Basket extends FeatureDeco{
 	/**
 	 * 
 	 */
-	public Basket(Bike b) {
-		super(b);
+	public Basket(TwoWheeledVehicle v) {
+		super(v);
 		
 	}
 	
@@ -20,20 +21,13 @@ public class Basket extends FeatureDeco{
 	/**
 	 *
 	 */
-	public String Decorate() {
-		return null;
-		
+	public String decorate(){
+		return super.decorate() + " with basket ";
 	}
 	
 	
 	
-	/**
-	 *
-	 */
-	public String toString() {
-		return null;
-		
-	}
+	
 	
 	
 	

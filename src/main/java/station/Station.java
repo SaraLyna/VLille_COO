@@ -2,7 +2,7 @@ package station;
 
 import java.util.*;
 
-import control.Repairer;
+import projetCOO.control.Repairer;
 import state.State;
 import twoWheeledVehicle.bike.Bike;
 
@@ -99,11 +99,14 @@ public class Station {
 	 */
 	public void initBikeInStation() {
 		this.bikes = new  HashMap<>();
-		for (int i = 0; i<= this.getCapacityMax(); i++) {
+		for (int i = 0; i < this.getCapacityMax(); i++) {
 			Bike b = new Bike("default", this);
 			this.addBike(b);
 		}
-		
+	}
+	
+	public String toString() {
+		return "Station n° "+ this.id  + " capacity max is "+ this.capacityMax ;
 	}
 
 }

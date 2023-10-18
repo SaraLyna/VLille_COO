@@ -1,69 +1,49 @@
 package feature;
-import twoWheeledVehicle.bike.Bike;
+import twoWheeledVehicle.*;
 /**
  * Decorator class
  */
-public abstract class FeatureDeco {
+public class FeatureDeco implements TwoWheeledVehicle {
 	
-	protected Bike b;
+	protected TwoWheeledVehicle v;
 
 	/**
 	* Constructor of the class FeatureDeco
-	 * @param b 
+	 * @param v 
 	*/
-	public FeatureDeco(Bike b){
-		//TwoWheeledVehicle v
-		//this.v=v;
-		this.b=b;
+	public FeatureDeco(TwoWheeledVehicle v){
+		this.v=v;
+		
 		
 	}
 	
 	
 	
 	
-	public String Decorate() {
-		return null;
+	public String decorate() {
+		return "un deux roues" ;
 	
 	}
-	
-	
-	/**
-	 * 
-	 *
-	public void repair() {
-		damaged = false;
-		
-	}
-	*/
-	
-	
-		/**
-     	* Check if the feature is damaged.
-     	*
-     	* @return true if damaged, false otherwise
-     	
-    	public Boolean isDamaged() {
-        	return damaged;
-    	}
-	*/
-	
-	
-	/**
-	 * Mark the feature as damaged.
-	 *
-	public void takeDamage() {
-		damaged = true;
-		
-	}
-	*/
-	
-	
-	/**
-	 *
-	 */
-	public String toString() {
-		return null;
+
+
+
+
+	@Override
+	public void applySkin(String s) {
+		// TODO Auto-generated method stub
 		
 	}
 
+
+
+
+	
+	public void repair() {
+		this.v.repair();	
+	}
+	
+	
+	
+	
+	
 }

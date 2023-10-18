@@ -1,5 +1,5 @@
 package feature;
-import twoWheeledVehicle.bike.Bike;
+import twoWheeledVehicle.*;
 /**
  * 
  */
@@ -10,8 +10,8 @@ public class Folding extends FeatureDeco{
 	/**
 	 * 
 	 */
-	public Folding(Bike b) {
-		super(b);
+	public Folding(TwoWheeledVehicle v) {
+		super(v);
 		
 	}
 	
@@ -20,20 +20,12 @@ public class Folding extends FeatureDeco{
 	/**
 	 *
 	 */
-	public String Decorate() {
-		return null;
-		
+	public String decorate(){
+		return super.decorate() + " with folding";
 	}
 	
 	
 	
-	/**
-	 *
-	 */
-	public String toString() {
-		return null;
-		
-	}
 	
 	
 	

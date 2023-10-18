@@ -1,5 +1,6 @@
 package feature;
-import twoWheeledVehicle.bike.Bike;
+import twoWheeledVehicle.TwoWheeledVehicle;
+
 /**
  * 
  */
@@ -10,20 +11,15 @@ public class PannierRack extends FeatureDeco{
 	/**
 	 * Constructor of the class
 	 */
-	public PannierRack(Bike b) {
-		super(b);
+	public PannierRack(TwoWheeledVehicle v) {
+		super(v);
 		
 	}
 	
-	public String Decorate() {
-		return null;
-		
+	public String decorate(){
+		return super.decorate() + " with pannier rack";
 	}
 	
-	public String toString() {
-		
-		return null;
-	}
 	
 	
 	

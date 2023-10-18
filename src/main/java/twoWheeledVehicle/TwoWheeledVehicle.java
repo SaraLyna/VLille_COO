@@ -4,7 +4,7 @@
  * The class that represent all the things having two wheeled ! 
  * bikes, trotinettes....
  */
-interface TwoWheeledVehicle {
+public interface TwoWheeledVehicle {
 
 	/**
 	 * @param s

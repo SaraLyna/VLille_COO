@@ -1,5 +1,5 @@
-package control;
-
+package projetCOO.control;
+import station.*;
 
 /**
  * the class that represent the repairer
@@ -7,6 +7,7 @@ package control;
 public class Repairer{
 	
 	private int number;
+	private Station s;
 
 	
 	
@@ -15,8 +16,7 @@ public class Repairer{
 	 */
 	public Repairer(int number){
 	  this.number = number;
-
-    
+	  this.s=null;
 	}
   
 
@@ -38,4 +38,6 @@ public class Repairer{
 	  
 	  
 	}
+	
+	
 }
