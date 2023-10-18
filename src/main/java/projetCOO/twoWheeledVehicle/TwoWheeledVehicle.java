@@ -12,7 +12,8 @@ public interface TwoWheeledVehicle {
 	public void applySkin(String s);
 	
 	
-	
+	public boolean isDamaged();
+	public void takeDamage();
 	public void repair();
 	
 	public String toString();

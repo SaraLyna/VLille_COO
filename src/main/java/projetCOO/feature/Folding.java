@@ -1,6 +1,5 @@
 package projetCOO.feature;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
-import supp.*;
 /**
  * 
  */

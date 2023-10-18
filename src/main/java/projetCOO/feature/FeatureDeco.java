@@ -1,6 +1,5 @@
 package projetCOO.feature;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
-import supp.*;
 /**
  * Decorator class
  */
@@ -22,7 +21,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	
 	
 	public String decorate() {
-		return "un deux roues" ;
+		return this.v.toString() ;
 	
 	}
 
@@ -41,6 +40,22 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	
 	public void repair() {
 		this.v.repair();	
+	}
+
+
+
+
+	@Override
+	public boolean isDamaged() {
+		return this.v.isDamaged();
+	}
+
+
+
+
+	@Override
+	public void takeDamage() {
+		this.v.takeDamage();
 	}
 	
 	

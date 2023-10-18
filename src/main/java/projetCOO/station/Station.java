@@ -2,9 +2,10 @@ package projetCOO.station;
 
 import java.util.*;
 
-import projetCOO.control.Repairer;
+import projetCOO.control.repairer.Repairer;
 import projetCOO.state.State;
 import projetCOO.twoWheeledVehicle.bike.Bike;
+import projetCOO.twoWheeledVehicle.*;
 
 /**
 *this is the Station class representing the station
@@ -13,7 +14,7 @@ import projetCOO.twoWheeledVehicle.bike.Bike;
 public class Station {
 	protected int id;
 	protected int capacityMax;
-	protected Map<Bike,State> bikes;
+	protected Map<TwoWheeledVehicle,State> bikes;
 	protected Repairer repairer ;
 
 	/**
@@ -39,7 +40,7 @@ public class Station {
 	 * give the station list and the state for each bike
 	 * @return the station's bikes
 	 */
-	public Map<Bike, State> getBikes() {
+	public Map<TwoWheeledVehicle, State> getBikes() {
 		return bikes;
 	}
 
@@ -54,7 +55,7 @@ public class Station {
 	/**
 	 * @param repairer the repairer to set
 	 */
-	public void setRepairerPresent(Repairer r) {
+	public void setRepairer(Repairer r) {
 		this.repairer = r;
 	}
 

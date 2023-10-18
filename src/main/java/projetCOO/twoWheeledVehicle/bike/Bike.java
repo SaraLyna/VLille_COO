@@ -71,7 +71,7 @@ public class Bike implements TwoWheeledVehicle {
 	/**
 	 *
 	 */
-	public String toString() {
+	public String jsp() {
 		return "Bike{" +
                 "station=" + station +
                 ", skin='" + skin + '\'' +
@@ -79,12 +79,16 @@ public class Bike implements TwoWheeledVehicle {
                 '}';
 		
 	}
+	
+	public String toString() {
+		return "a " + this.skin + " bike";
+	}
 
 
 
 
 
 	public void repair() {
-		this.isDamaged=false;		
+		this.isDamaged = false;		
 	}
 }

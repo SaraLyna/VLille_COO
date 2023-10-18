@@ -1,18 +1,21 @@
 package projetCOO.control;
 
-import java.util.Map;
-
+import projetCOO.control.repairer.Repairer;
 import projetCOO.state.State;
 import projetCOO.station.Station;
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+import projetCOO.twoWheeledVehicle.bike.Bike;
 
-import java.util.HashMap;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
 *The class that represent the control center
 */
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
-	private Map<State, Repairer> repairerList;
+	private List<Station> stationWithBikeToverify;
+	private Map<Repairer, State> repairerList;
 	private int nbStation;
 	
 
@@ -23,6 +26,7 @@ public class ControlCenter{
 		this.nbStation = n;
 		this.initStation();
 		this.initRepairer();
+		this.stationWithBikeToverify = new ArrayList<>();
 	}
 	
 	
@@ -40,8 +44,15 @@ public class ControlCenter{
 	/**
 	 * @return repairerList
 	 */
-	public Map<State, Repairer> getRepairerList() {
+	public Map<Repairer, State> getRepairerList() {
 		return repairerList;
+	}
+	
+	/**
+	 * @return 
+	 */
+	public List<Station> getStationWithBikeToverify() {
+		return this.stationWithBikeToverify;
 	}
 	
 	
@@ -54,7 +65,7 @@ public class ControlCenter{
 	}
 	
 	public void addRepairer(Repairer repairer) {
-		repairerList.put(State.AVAILABLE, repairer);
+		repairerList.put(repairer, State.AVAILABLE);
 		
 	}
 	
@@ -71,10 +82,20 @@ public class ControlCenter{
 	public void initRepairer() {
 		this.repairerList = new HashMap<>(); 
 		for (int i = 0;i<this.nbStation; i++) {
-			Repairer s = new Repairer(i);
+			Repairer s = new Repairer(this);
 			this.addRepairer(s);
 		}
 		
+	}
+	
+	public void verification() {
+		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
+			for (Entry<TwoWheeledVehicle, State> b : s.getValue().getBikes().entrySet()) {
+				if (b.getValue().equals(State.OUTOFSERVICE) || b.getKey().isDamaged()) {
+					this.stationWithBikeToverify.add(s.getValue());
+				}
+			}
+		}
 	}
 	
 	
@@ -82,14 +103,17 @@ public class ControlCenter{
 	/**
 	 * @param station
 	 */
-	public void sendRepairer(Station station) {
-		
-		
+	public void sendRepairer() {
+		Repairer r;
+		for (int i = 0; i<this.stationWithBikeToverify.size(); i++) {
+			r = (Repairer) this.repairerList.keySet().toArray()[i];
+			this.stationWithBikeToverify.get(i).setRepairer(r);
+			r.setStation(this.stationWithBikeToverify.get(i));
+		}
 	}
 	
 	public void show() {
-		for (Map.Entry<Integer, Station> set :
-            this.stationList.entrySet()) {
+		for (Map.Entry<Integer, Station> set : this.stationList.entrySet()) {
 				System.out.println(set.getValue().toString());
 		}
 	}
