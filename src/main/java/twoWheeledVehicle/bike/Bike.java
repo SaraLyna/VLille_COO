@@ -1,8 +1,6 @@
-package ProjetSara.bike;
+package twoWheeledVehicle.bike;
 
-//import java.util.*;
-
-import ProjetSara.station.Station;
+import station.Station;
 
 /**
 *this is the Bike class representing the bikes

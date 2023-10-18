@@ -1,15 +1,16 @@
-package ProjetSara.control;
+package control;
 
 import java.util.Map;
 import java.util.HashMap;
-import ProjetSara.state.State;
-import ProjetSara.station.Station;
+
+import state.State;
+import station.Station;
 
 /**
 *The class that represent the control center
 */
 public abstract class ControlCenter{
-	private Map<String,Station> stationList;
+	private Map<Integer,Station> stationList;
 	private Map<Integer, State> repairerList;
 	
 
@@ -27,7 +28,7 @@ public abstract class ControlCenter{
 	/**
 	 * @return stationList
 	 */
-	public Map<String,Station> getStationList() {
+	public Map<Integer,Station> getStationList() {
 		
 		return stationList;
 	}

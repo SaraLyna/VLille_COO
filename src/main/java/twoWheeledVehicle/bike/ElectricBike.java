@@ -1,6 +1,6 @@
-package ProjetSara.bike;
+package twoWheeledVehicle.bike;
 
-import ProjetSara.station.Station;
+import station.Station;
 
 /**
  * The class represents a type of bike

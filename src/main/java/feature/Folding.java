@@ -1,16 +1,16 @@
-package ProjetSara.feature;
-import ProjetSara.bike.*;
+package feature;
+import twoWheeledVehicle.bike.Bike;
 /**
  * 
  */
-public class Basket extends FeatureDeco{
+public class Folding extends FeatureDeco{
 	
 	
 	
 	/**
 	 * 
 	 */
-	public Basket(Bike b) {
+	public Folding(Bike b) {
 		super(b);
 		
 	}

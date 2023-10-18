@@ -50,11 +50,11 @@ Mercredi 20 Septembre :
 - Donc création des classes : Bike.java, Station.java , Feature.java , User.java , ControlCenter.java et Reparateur.java
 
 ### Semaine 2 :
-- Lundi 25 Septembre :
+Lundi 25 Septembre :
 - Mise en place des Tests : StationTest.java et BikeTest.java
 
 ### Semaine 3 :
-- Mardi 03 Octobre :
+Mardi 03 Octobre :
 - Mise en place des autres classes sur l'UML : Repairer, State, PannierRack, Folding, Basket, FeatureDeco (histoire de mettre le pattern Decorator)
 ClassicBike, ElectricBike.
 - Mise en place des Getteurs et Setteurs des différentes classes du projet.
@@ -63,19 +63,24 @@ classes tout en essayent d'utiliser le plus possibles les décorateurs et patter
 en cours.
 
 ### Semaine 4 :
-- Lundi 09 Octobre :
+Lundi 09 Octobre :
 - Codage de quelques méthodes des différentes classes,
 - Mise en place des décorateurs et des différents patterns.
 
 ### Semaine 5 :
-- Lundi 16 Octobre :
+Lundi 16 Octobre :
 - Suite du codage,
 - Création d'un package TwoWheeledVehicle qui represente tous les trucs qui ont deux roues: velos, trotinettes...
 - Implémentation des tests.
+- Création du makefile
+Mardi 18 Octobre :
+- création de méthode initCapacityMax() et InitBikeInStation() + test Station 
 
 ### Semaine 6 :
-- Lundi 23 Octobre :
-- Création du makefile,
+
+
+
+
 
 
 

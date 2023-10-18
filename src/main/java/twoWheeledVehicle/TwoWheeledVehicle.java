@@ -1,4 +1,4 @@
-package TwoWheeledVehicle;
+package twoWheeledVehicle;
 
 /**
  * The class that represent all the things having two wheeled ! 

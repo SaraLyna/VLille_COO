@@ -1,5 +1,5 @@
-package ProjetSara.feature;
-import ProjetSara.bike.*;
+package feature;
+import twoWheeledVehicle.bike.Bike;
 /**
  * 
  */
