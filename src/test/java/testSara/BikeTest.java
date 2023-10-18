@@ -1,11 +1,11 @@
 package testSara;
-import station.Station;
-import twoWheeledVehicle.bike.Bike;
-
 //import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import projetCOO.station.Station;
+import projetCOO.twoWheeledVehicle.bike.Bike;
 
 
 public class BikeTest {

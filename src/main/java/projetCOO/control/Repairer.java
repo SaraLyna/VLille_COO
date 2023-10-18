@@ -1,5 +1,5 @@
 package projetCOO.control;
-import station.*;
+import projetCOO.station.Station;
 
 /**
  * the class that represent the repairer

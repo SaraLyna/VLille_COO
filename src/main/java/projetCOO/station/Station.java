@@ -1,10 +1,10 @@
-package station;
+package projetCOO.station;
 
 import java.util.*;
 
 import projetCOO.control.Repairer;
-import state.State;
-import twoWheeledVehicle.bike.Bike;
+import projetCOO.state.State;
+import projetCOO.twoWheeledVehicle.bike.Bike;
 
 /**
 *this is the Station class representing the station

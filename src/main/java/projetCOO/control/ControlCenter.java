@@ -1,10 +1,11 @@
 package projetCOO.control;
 
 import java.util.Map;
-import java.util.HashMap;
 
-import state.State;
-import station.Station;
+import projetCOO.state.State;
+import projetCOO.station.Station;
+
+import java.util.HashMap;
 
 /**
 *The class that represent the control center

@@ -1,4 +1,4 @@
- package twoWheeledVehicle;
+ package projetCOO.twoWheeledVehicle;
 
 /**
  * The class that represent all the things having two wheeled ! 

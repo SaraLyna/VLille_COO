@@ -1,5 +1,6 @@
-package feature;
-import twoWheeledVehicle.*;
+package projetCOO.feature;
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+import supp.*;
 /**
  * Decorator class
  */

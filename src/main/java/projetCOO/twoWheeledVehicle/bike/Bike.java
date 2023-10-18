@@ -1,7 +1,7 @@
-package twoWheeledVehicle.bike;
+package projetCOO.twoWheeledVehicle.bike;
 
-import station.Station;
-import twoWheeledVehicle.*;
+import projetCOO.station.Station;
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 /**
 *this is the Bike class representing the bikes

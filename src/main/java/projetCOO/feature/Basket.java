@@ -1,5 +1,5 @@
-package feature;
-import twoWheeledVehicle.TwoWheeledVehicle;
+package projetCOO.feature;
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 /**
  * 
