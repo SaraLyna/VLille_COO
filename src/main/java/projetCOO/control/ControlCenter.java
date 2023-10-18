@@ -15,7 +15,7 @@ import java.util.Map.Entry;
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
 	private List<Station> stationWithBikeToverify;
-	private Map<Repairer, State> repairerList;
+	private Map<Repairer, Integer> repairerList;
 	private int nbStation;
 	
 
@@ -44,7 +44,7 @@ public class ControlCenter{
 	/**
 	 * @return repairerList
 	 */
-	public Map<Repairer, State> getRepairerList() {
+	public Map<Repairer, Integer> getRepairerList() {
 		return repairerList;
 	}
 	
@@ -64,8 +64,8 @@ public class ControlCenter{
 		
 	}
 	
-	public void addRepairer(Repairer repairer) {
-		repairerList.put(repairer, State.AVAILABLE);
+	public void addRepairer(Repairer repairer, int i) {
+		repairerList.put(repairer, i);
 		
 	}
 	
@@ -83,7 +83,7 @@ public class ControlCenter{
 		this.repairerList = new HashMap<>(); 
 		for (int i = 0;i<this.nbStation; i++) {
 			Repairer s = new Repairer(this);
-			this.addRepairer(s);
+			this.addRepairer(s,i);
 		}
 		
 	}
