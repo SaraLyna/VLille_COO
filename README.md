@@ -78,7 +78,6 @@ Mardi 18 Octobre :
 - création de méthode initCapacityMax() et InitBikeInStation() + test Station 
 - Mise en place de la Classe RepairerElectric 
 
-### Semaine 6 :
 Samedi 21 Octobre :
 - Implémentation du reste des méthodes de twoWheeledVehicle et de Bike et ElectricBike pour gérer le coté electrique du vélo en prenant en compte sa capacité de batterie , son rechargement/déchargement..
 - Implémentation de la classe station pour gérer les différents états du vehicule, si oui ou non on peut le louer..
@@ -93,7 +92,7 @@ Samedi 21 Octobre :
 - Regroupement des méthodes pour modifier l'état d'un véhicule 
 - Test pour Station et ControlCenter
 
-
+### Semaine 6 :
 
 
 
