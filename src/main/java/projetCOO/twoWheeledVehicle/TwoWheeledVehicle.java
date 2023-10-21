@@ -9,13 +9,28 @@ public interface TwoWheeledVehicle {
 	/**
 	 * @param s
 	 */
-	public void applySkin(String s);
+    void applySkin(String s);
 	
 	
-	public boolean isDamaged();
-	public void takeDamage();
-	public void repair();
+	boolean isDamaged();
+	void takeDamage();
+	void repair();
 	
-	public String toString();
+	String toString();
+	String getType();
+	
+	void startRental();
+	void stopRental();
+	
+	boolean isAvailable();
+	
+	void markForRepair();
+	void performRepair();
+	
+	void markAsStolen();
+    boolean isStolen();
+    
+    void attachToStation(String stationId);
+    String getCurrentStation();
 
 }

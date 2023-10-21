@@ -24,7 +24,7 @@ public class StationTest {
 	
 	@Test
 	public void TheNumberOfBikeEqualCapacityMax() {
-		assertEquals(s.getCapacityMax(), s.getBikes().size());
+		assertEquals(s.getCapacityMax(), s.getVehicles().size());
 	}
 
 }

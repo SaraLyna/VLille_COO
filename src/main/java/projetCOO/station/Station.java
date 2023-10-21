@@ -14,7 +14,7 @@ import projetCOO.twoWheeledVehicle.*;
 public class Station {
 	protected int id;
 	protected int capacityMax;
-	protected Map<TwoWheeledVehicle,State> bikes;
+	protected Map<TwoWheeledVehicle,State> vehicles;
 	protected Repairer repairer ;
 
 	/**
@@ -32,16 +32,16 @@ public class Station {
 	 * @return the station's id
 	 */
 	public int getId(){
-		return this.id;
+		return id;
 	}
 
 	
 	/**
 	 * give the station list and the state for each bike
-	 * @return the station's bikes
+	 * @return the vehicles
 	 */
-	public Map<TwoWheeledVehicle, State> getBikes() {
-		return bikes;
+	public Map<TwoWheeledVehicle, State> getVehicles() {
+		return vehicles;
 	}
 
 	/**
@@ -70,22 +70,53 @@ public class Station {
 	 * Add a bike to the station.
 	 * @param bike
 	 */
-	public void addBike(Bike bike) {
-		if (bikes.size() < capacityMax) {
-            		bikes.put(bike, State.AVAILABLE); 
-            		bike.setStation(this);
+	public void addVehicle(TwoWheeledVehicle vehicle) {
+		if (vehicles.size() < capacityMax) {
+            		vehicles.put(vehicle, State.AVAILABLE); 
+            		if (vehicle instanceof Bike) {
+                        ((Bike) vehicle).setStation(this);
+                    }
         	} else {
             		System.out.println("The station is at maximum capacity. Cannot add more bikes.");
         	}
 		
 	}
 	
-	/**
-	 * 
-	 */
 	
+	
+	
+	 public void removeVehicle(TwoWheeledVehicle vehicle) {
+	        vehicles.remove(vehicle);
+	    }
+
+	    public void markVehicleAsStolen(TwoWheeledVehicle vehicle) {
+	        vehicles.put(vehicle, State.STOLEN);
+	    }
+
+	    public void markVehicleAsDamaged(TwoWheeledVehicle vehicle) {
+	        vehicles.put(vehicle, State.DAMAGED);
+	    }
+
+	    public void repairVehicle(TwoWheeledVehicle vehicle) {
+	    	vehicles.put(vehicle, State.AVAILABLE);
+	    }
+	
+	    
+	    public int getAvailableVehicleCount() {
+	        int count = 0;
+	        for (State state : vehicles.values()) {
+	            if (state == State.AVAILABLE) {
+	                count++;
+	            }
+	        }
+	        return count;
+	    }
+	    
+	    
+	    
+	    
 	/**
-	 * Init the max bike capacity of the station.
+	 * Init the max vehicle capacity of the station.
 	 * The capacity is choosed between 10 and 20.
 	 */
 	public void initCapacityMax() {
@@ -95,14 +126,17 @@ public class Station {
 		this.capacityMax = (int)(Math.random() * range) + min;
 	}
 	
+	
+	
+	
 	/**
-	 * Init bikes in the station
+	 * Init vehicles in the station
 	 */
 	public void initBikeInStation() {
-		this.bikes = new  HashMap<>();
+		this.vehicles = new  HashMap<>();
 		for (int i = 0; i < this.getCapacityMax(); i++) {
 			Bike b = new Bike("default", this);
-			this.addBike(b);
+			this.addVehicle(b);
 		}
 	}
 	

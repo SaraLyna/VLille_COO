@@ -7,5 +7,7 @@ package projetCOO.state;
 public enum  State{ 
 	  AVAILABLE,
 	  UNAVAILABLE,
-	  OUTOFSERVICE ; 
+	  OUTOFSERVICE,
+	  DAMAGED,
+	  STOLEN;
 }

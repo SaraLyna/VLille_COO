@@ -57,6 +57,96 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	public void takeDamage() {
 		this.v.takeDamage();
 	}
+
+
+
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+	@Override
+	public void startRental() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void stopRental() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public boolean isAvailable() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+
+	@Override
+	public void markForRepair() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void performRepair() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void markAsStolen() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public boolean isStolen() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+
+	@Override
+	public void attachToStation(String stationId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public String getCurrentStation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

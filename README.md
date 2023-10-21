@@ -15,18 +15,18 @@ Ce projet consiste à concevoir une simulation d'un système de location de vél
 ## How To
 
 --Documentation:
-javadoc -sourcepath src -d doc -subpackages main/java/ProjetSara/Main
+javadoc -sourcepath src -d doc -subpackages main/java/ProjetCOO/Main
 
 
 --Compilation:
-javac -sourcepath src -d classes src/main/java/ProjetSara/Main/*.java
+javac -sourcepath src -d classes src/main/java/ProjetCOO/Main/*.java
 
 --Compiltion Tests : 
 javac -classpath junit-console.jar:classes src/test/java/testSara/*.java
  
  
 --Exécution:
-java -classpath classes ProjetSara.Main
+java -classpath classes ProjetCOOn
 
 
 --Exécution des tests :
@@ -46,8 +46,8 @@ java -jar Vlille.jar
 
 ### Semaine 1 :
 Mercredi 20 Septembre :
-- début de la modélisation des vélos, des stations, du centre de contrôle, des modeles, des utilisateurs , Reparateur et des accessoires des vélos.
-- Donc création des classes : Bike.java, Station.java , Feature.java , User.java , ControlCenter.java et Reparateur.java
+- début de la modélisation des vélos, des stations, du centre de contrôle, des modeles, des Reparateurs et des accessoires des vélos.
+- Donc création des classes : Bike.java, Station.java , FeatureDeco.java , ControlCenter.java et Repairer.java
 
 ### Semaine 2 :
 Lundi 25 Septembre :
@@ -56,7 +56,7 @@ Lundi 25 Septembre :
 ### Semaine 3 :
 Mardi 03 Octobre :
 - Mise en place des autres classes sur l'UML : Repairer, State, PannierRack, Folding, Basket, FeatureDeco (histoire de mettre le pattern Decorator)
-ClassicBike, ElectricBike.
+ElectricBike.
 - Mise en place des Getteurs et Setteurs des différentes classes du projet.
 - Réflexion sur la façon d'implementer les méthodes, et la conception des différentes 
 classes tout en essayent d'utiliser le plus possibles les décorateurs et patterns vus 
@@ -70,15 +70,21 @@ Lundi 09 Octobre :
 ### Semaine 5 :
 Lundi 16 Octobre :
 - Suite du codage,
-- Création d'un package TwoWheeledVehicle qui represente tous les trucs qui ont deux roues: velos, trotinettes...
-- Implémentation des tests.
+- Création d'un package TwoWheeledVehicle qui represente tous les vehicules qui ont deux roues: velos, trotinettes...
+- Implémentation des tests + ControlCenterTest
 - Création du makefile
 
 Mardi 18 Octobre :
 - création de méthode initCapacityMax() et InitBikeInStation() + test Station 
-- Mise en place des Classes Available, Unavailable et OutOfService pour le pattern state
+- Mise en place de la Classe RepairerElectric 
 
 ### Semaine 6 :
+Samedi 21 Octobre :
+- Implémentation du reste des méthodes de twoWheeledVehicle et de Bike et ElectricBike pour gérer le coté electrique du vélo en prenant en compte sa capacité de batterie , son rechargement/déchargement..
+- Implémentation de la classe stationpour gérer les différents états du vehicule, si oui ou non on peut le louer..
+- Implématation de l'enum State , en mettant en place deux nouveaux etats : endommagé et volé
+- Implémentation du decorateur FeatureDeco pour factoriser le plus possible les vehicules
+- Mise en place des tests : ElectricBikeTest, ElectricRepairerTest, FeatureTest, RepairerTest, twoWheeledTest.
 
 
 

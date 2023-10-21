@@ -14,7 +14,7 @@ import projetCOO.feature.*;
 public class Main {
 
     public static void main(String[] args) {
-    	ControlCenter center = new ControlCenter(1);
+    	ControlCenter center = new ControlCenter(10);
     	center.show();
     }
 }

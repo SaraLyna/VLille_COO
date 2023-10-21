@@ -90,7 +90,7 @@ public class ControlCenter{
 	
 	public void verification() {
 		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
-			for (Entry<TwoWheeledVehicle, State> b : s.getValue().getBikes().entrySet()) {
+			for (Entry<TwoWheeledVehicle, State> b : s.getValue().getVehicles().entrySet()) {
 				if (b.getValue().equals(State.OUTOFSERVICE) || b.getKey().isDamaged()) {
 					this.stationWithBikeToverify.add(s.getValue());
 				}
