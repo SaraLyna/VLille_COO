@@ -4,7 +4,6 @@ import java.util.*;
 
 import projetCOO.control.repairer.Repairer;
 import projetCOO.state.State;
-import projetCOO.twoWheeledVehicle.bike.Bike;
 import projetCOO.twoWheeledVehicle.*;
 
 /**
@@ -23,7 +22,7 @@ public class Station {
 	public Station(int id){
 			this.id = id;
         	this.initCapacityMax();;
-        	this.initBikeInStation();
+        	this.vehicles = new HashMap<>();
         	this.repairer = null;
 
 	}
@@ -42,6 +41,27 @@ public class Station {
 	 */
 	public Map<TwoWheeledVehicle, State> getVehicles() {
 		return vehicles;
+	}
+	
+	/**
+	 * rajouter une exception ici
+	 * @param Index
+	 * @return
+	 */
+	public TwoWheeledVehicle getOneVehicle(int index) throws ArrayIndexOutOfBoundsException {
+		if (index < 0 || index > this.capacityMax) {
+			throw new ArrayIndexOutOfBoundsException("invalid index");
+		}
+		Iterator<TwoWheeledVehicle> i = this.vehicles.keySet().iterator();
+		int cpt = 0;
+		while (i.hasNext()) {
+			TwoWheeledVehicle v = i.next();
+			if (cpt == index) {
+				return v;
+			}
+			cpt++;
+		}
+		return null;
 	}
 
 	/**
@@ -70,50 +90,34 @@ public class Station {
 	 * Add a bike to the station.
 	 * @param bike
 	 */
-	public void addVehicle(TwoWheeledVehicle vehicle) {
+	public void addVehicle(TwoWheeledVehicle v) {
 		if (vehicles.size() < capacityMax) {
-            		vehicles.put(vehicle, State.AVAILABLE); 
-            		if (vehicle instanceof Bike) {
-                        ((Bike) vehicle).setStation(this);
-                    }
-        	} else {
+            		vehicles.put(v, State.AVAILABLE); 
+            		v.setStation(this);
+        } 
+		else {
             		System.out.println("The station is at maximum capacity. Cannot add more bikes.");
-        	}
+		}
 		
 	}
 	
+	public void setStateVehicle(TwoWheeledVehicle v, State s) {
+		vehicles.replace(v, s);
+	}
 	
-	
-	
-	 public void removeVehicle(TwoWheeledVehicle vehicle) {
+	public void removeVehicle(TwoWheeledVehicle vehicle) {
 	        vehicles.remove(vehicle);
-	    }
-
-	    public void markVehicleAsStolen(TwoWheeledVehicle vehicle) {
-	        vehicles.put(vehicle, State.STOLEN);
-	    }
-
-	    public void markVehicleAsDamaged(TwoWheeledVehicle vehicle) {
-	        vehicles.put(vehicle, State.DAMAGED);
-	    }
-
-	    public void repairVehicle(TwoWheeledVehicle vehicle) {
-	    	vehicles.put(vehicle, State.AVAILABLE);
-	    }
+	}
 	
-	    
-	    public int getAvailableVehicleCount() {
-	        int count = 0;
-	        for (State state : vehicles.values()) {
-	            if (state == State.AVAILABLE) {
-	                count++;
-	            }
+	public int getAvailableVehicleCount() {
+        int count = 0;
+        for (State state : vehicles.values()) {
+        	if (state == State.AVAILABLE) {
+        		count++;
 	        }
-	        return count;
 	    }
-	    
-	    
-	    
+	    return count;
+	 }
 	    
 	/**
 	 * Init the max vehicle capacity of the station.
@@ -124,20 +128,6 @@ public class Station {
 		int max = 20;
 		int range = max - min + 1;
 		this.capacityMax = (int)(Math.random() * range) + min;
-	}
-	
-	
-	
-	
-	/**
-	 * Init vehicles in the station
-	 */
-	public void initBikeInStation() {
-		this.vehicles = new  HashMap<>();
-		for (int i = 0; i < this.getCapacityMax(); i++) {
-			Bike b = new Bike("default", this);
-			this.addVehicle(b);
-		}
 	}
 	
 	public String toString() {

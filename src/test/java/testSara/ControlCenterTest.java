@@ -16,12 +16,17 @@ public class ControlCenterTest {
 	@BeforeEach
 	public void init() {
 		this.c = new ControlCenter(1);
-		this.stationTest = (Station) c.getStationList().keySet().toArray()[0];
+		this.stationTest = c.getOneStation(0);
 	}
 	
 	@Test
-	public void RepairerHasSent() {
-		assertEquals(this.stationTest, (Station) c.getStationList().keySet().toArray()[0]);
+	public void WeTakeStation() {
+		assertTrue(c.getStationList().containsValue(this.stationTest));
 	}
+	
+//	@Test
+//	public void RepairerHasSent() {
+//		assertEquals(this.stationTest, (Station) c.getStationList().keySet().toArray()[0]);
+//	}
 
 }

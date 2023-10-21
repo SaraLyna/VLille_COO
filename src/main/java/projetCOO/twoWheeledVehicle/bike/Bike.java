@@ -1,5 +1,6 @@
 package projetCOO.twoWheeledVehicle.bike;
 
+import projetCOO.state.State;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -12,8 +13,6 @@ public class Bike implements TwoWheeledVehicle {
 	protected Station station;
 	protected String skin; 
 	protected boolean isDamaged;
-	
-
 
 	/**
 	* Constructor of the class Bike
@@ -24,10 +23,6 @@ public class Bike implements TwoWheeledVehicle {
 		this.isDamaged= false;
 	}
 
-
-	
-
-	
 	/**
 	 * @return
 	 */
@@ -35,19 +30,12 @@ public class Bike implements TwoWheeledVehicle {
 		return this.station;
 	}
 	
-	
-	
-	
-	
-	
 	/**
 	 * @param s
 	 */
 	public void setStation(Station s) {
 		this.station = s;
 	}
-	
-	
 	 
 	/**
 	 * @param s
@@ -56,32 +44,31 @@ public class Bike implements TwoWheeledVehicle {
 		this.skin = s;
 	}
 	
-	
-	
-
-	
 	public boolean isDamaged() {
         return isDamaged;
-    	}
+    }
 
    	public void takeDamage() {
         this.isDamaged= true;
-    	}
-
-	
-	
-	public String toString() {
-		return "a " + this.skin + " bike";
-	}
-
-
-
+    }
+   	
+   	public void use() {
+   		if (this.getStation().getVehicles().get(this).equals(State.AVAILABLE)) {
+   			this.getStation().getVehicles().replace(this, State.UNAVAILABLE);
+   		}
+   		else {
+   			this.getStation().getVehicles().replace(this, State.AVAILABLE);
+   		}
+   	}
 
 
 	public void repair() {
 		this.isDamaged = false;		
 	}
 
+	public String toString() {
+		return "a " + this.skin + " bike";
+	}
 
 
 

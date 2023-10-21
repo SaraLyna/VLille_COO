@@ -1,5 +1,4 @@
 package projetCOO.control.repairer;
-import projetCOO.control.ControlCenter;
 import projetCOO.station.Station;
 
 /**
@@ -8,26 +7,32 @@ import projetCOO.station.Station;
 public class Repairer{
 	
 	private Station station;
-	private ControlCenter controlCenter;
 
 	/**
 	 * @param number
 	 */
-	public Repairer(ControlCenter c){
-	  this.controlCenter = c;
+	public Repairer(){
 	  this.station = null;
 	}
 	
+	public Station getStation() {
+		return this.station;
+	}
 
 	public void setStation(Station s) {
 		this.station = s;
+	}
+	
+	public void leaveStation() {
+		this.getStation().setRepairer(null);
+		this.setStation(null);
 	}
  
   /**
    * repair the bike
    */
 	public void action() {
-	  
+		
 	  
 	}
 	

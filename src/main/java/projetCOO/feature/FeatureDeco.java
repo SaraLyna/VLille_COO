@@ -1,4 +1,5 @@
 package projetCOO.feature;
+import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 /**
  * Decorator class
@@ -146,6 +147,23 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	public String getCurrentStation() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+	@Override
+	public void setStation(Station station) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void use() {
+		this.v.use();
 	}
 	
 	

@@ -81,10 +81,17 @@ Mardi 18 Octobre :
 ### Semaine 6 :
 Samedi 21 Octobre :
 - Implémentation du reste des méthodes de twoWheeledVehicle et de Bike et ElectricBike pour gérer le coté electrique du vélo en prenant en compte sa capacité de batterie , son rechargement/déchargement..
-- Implémentation de la classe stationpour gérer les différents états du vehicule, si oui ou non on peut le louer..
+- Implémentation de la classe station pour gérer les différents états du vehicule, si oui ou non on peut le louer..
 - Implématation de l'enum State , en mettant en place deux nouveaux etats : endommagé et volé
 - Implémentation du decorateur FeatureDeco pour factoriser le plus possible les vehicules
 - Mise en place des tests : ElectricBikeTest, ElectricRepairerTest, FeatureTest, RepairerTest, twoWheeledTest.
+
+- Méthode use() pour Bike 
+- Changement d'approche concernant la gestion des Repairer par ControlCenter
+- Méthode pour récupérer un seule véhicule dans la statiion
+- Plus d'inisialisation des véhicule dans Station
+- Regroupement des méthodes pour modifier l'état d'un véhicule 
+- Test pour Station et ControlCenter
 
 
 
