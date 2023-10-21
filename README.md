@@ -87,8 +87,8 @@ Samedi 21 Octobre :
 
 - Méthode use() pour Bike 
 - Changement d'approche concernant la gestion des Repairer par ControlCenter
-- Méthode pour récupérer un seule véhicule dans la statiion
-- Plus d'inisialisation des véhicule dans Station
+- Méthode pour récupérer un seul véhicule dans la station
+- Plus d'initialisation des véhicules dans Station
 - Regroupement des méthodes pour modifier l'état d'un véhicule 
 - Test pour Station et ControlCenter
 

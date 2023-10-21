@@ -7,6 +7,7 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import java.util.*;
 import java.util.Map.Entry;
 
+
 /**
 *The class that represent the control center
 */
@@ -35,8 +36,12 @@ public class ControlCenter{
 		return stationList;
 	}
 	
+	
+
+	
 	/**
-	 * 
+	 * @param index
+	 * @return one station
 	 */
 	public Station getOneStation(int index) {
 		Station s = null;
@@ -52,12 +57,16 @@ public class ControlCenter{
 		return s;
 	}
 	
+	
+	
 	/**
-	 * @return 
+	 * @return station with bike to verify
 	 */
 	public List<Station> getStationWithBikeToverify() {
 		return this.stationWithBikeToverify;
 	}
+	
+	
 	
 	
 	/**
@@ -68,6 +77,11 @@ public class ControlCenter{
 		
 	}
 
+	
+	
+	/**
+	 * initialize station
+	 */
 	public void initStation() {
 		this.stationList = new HashMap<>(); 
 		for (int i = 0;i<this.nbStation; i++) {
@@ -77,6 +91,12 @@ public class ControlCenter{
 		
 	}
 	
+	
+	
+	
+	/**
+	 * method verification
+	 */
 	public void verification() {
 		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
 			for (Entry<TwoWheeledVehicle, State> b : s.getValue().getVehicles().entrySet()) {
@@ -87,8 +107,10 @@ public class ControlCenter{
 		}
 	}
 	
+	
+	
 	/**
-	 * @param station
+	 *send a repairer to repair a bike
 	 */
 	public void sendRepairer() {
 		Repairer r;
@@ -99,6 +121,12 @@ public class ControlCenter{
 		}
 	}
 	
+	
+	
+	
+	/**
+	 * just show the stations
+	 */
 	public void show() {
 		for (Map.Entry<Integer, Station> set : this.stationList.entrySet()) {
 				System.out.println(set.getValue().toString());

@@ -1,14 +1,14 @@
 package projetCOO.station;
 
 import java.util.*;
-
 import projetCOO.control.repairer.Repairer;
 import projetCOO.state.State;
 import projetCOO.twoWheeledVehicle.*;
 
+
 /**
 *this is the Station class representing the station
-*where are the bikes located
+*where are the vehicles located
 */
 public class Station {
 	protected int id;
@@ -43,6 +43,8 @@ public class Station {
 		return vehicles;
 	}
 	
+	
+	
 	/**
 	 * rajouter une exception ici
 	 * @param Index
@@ -64,13 +66,17 @@ public class Station {
 		return null;
 	}
 
+	
+	
 	/**
-	 * give the repairer if he is present otherwise null
+	 * gives the repairer if he is present otherwise null
 	 * @return the repairer
 	 */
 	public Repairer getRepairer() {
 		return repairer;
 	}
+	
+	
 
 	/**
 	 * @param repairer the repairer to set
@@ -79,6 +85,8 @@ public class Station {
 		this.repairer = r;
 	}
 
+	
+	
 	/**
 	 * @return the capacityMax
 	 */
@@ -86,8 +94,10 @@ public class Station {
 		return capacityMax;
 	}
 
+	
+	
 	/**
-	 * Add a bike to the station.
+	 * Add a vehicle to the station.
 	 * @param bike
 	 */
 	public void addVehicle(TwoWheeledVehicle v) {
@@ -101,14 +111,31 @@ public class Station {
 		
 	}
 	
+	
+	
+	/**
+	 * @param v
+	 * @param s
+	 */
 	public void setStateVehicle(TwoWheeledVehicle v, State s) {
 		vehicles.replace(v, s);
 	}
 	
+	
+	
+	/**
+	 * @param vehicle
+	 */
 	public void removeVehicle(TwoWheeledVehicle vehicle) {
 	        vehicles.remove(vehicle);
 	}
 	
+	
+	
+	
+	/**
+	 * @return the number of vehicles which are available
+	 */
 	public int getAvailableVehicleCount() {
         int count = 0;
         for (State state : vehicles.values()) {
@@ -119,6 +146,8 @@ public class Station {
 	    return count;
 	 }
 	    
+	
+	
 	/**
 	 * Init the max vehicle capacity of the station.
 	 * The capacity is choosed between 10 and 20.
@@ -130,6 +159,12 @@ public class Station {
 		this.capacityMax = (int)(Math.random() * range) + min;
 	}
 	
+	
+	
+	
+	/**
+	 *ToString()
+	 */
 	public String toString() {
 		return "Station n° "+ this.id  + " capacity max is "+ this.capacityMax ;
 	}

@@ -4,6 +4,8 @@ import projetCOO.state.State;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
+
+
 /**
 *this is the Bike class representing the bikes
 *in the station
@@ -24,11 +26,13 @@ public class Bike implements TwoWheeledVehicle {
 	}
 
 	/**
-	 * @return
+	 * @return station
 	 */
 	public Station getStation() {
 		return this.station;
 	}
+	
+	
 	
 	/**
 	 * @param s
@@ -36,6 +40,8 @@ public class Bike implements TwoWheeledVehicle {
 	public void setStation(Station s) {
 		this.station = s;
 	}
+	
+	
 	 
 	/**
 	 * @param s
@@ -44,14 +50,30 @@ public class Bike implements TwoWheeledVehicle {
 		this.skin = s;
 	}
 	
+	
+	
+	/**
+	 *tells if a bike is damaged or not
+	 */
 	public boolean isDamaged() {
         return isDamaged;
     }
 
+	
+	
+   	/**
+   	 *
+   	 */
    	public void takeDamage() {
         this.isDamaged= true;
     }
    	
+   	
+   	
+   	
+   	/**
+   	 *
+   	 */
    	public void use() {
    		if (this.getStation().getVehicles().get(this).equals(State.AVAILABLE)) {
    			this.getStation().getVehicles().replace(this, State.UNAVAILABLE);
@@ -62,10 +84,21 @@ public class Bike implements TwoWheeledVehicle {
    	}
 
 
+   	
+   	
+	/**
+	 *
+	 */
 	public void repair() {
 		this.isDamaged = false;		
 	}
 
+	
+	
+	
+	/**
+	 *
+	 */
 	public String toString() {
 		return "a " + this.skin + " bike";
 	}
@@ -75,7 +108,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -85,7 +118,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void startRental() {
-		// TODO Auto-generated method stub
+	
 		
 	}
 
@@ -95,7 +128,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void stopRental() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -105,8 +138,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public boolean isAvailable() {
-		// TODO Auto-generated method stub
-		return false;
+			return false;
 	}
 
 
@@ -115,7 +147,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void markForRepair() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -125,7 +157,6 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void performRepair() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -135,7 +166,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void markAsStolen() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -145,7 +176,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public boolean isStolen() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -155,7 +186,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void attachToStation(String stationId) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -165,7 +196,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public String getCurrentStation() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 }

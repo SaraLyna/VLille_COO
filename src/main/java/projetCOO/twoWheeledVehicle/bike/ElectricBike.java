@@ -2,6 +2,8 @@ package projetCOO.twoWheeledVehicle.bike;
 
 import projetCOO.station.Station;
 
+
+
 /**
  * The class represents a type of bike
  * the electric  one
@@ -12,6 +14,7 @@ public class ElectricBike extends Bike{
 	private int niveauBatterie;
 	
 	/**
+	 * Constructor
 	 * @param skin
 	 * @param station
 	 * @param capacityBatterie
@@ -22,6 +25,7 @@ public class ElectricBike extends Bike{
 		this.niveauBatterie = 100;
 	}
 
+	
 	 /**
 	 * @return capacityBatterie
 	 */
@@ -40,12 +44,14 @@ public class ElectricBike extends Bike{
 	
 	
 	 /**
-	 * @return
+	 * @return niveau batterie
 	 */
 	public int getNiveauBatterie() {
 	        return niveauBatterie;
 	 }
 
+	
+	
 	 /**
 	 * @param niveauBatterie
 	 */

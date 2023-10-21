@@ -1,6 +1,9 @@
 package projetCOO.feature;
+
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+
+
 /**
  * Decorator class
  */
@@ -20,7 +23,9 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	
 	
 	
-	
+	/**
+	 *The method of the decorator class
+	 */
 	public String decorate() {
 		return this.v.toString() ;
 	
@@ -31,7 +36,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void applySkin(String s) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -64,7 +69,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -73,7 +78,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void startRental() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -82,7 +87,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void stopRental() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -91,7 +96,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public boolean isAvailable() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -100,7 +105,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void markForRepair() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -109,7 +114,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void performRepair() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -118,7 +123,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void markAsStolen() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -127,7 +132,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public boolean isStolen() {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
@@ -136,7 +141,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void attachToStation(String stationId) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -145,7 +150,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public String getCurrentStation() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -154,7 +159,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 	@Override
 	public void setStation(Station station) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

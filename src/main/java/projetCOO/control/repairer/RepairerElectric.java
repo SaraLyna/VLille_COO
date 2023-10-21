@@ -1,5 +1,14 @@
 package projetCOO.control.repairer;
 
-public class RepairerElectric {
+/**
+ *the class that represents the repairer of the electrical vehicles
+ */
+public class RepairerElectric extends Repairer{
 
+	/**
+	 * Constructor
+	 */
+	public RepairerElectric() {
+		super();
+	}
 }

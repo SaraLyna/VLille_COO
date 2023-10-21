@@ -2,7 +2,7 @@ package projetCOO.feature;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 /**
- * 
+ * The pannier rack on the vehicles
  */
 public class PannierRack extends FeatureDeco{
 	
@@ -16,6 +16,10 @@ public class PannierRack extends FeatureDeco{
 		
 	}
 	
+	
+	/**
+	 *The method of the decorator class
+	 */
 	public String decorate(){
 		return super.decorate() + " with pannier rack";
 	}
