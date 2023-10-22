@@ -138,25 +138,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 
 
-
-	@Override
-	public void attachToStation(String stationId) {
-		
-		
-	}
-
-
-
-
-	@Override
-	public String getCurrentStation() {
-		
-		return null;
-	}
-
-
-
-
+	
 	@Override
 	public void setStation(Station station) {
 		
@@ -169,6 +151,22 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	@Override
 	public void use() {
 		this.v.use();
+	}
+
+
+
+	@Override
+	public Station getCurrentStation(Station s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public void attachToStation(Station stationId) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

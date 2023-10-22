@@ -12,6 +12,7 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 */
 public class Bike implements TwoWheeledVehicle {
 
+	protected Station currentStation;
 	protected Station station;
 	protected String skin; 
 	protected boolean isDamaged;
@@ -107,9 +108,12 @@ public class Bike implements TwoWheeledVehicle {
 
 
 	@Override
-	public String getType() {
-		
-		return null;
+	public String getType() {		
+		if (this instanceof ElectricBike) {
+	        return "Electric";
+	    } else {
+	        return "Classic";
+	    }
 	}
 
 
@@ -118,7 +122,9 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void startRental() {
-	
+		if (isAvailable()) {
+	        this.getStation().getVehicles().replace(this, State.UNAVAILABLE);
+	    }
 		
 	}
 
@@ -128,7 +134,9 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void stopRental() {
-		
+		if (!isAvailable()) {
+	        this.getStation().getVehicles().replace(this, State.AVAILABLE);
+	    }
 		
 	}
 
@@ -138,7 +146,7 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public boolean isAvailable() {
-			return false;
+		return this.getStation().getVehicles().get(this) == State.AVAILABLE;
 	}
 
 
@@ -147,7 +155,9 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void markForRepair() {
-		
+		if (!isDamaged()) {
+	        takeDamage();
+	    }
 		
 	}
 
@@ -157,7 +167,9 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void performRepair() {
-		
+		if (isDamaged()) {
+	        repair();
+	    }
 	}
 
 
@@ -166,7 +178,9 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public void markAsStolen() {
-		
+		 if (isAvailable()) {
+		        this.getStation().getVehicles().replace(this, State.STOLEN);
+		    }
 		
 	}
 
@@ -176,27 +190,27 @@ public class Bike implements TwoWheeledVehicle {
 
 	@Override
 	public boolean isStolen() {
-		
-		return false;
+		return this.getStation().getVehicles().get(this) == State.STOLEN;
 	}
-
-
-
-
 
 	@Override
-	public void attachToStation(String stationId) {
-		
-		
+	public Station getCurrentStation(Station s) {
+		return currentStation;
 	}
-
-
-
-
 
 	@Override
-	public String getCurrentStation() {
+	public void attachToStation(Station s) {
+		currentStation = s;
 		
-		return null;
 	}
+
+
+
+
+
+	
+
+
+
+	
 }

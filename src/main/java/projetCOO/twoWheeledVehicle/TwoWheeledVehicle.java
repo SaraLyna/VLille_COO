@@ -39,8 +39,10 @@ public interface TwoWheeledVehicle {
 	
     boolean isStolen();
     
-    void attachToStation(String stationId);
     
-    String getCurrentStation();
+    Station getCurrentStation(Station s);
+
+	void attachToStation(Station stationId);
+
 
 }

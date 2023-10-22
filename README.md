@@ -93,6 +93,11 @@ Samedi 21 Octobre :
 - Test pour Station et ControlCenter
 
 ### Semaine 6 :
+Dimanche 22 Octobre :
+- Implémentation des méthodes de Bike
+- Test de ElectricBikeTest
+- Implémentation d'autres méthodes dans différentes classes 
+- Début de l'implémentation du Main
 
 
 

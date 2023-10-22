@@ -66,7 +66,7 @@ public class ElectricBike extends Bike{
 	 * @param pourcentage
 	 * recharger la batterie
 	 */
-	public void rechargerBatterie(int pourcentage) {
+	public void BatterieRecharge(int pourcentage) {
 	        if (niveauBatterie + pourcentage <= 100) {
 	            niveauBatterie += pourcentage;
 	        }
@@ -78,7 +78,7 @@ public class ElectricBike extends Bike{
 	 * @param pourcentage
 	 * décharger la batterie
 	 */
-	public void utiliserBatterie(int pourcentage) {
+	public void BatterieUse(int pourcentage) {
         if (niveauBatterie - pourcentage >= 0) {
             niveauBatterie -= pourcentage;
         }
@@ -89,7 +89,7 @@ public class ElectricBike extends Bike{
 	 * @return niveauBatterie
 	 * vérifier si la batterie est faible
 	 */
-	public boolean estBatterieFaible() {
+	public boolean BatterieFaible() {
         return niveauBatterie < 20; 
     }
 
