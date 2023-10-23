@@ -1,6 +1,10 @@
 package projetCOO.control.repairer;
 
+import java.util.Map;
+
+import projetCOO.state.State;
 import projetCOO.station.Station;
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 
 
@@ -55,7 +59,11 @@ public class Repairer{
     * repair the bike
     */
 	public void action() {
-		
+		for (Map.Entry<TwoWheeledVehicle, State> v : this.station.getVehicles().entrySet()) {
+			if (v.getValue().equals(State.OUTOFSERVICE) || v.getKey().isDamaged()) {
+				v.getKey().repair();
+			}
+		}
 	  
 	}
 	

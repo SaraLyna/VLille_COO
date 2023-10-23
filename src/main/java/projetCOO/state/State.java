@@ -9,6 +9,5 @@ public enum  State{
 	  AVAILABLE,
 	  UNAVAILABLE,
 	  OUTOFSERVICE,
-	  DAMAGED,
 	  STOLEN;
 }

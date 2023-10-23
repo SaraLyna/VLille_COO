@@ -145,9 +145,10 @@ public class ControlCenter{
 		while (!vs.isEmpty()) {
 			for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
 				if (s.getValue().getVehicles().size() < s.getValue().getCapacityMax()) {
-					int randomNB = (int) (Math.random() * vs.size() + 1);
+					int randomNB = (int) (Math.random() * (vs.size() + 1));
 					TwoWheeledVehicle b = vs.get(randomNB);
 					s.getValue().addVehicle(b);
+					vs.remove(randomNB);
 				}
 			}
 		}
