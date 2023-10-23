@@ -102,7 +102,7 @@ Dimanche 22 Octobre :
 
 Lundi 23 Octobre :
 - Mise en place de méthodes pour collecter les véhicules et redistribuer les véhicules
-- Test pour ControlCenter
+- Test pour ControlCenter, Bike et Repairer
 
 
 
