@@ -123,10 +123,12 @@ public class Station {
 	
 	
 	/**
+	 * mettre une exception here
 	 * @param vehicle
 	 */
-	public void removeVehicle(TwoWheeledVehicle vehicle) {
-	        vehicles.remove(vehicle);
+	public void removeVehicle(TwoWheeledVehicle v) {
+		v.setStation(null);
+		vehicles.remove(v);
 	}
 	
 	

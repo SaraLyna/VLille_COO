@@ -72,5 +72,14 @@ public class ControlCenterTest {
 		assertEquals(vehiclesCollected.size(),tailleInit - 1);
 		assertEquals(this.stationTest.getVehicles().size(), 1);
 	}
+	
+	@Test
+	public void WhenVehiclesAreCollectedVehiclesArentInStation() {
+		Bike b = (Bike) this.stationTest.getOneVehicle(0);
+		Map<Integer, TwoWheeledVehicle> vehiclesCollected = this.c.collectVehicles();
+		assertTrue(vehiclesCollected.containsValue(b));
+		assertEquals(b.getStation(), null);
+		assertFalse(this.stationTest.getVehicles().containsKey(b));
+	}
 
 }

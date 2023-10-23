@@ -130,8 +130,9 @@ public class ControlCenter{
 	            Map.Entry<TwoWheeledVehicle, State> v = iterator.next();
 
 	            if (v.getValue() == State.AVAILABLE) {
+	            	v.getKey().setStation(null);
 	                vs.put(cpt, v.getKey());
-	                iterator.remove();
+	                iterator.remove();;
 	                cpt++;
 	            }
 	        }
