@@ -13,7 +13,7 @@ import java.util.Map.Entry;
 */
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
-	private List<Station> stationWithBikeToverify;
+	private List<Station> stationsNeedsToBeverify;
 	private int nbStation;
 	
 
@@ -23,7 +23,7 @@ public class ControlCenter{
 	public ControlCenter(int n){
 		this.nbStation = n;
 		this.initStation();
-		this.stationWithBikeToverify = new ArrayList<>();
+		this.stationsNeedsToBeverify = new ArrayList<>();
 	}
 	
 	
@@ -32,7 +32,6 @@ public class ControlCenter{
 	 * @return stationList
 	 */
 	public Map<Integer,Station> getStationList() {
-		
 		return stationList;
 	}
 	
@@ -63,7 +62,7 @@ public class ControlCenter{
 	 * @return station with bike to verify
 	 */
 	public List<Station> getStationWithBikeToverify() {
-		return this.stationWithBikeToverify;
+		return this.stationsNeedsToBeverify;
 	}
 	
 	
@@ -101,7 +100,7 @@ public class ControlCenter{
 		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
 			for (Entry<TwoWheeledVehicle, State> b : s.getValue().getVehicles().entrySet()) {
 				if (b.getValue().equals(State.OUTOFSERVICE) || b.getKey().isDamaged()) {
-					this.stationWithBikeToverify.add(s.getValue());
+					this.stationsNeedsToBeverify.add(s.getValue());
 				}
 			}
 		}
@@ -114,14 +113,44 @@ public class ControlCenter{
 	 */
 	public void sendRepairer() {
 		Repairer r;
-		for (int i = 0; i<this.stationWithBikeToverify.size(); i++) {
+		for (int i = 0; i<this.stationsNeedsToBeverify.size(); i++) {
 			r = new Repairer();
-			this.stationWithBikeToverify.get(i).setRepairer(r);
-			r.setStation(this.stationWithBikeToverify.get(i));
+			this.stationsNeedsToBeverify.get(i).setRepairer(r);
+			r.setStation(this.stationsNeedsToBeverify.get(i));
 		}
 	}
 	
+	public Map<Integer, TwoWheeledVehicle> collectVehicles() {
+		int cpt = 0;
+		Map<Integer, TwoWheeledVehicle> vs = new HashMap<>();
+		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
+			Iterator<Map.Entry<TwoWheeledVehicle, State>> iterator = s.getValue().getVehicles().entrySet().iterator();
+
+	        while (iterator.hasNext()) {
+	            Map.Entry<TwoWheeledVehicle, State> v = iterator.next();
+
+	            if (v.getValue() == State.AVAILABLE) {
+	                vs.put(cpt, v.getKey());
+	                iterator.remove();
+	                cpt++;
+	            }
+	        }
+		}
+		return vs;
+	}
 	
+	public void redistribution() {
+		Map<Integer, TwoWheeledVehicle> vs = this.collectVehicles();
+		while (!vs.isEmpty()) {
+			for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
+				if (s.getValue().getVehicles().size() < s.getValue().getCapacityMax()) {
+					int randomNB = (int) (Math.random() * vs.size() + 1);
+					TwoWheeledVehicle b = vs.get(randomNB);
+					s.getValue().addVehicle(b);
+				}
+			}
+		}
+	}
 	
 	
 	/**

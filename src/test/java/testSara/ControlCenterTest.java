@@ -2,11 +2,16 @@ package testSara;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Map;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import projetCOO.control.ControlCenter;
+import projetCOO.state.State;
 import projetCOO.station.Station;
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+import projetCOO.twoWheeledVehicle.bike.Bike;
 
 public class ControlCenterTest {
 	
@@ -17,6 +22,9 @@ public class ControlCenterTest {
 	public void init() {
 		this.c = new ControlCenter(1);
 		this.stationTest = c.getOneStation(0);
+		for (int i = 0; i < stationTest.getCapacityMax();i++) {
+			stationTest.addVehicle(new Bike("default", stationTest));
+		}
 	}
 	
 	@Test
@@ -24,9 +32,45 @@ public class ControlCenterTest {
 		assertTrue(c.getStationList().containsValue(this.stationTest));
 	}
 	
-//	@Test
-//	public void RepairerHasSent() {
-//		assertEquals(this.stationTest, (Station) c.getStationList().keySet().toArray()[0]);
-//	}
+	@Test 
+	public void StationNeedsToBeVerify() {
+		Bike b = (Bike) this.stationTest.getOneVehicle(0);
+		this.stationTest.setStateVehicle(b, State.OUTOFSERVICE);
+		this.c.verification();
+		assertEquals(this.c.getStationWithBikeToverify().size(), 1);
+	}
+	
+	@Test 
+	public void NoStationNeedsToBEVerify() {
+		this.c.verification();
+		assertEquals(this.c.getStationWithBikeToverify().size(), 0);
+	}
+	
+	@Test
+	public void RepairerHasSent() {
+		Bike b = (Bike) this.stationTest.getOneVehicle(0);
+		this.stationTest.setStateVehicle(b, State.OUTOFSERVICE);
+		this.c.verification();
+		this.c.sendRepairer();
+		assertTrue(this.stationTest.getRepairer() != null);
+	}
+	
+	@Test 
+	public void AllVehiclesAreCollect() {
+		int tailleInit = this.stationTest.getVehicles().size();
+		Map<Integer, TwoWheeledVehicle> vehiclesCollected = this.c.collectVehicles();
+		assertEquals(vehiclesCollected.size(),tailleInit);
+		assertEquals(this.stationTest.getVehicles().size(), 0);
+	}
+	
+	@Test 
+	public void OneVehicleStillInStationTest() {
+		int tailleInit = this.stationTest.getVehicles().size();
+		Bike b = (Bike) this.stationTest.getOneVehicle(0);
+		b.use();
+		Map<Integer, TwoWheeledVehicle> vehiclesCollected = this.c.collectVehicles();
+		assertEquals(vehiclesCollected.size(),tailleInit - 1);
+		assertEquals(this.stationTest.getVehicles().size(), 1);
+	}
 
 }

@@ -92,14 +92,17 @@ Samedi 21 Octobre :
 - Regroupement des méthodes pour modifier l'état d'un véhicule 
 - Test pour Station et ControlCenter
 
-### Semaine 6 :
 Dimanche 22 Octobre :
 - Implémentation des méthodes de Bike
 - Test de ElectricBikeTest
 - Implémentation d'autres méthodes dans différentes classes 
 - Début de l'implémentation du Main
 
+### Semaine 6 :
 
+Lundi 23 Octobre :
+- Mise en place de méthodes pour collecter les véhicules et redistribuer les véhicules
+- Test pour ControlCenter
 
 
 

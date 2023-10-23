@@ -46,7 +46,6 @@ public class Station {
 	
 	
 	/**
-	 * rajouter une exception ici
 	 * @param Index
 	 * @return
 	 */
