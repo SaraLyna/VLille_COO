@@ -15,18 +15,18 @@ Ce projet consiste à concevoir une simulation d'un système de location de vél
 ## How To
 
 --Documentation:
-javadoc -sourcepath src -d doc -subpackages main/java/ProjetCOO/Main
+javadoc -sourcepath src -d doc -subpackages main/java/projetCOO/Main
 
 
 --Compilation:
-javac -sourcepath src -d classes src/main/java/ProjetCOO/Main/*.java
+javac -sourcepath src -d classes src/main/java/projetCOO/Main/*.java
 
 --Compiltion Tests : 
 javac -classpath junit-console.jar:classes src/test/java/testSara/*.java
  
  
 --Exécution:
-java -classpath classes ProjetCOOn
+java -classpath classes projetCOO
 
 
 --Exécution des tests :
@@ -34,7 +34,7 @@ java -classpath classes ProjetCOOn
 
 --jar:
 --Création:
-jar cvfm appli.jar manifest-tpX -C classes
+jar cvfm Vlille.jar manifest-tpX -C classes
 --Exécution:
 java -jar Vlille.jar
 

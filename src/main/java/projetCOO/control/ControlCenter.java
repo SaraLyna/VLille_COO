@@ -120,6 +120,12 @@ public class ControlCenter{
 		}
 	}
 	
+	
+	
+	
+	/**
+	 * @return
+	 */
 	public Map<Integer, TwoWheeledVehicle> collectVehicles() {
 		int cpt = 0;
 		Map<Integer, TwoWheeledVehicle> vs = new HashMap<>();
@@ -140,6 +146,12 @@ public class ControlCenter{
 		return vs;
 	}
 	
+	
+	
+	
+	/**
+	 * 
+	 */
 	public void redistribution() {
 		Map<Integer, TwoWheeledVehicle> vs = this.collectVehicles();
 		while (!vs.isEmpty()) {
@@ -153,6 +165,7 @@ public class ControlCenter{
 			}
 		}
 	}
+	
 	
 	
 	/**
