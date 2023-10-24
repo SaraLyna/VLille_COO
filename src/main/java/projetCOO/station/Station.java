@@ -161,7 +161,11 @@ public class Station {
 	}
 	
 	
-	
+	public void displayVehicles() {
+		for (Map.Entry<TwoWheeledVehicle, State> set : this.vehicles.entrySet()) {
+			System.out.println(set.getKey().toString() + " : " + set.getValue().name());
+		}
+	}
 	
 	/**
 	 *ToString()
