@@ -9,35 +9,31 @@ import projetCOO.station.Station;
  */
 public interface TwoWheeledVehicle {
 
-    void applySkin(String s);
-    
-	void takeDamage();
+	public void applySkin(String s);
+	public void takeDamage();
+	public void repair();
+	public void setStation(Station station);
+	public void use();
+	public void stole();
+	public String toString();	
 	
-	void repair();
+	public String getType();
 	
-	void setStation(Station station);
+	public void startRental();
 	
-	void use();
+	public void stopRental();
 	
-	String toString();	
+	public boolean isDamaged();	
 	
-	String getType();
+	public boolean isAvailable();
 	
-	void startRental();
+	public void markForRepair();
 	
-	void stopRental();
+	public void performRepair();
 	
-	boolean isDamaged();	
+	public void markAsStolen();
 	
-	boolean isAvailable();
-	
-	void markForRepair();
-	
-	void performRepair();
-	
-	void markAsStolen();
-	
-    boolean isStolen();
+	public boolean isStolen();
     
     
     Station getCurrentStation(Station s);

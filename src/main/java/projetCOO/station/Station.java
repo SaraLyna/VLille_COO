@@ -15,6 +15,7 @@ public class Station {
 	protected int capacityMax;
 	protected Map<TwoWheeledVehicle,State> vehicles;
 	protected Repairer repairer ;
+	protected int availableVehicleNB;
 
 	/**
 	* Constructor of the class Station
@@ -24,7 +25,7 @@ public class Station {
         	this.initCapacityMax();;
         	this.vehicles = new HashMap<>();
         	this.repairer = null;
-
+        	this.availableVehicleNB = this.capacityMax;
 	}
 	
 	/**
@@ -32,6 +33,14 @@ public class Station {
 	 */
 	public int getId(){
 		return id;
+	}
+	
+	
+	/**
+	 * @return the capacityMax
+	 */
+	public int getCapacityMax() {
+		return capacityMax;
 	}
 
 	
@@ -83,16 +92,13 @@ public class Station {
 	public void setRepairer(Repairer r) {
 		this.repairer = r;
 	}
-
-	
 	
 	/**
-	 * @return the capacityMax
+	 * @return the number of vehicles which are available
 	 */
-	public int getCapacityMax() {
-		return capacityMax;
-	}
-
+	public int getAvailableVehicleCount() {
+        return this.availableVehicleNB;
+	 }
 	
 	
 	/**
@@ -110,18 +116,6 @@ public class Station {
 		
 	}
 	
-	
-	
-	/**
-	 * @param v
-	 * @param s
-	 */
-	public void setStateVehicle(TwoWheeledVehicle v, State s) {
-		vehicles.replace(v, s);
-	}
-	
-	
-	
 	/**
 	 * mettre une exception here
 	 * @param vehicle
@@ -131,21 +125,25 @@ public class Station {
 		vehicles.remove(v);
 	}
 	
-	
-	
-	
 	/**
-	 * @return the number of vehicles which are available
+	 * @param v the vehicle that we want change the state.
+	 * @param s thes new vehicle's state
 	 */
-	public int getAvailableVehicleCount() {
-        int count = 0;
-        for (State state : vehicles.values()) {
-        	if (state == State.AVAILABLE) {
-        		count++;
-	        }
-	    }
-	    return count;
-	 }
+	public void setStateVehicle(TwoWheeledVehicle v, State s) {
+		vehicles.replace(v, s);
+	}
+	
+	public void increaseAvailableVehicleNB() {
+		if (this.availableVehicleNB < this.capacityMax) {
+			this.availableVehicleNB = this.availableVehicleNB + 1;
+		}
+	}
+	
+	public void decreaseAvailableVehicleNB() {
+		if (this.availableVehicleNB > 0) {
+			this.availableVehicleNB = this.availableVehicleNB - 1;
+		}
+	}
 	    
 	
 	
