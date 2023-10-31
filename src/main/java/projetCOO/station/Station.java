@@ -133,15 +133,37 @@ public class Station {
 		vehicles.replace(v, s);
 	}
 	
+	/**
+	 * increase the available vehicle number
+	 */
 	public void increaseAvailableVehicleNB() {
 		if (this.availableVehicleNB < this.capacityMax) {
 			this.availableVehicleNB = this.availableVehicleNB + 1;
 		}
 	}
 	
+	/**
+	 * decrease the available vehicle number
+	 */
 	public void decreaseAvailableVehicleNB() {
 		if (this.availableVehicleNB > 0) {
 			this.availableVehicleNB = this.availableVehicleNB - 1;
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void stoleAVehicle() {
+		if (this.getAvailableVehicleCount() == 1) {
+			for (Map.Entry<TwoWheeledVehicle, State> vs : this.vehicles.entrySet()) {
+				if (vs.getValue().equals(State.AVAILABLE)) {
+					TwoWheeledVehicle v = vs.getKey();
+					v.stole();
+					System.out.println("Warning a vehicle has been stolen");
+					break;
+				}
+			}
 		}
 	}
 	    
@@ -169,7 +191,7 @@ public class Station {
 	 *ToString()
 	 */
 	public String toString() {
-		return "Station n° "+ this.id  + " capacity max is "+ this.capacityMax ;
+		return "Station "+ this.id ;
 	}
 
 }

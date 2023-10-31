@@ -1,6 +1,8 @@
 package testSara;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Map;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -66,6 +68,25 @@ public class StationTest {
 		b1.use();
 		b2.use();
 		assertEquals(s.getAvailableVehicleCount(),s.getVehicles().size() - 2);
+	}
+	
+	@Test
+	public void VehicleIsStolen() {
+		int count = this.s.getCapacityMax() - 1;
+		for (Map.Entry<TwoWheeledVehicle, State> v : this.s.getVehicles().entrySet()) {
+			if (count != 0) {
+				v.getKey().use();
+				count--;
+			}
+		}
+		this.s.stoleAVehicle();
+		assertEquals(this.s.getVehicles().size(), this.s.getCapacityMax() - 1);
+	}
+	
+	@Test 
+	public void NoVehiclesAreStolen() {
+		this.s.stoleAVehicle();
+		assertEquals(this.s.getVehicles().size(), this.s.getCapacityMax());
 	}
 
 }

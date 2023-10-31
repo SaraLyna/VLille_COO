@@ -110,7 +110,7 @@ public class Bike implements TwoWheeledVehicle {
 	 *
 	 */
 	public String toString() {
-		return "a " + this.skin + " bike";
+		return this.skin + " ClassicBike";
 	}
 
 

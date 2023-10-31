@@ -32,12 +32,14 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	}
 
 
-
+	@Override
+	public void setStation(Station station) {
+		this.v.setStation(station);
+	}
 
 	@Override
 	public void applySkin(String s) {
-		
-		
+		this.v.applySkin(s);
 	}
 
 
@@ -63,6 +65,17 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	public void takeDamage() {
 		this.v.takeDamage();
 	}
+	
+	@Override
+	public void use() {
+		this.v.use();
+	}
+	
+	@Override
+	public void stole() {
+		this.v.stole();
+	}
+	
 
 
 
@@ -137,24 +150,6 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	}
 
 
-
-	
-	@Override
-	public void setStation(Station station) {
-		
-		
-	}
-
-
-
-
-	@Override
-	public void use() {
-		this.v.use();
-	}
-
-
-
 	@Override
 	public Station getCurrentStation(Station s) {
 		// TODO Auto-generated method stub
@@ -168,9 +163,4 @@ public class FeatureDeco implements TwoWheeledVehicle {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
-	
-	
 }

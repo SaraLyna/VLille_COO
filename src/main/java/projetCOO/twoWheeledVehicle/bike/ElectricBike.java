@@ -92,5 +92,9 @@ public class ElectricBike extends Bike{
 	public boolean BatterieFaible() {
         return niveauBatterie < 20; 
     }
+	
+	public String toString() {
+		return this.skin + " ElectricBike";
+	}
 
 }
