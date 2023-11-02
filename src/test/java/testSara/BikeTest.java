@@ -19,7 +19,7 @@ public class BikeTest {
 	@BeforeEach
 	public void init() {
 		this.s = new Station(1);
-		this.bike = new Bike(null,this.s);
+		this.bike = new Bike(null,this.s,3);
 		this.s.addVehicle(bike);
 	}
 	
@@ -35,6 +35,14 @@ public class BikeTest {
 		assertEquals(this.s.getVehicles().get(bike), State.UNAVAILABLE);
 		this.bike.use();
 		assertEquals(this.s.getVehicles().get(bike), State.AVAILABLE);
+	}
+	
+	@Test
+	public void TheVehicleIsOutOfService() {
+		for (int i = 0; i < 6; i++) {
+			this.bike.use();
+		}
+		assertEquals(this.s.getVehicles().get(bike), State.OUTOFSERVICE);
 	}
 
 

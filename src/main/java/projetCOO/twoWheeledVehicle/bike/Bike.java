@@ -108,13 +108,20 @@ public class Bike implements TwoWheeledVehicle {
    	 *Use the bike if this bike is available.
    	 */
    	public void use() {
-   		if (this.getStation().getVehicles().get(this).equals(State.AVAILABLE)) {
-   			this.getStation().setStateVehicle(this, State.UNAVAILABLE);
-   			this.getStation().decreaseAvailableVehicleNB();
+   		if (nbUse < useLimit) {
+   			if (this.getStation().getVehicles().get(this).equals(State.AVAILABLE)) {
+   	   			this.getStation().setStateVehicle(this, State.UNAVAILABLE);
+   	   			this.getStation().decreaseAvailableVehicleNB();
+   	   			this.nbUse++;
+   	   		}
+   	   		else {
+   	   			this.getStation().setStateVehicle(this, State.AVAILABLE);
+   	   			this.getStation().increaseAvailableVehicleNB();
+   	   		}
    		}
    		else {
-   			this.getStation().setStateVehicle(this, State.AVAILABLE);
-   			this.getStation().increaseAvailableVehicleNB();
+   			this.nbUse = 0;
+   			this.getStation().setStateVehicle(this, State.OUTOFSERVICE);
    		}
    	}
    	
