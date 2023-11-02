@@ -106,7 +106,10 @@ Lundi 23 Octobre :
 
 ### Semaine 7 :
 Mardi 31 Octobre :
-
+- création d'une classe Vlille scénarisé
+- ajout d'une classe Input
+- changement dans les affichages de certaines classes
+- ajout de test pour Station
 
 
 
