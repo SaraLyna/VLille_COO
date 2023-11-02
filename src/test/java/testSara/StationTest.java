@@ -21,7 +21,7 @@ public class StationTest {
 	public void init() {
 		this.s = new Station(1);
 		for (int i = 0; i < s.getCapacityMax();i++) {
-			s.addVehicle(new Bike("default", s));
+			s.addVehicle(new Bike("default", s, 3));
 		}
 	}
 

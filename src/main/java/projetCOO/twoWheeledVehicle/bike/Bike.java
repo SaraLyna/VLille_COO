@@ -59,6 +59,13 @@ public class Bike implements TwoWheeledVehicle {
 	}
 	
 	/**
+	 * reset the use number of this bike/
+	 */
+	public void resetNBUse() {
+		this.nbUse =0;
+	}
+	
+	/**
 	 * return the use limit of this vehicle.
 	 * @return int
 	 */
@@ -120,7 +127,6 @@ public class Bike implements TwoWheeledVehicle {
    	   		}
    		}
    		else {
-   			this.nbUse = 0;
    			this.getStation().setStateVehicle(this, State.OUTOFSERVICE);
    		}
    	}

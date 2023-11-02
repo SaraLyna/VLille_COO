@@ -63,8 +63,10 @@ public class Repairer{
 		for (Map.Entry<TwoWheeledVehicle, State> v : this.station.getVehicles().entrySet()) {
 			if (v.getValue().equals(State.OUTOFSERVICE) || v.getKey().isDamaged()) {
 				v.getKey().repair();
+				v.getKey().resetNBUse();
 			}
 		}
+		this.leaveStation();
 	  
 	}
 	

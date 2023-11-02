@@ -117,4 +117,6 @@ Jeudi 02 Novembre :
 - Documentation des différentes méthodes de classe
 - Modification de l'UML pour etre en concordance avec les classes du projets
 - importation du diagramme UML sous format pdf.
+- Mise en place de la gestion du nombre d'usage limite pour un véhicule.
+- Test pour Bike
 

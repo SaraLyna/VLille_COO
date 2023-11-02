@@ -119,6 +119,16 @@ public class ControlCenter{
 			this.stationsNeedsToBeverify.get(i).setRepairer(r);
 			r.setStation(this.stationsNeedsToBeverify.get(i));
 		}
+		System.out.println("repairers send");
+	}
+	
+	/**
+	 * send a repairer in a Station
+	 */
+	public void sendRepairer2_0(Station station) {
+		Repairer r = new Repairer(); 
+		station.setRepairer(r);
+		r.setStation(station);
 	}
 	
 	

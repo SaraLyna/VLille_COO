@@ -172,7 +172,7 @@ public class Station {
 				if (vs.getValue().equals(State.AVAILABLE)) {
 					TwoWheeledVehicle v = vs.getKey();
 					v.stole();
-					System.out.println("Warning a vehicle has been stolen");
+					System.out.println("Warning a vehicle has been stolen in " + this.toString());
 					break;
 				}
 			}
@@ -197,6 +197,7 @@ public class Station {
 		for (Map.Entry<TwoWheeledVehicle, State> set : this.vehicles.entrySet()) {
 			System.out.println(set.getKey().toString() + " : " + set.getValue().name());
 		}
+		System.out.println("");
 	}
 	
 	

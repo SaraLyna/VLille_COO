@@ -162,4 +162,40 @@ public class FeatureDeco implements TwoWheeledVehicle {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	@Override
+	public Station getStation() {
+		return v.getStation();
+	}
+
+
+
+	@Override
+	public int getNBUse() {
+		return this.v.getNBUse();
+	}
+
+
+
+	@Override
+	public int getUseLimit() {
+		return this.v.getUseLimit();
+	}
+
+
+
+	@Override
+	public void setUseLimit(int n) {
+		this.v.setUseLimit(n);
+		
+	}
+
+
+
+	@Override
+	public void resetNBUse() {
+		this.v.resetNBUse();
+	}
 }

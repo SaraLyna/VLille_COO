@@ -60,6 +60,11 @@ public interface TwoWheeledVehicle {
 	public int getNBUse();	
 	
 	/**
+	 * reset the use number of this bike/
+	 */
+	public void resetNBUse();
+	
+	/**
 	 * return the use limit of this vehicle.
 	 * @return int
 	 */

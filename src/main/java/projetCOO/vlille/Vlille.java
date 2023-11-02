@@ -53,15 +53,12 @@ public class Vlille {
 	public void week() {
 		for (int i = 0; i<7; i++ ) {
 			this.day();
-		}
-		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
-			System.out.println(s.getValue().toString() + " :");
-			s.getValue().displayVehicles();
-		}
-		this.c.verification();
-		if (this.c.getStationWithBikeToverify().size() > 0) {
-			System.out.println("Repairers send");
-			this.c.sendRepairer();
+			if ( i == 3) {
+				this.displayVehiclesForEachStations();
+				this.c.verification();
+				this.c.sendRepairer();
+				this.repair();
+			}
 		}
 	}
 	
@@ -90,6 +87,21 @@ public class Vlille {
 		int prob = this.chance();
 		if (prob < 90) {
 			v.use();
+			prob = this.chance();
+			if (prob < 15 && v.getStation().getVehicles().get(v).equals(State.UNAVAILABLE)) {
+				v.takeDamage();
+			}
+		}
+	}
+	
+	/**
+	 * order Repairers to repair 
+	 */
+	public void repair() {
+		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
+			if (s.getValue().getRepairer() != null) {
+				s.getValue().getRepairer().action();
+			}
 		}
 	}
 	
@@ -151,11 +163,11 @@ public class Vlille {
 			while (s.getValue().getVehicles().size() != s.getValue().getCapacityMax()) {
 				int r = this.randomNB(1,0);
 				if (r == 0 ) {
-					Bike b = new Bike("Default", s.getValue());
+					Bike b = new Bike("Default", s.getValue(), 3);
 					s.getValue().addVehicle(b);
 				}
 				if (r == 1 ) {
-					ElectricBike eb = new ElectricBike("Default", s.getValue(), 100);
+					ElectricBike eb = new ElectricBike("Default", s.getValue(), 3, 100);
 					s.getValue().addVehicle(eb);
 				}
 			}
@@ -176,7 +188,7 @@ public class Vlille {
 			int nbWeek = Input.readInt();
 			int i = 1;
 			while (nbWeek > 0 ) {
-				System.out.println("Week " + i + " : ");
+				System.out.println("\nWeek " + i + " : ");
 				this.week();
 				nbWeek--;
 				i++;
