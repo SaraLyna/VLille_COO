@@ -16,15 +16,19 @@ public class Bike implements TwoWheeledVehicle {
 	protected Station station;
 	protected String skin; 
 	protected boolean isDamaged;
+	protected int nbUse;
+	private int useLimit;
 
 	
 	/**
 	* Constructor of the class Bike
 	*/
-	public Bike(String skin,Station station) {
+	public Bike(String skin,Station station, int ul) {
 		this.station = station;
 		this.skin=skin;
 		this.isDamaged= false;
+		this.nbUse = 0;
+		this.useLimit = ul;
 	}
 
 	
@@ -46,6 +50,29 @@ public class Bike implements TwoWheeledVehicle {
 		this.station = s;
 	}
 	
+	/**
+	 * return the use number of this bike.
+	 * @return int
+	 */
+	public int getNBUse() {
+		return this.nbUse;
+	}
+	
+	/**
+	 * return the use limit of this vehicle.
+	 * @return int
+	 */
+	public int getUseLimit() {
+		return this.useLimit;
+	}
+	
+	/**
+	 * define the use limit of this vehicle.
+	 * @param n the new number of use limit of this vehicle.
+	 */
+	public void setUseLimit(int n) {
+		this.useLimit = n;
+	}
 	
 	 
 	/**

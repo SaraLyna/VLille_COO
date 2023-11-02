@@ -27,6 +27,11 @@ public interface TwoWheeledVehicle {
 	 */
 	public void repair();
 	
+	/**
+	 * give the TwoWheeledVehicle's Station 
+	 * @return Station
+	 */
+	public Station getStation();
 	
 	/**
 	 * Set a station
@@ -48,6 +53,23 @@ public interface TwoWheeledVehicle {
 	 */
 	public void stole();
 	
+	/**
+	 * return the use number of this vehicle.
+	 * @return int
+	 */
+	public int getNBUse();	
+	
+	/**
+	 * return the use limit of this vehicle.
+	 * @return int
+	 */
+	public int getUseLimit();
+	
+	/**
+	 * define the use limit of this vehicle.
+	 * @param n the new number of use limit of this vehicle.
+	 */
+	public void setUseLimit(int n);
 	
 	
 	/**
