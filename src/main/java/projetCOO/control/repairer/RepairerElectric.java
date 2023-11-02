@@ -6,7 +6,7 @@ package projetCOO.control.repairer;
 public class RepairerElectric extends Repairer{
 
 	/**
-	 * Constructor
+	 * Constructor of the class
 	 */
 	public RepairerElectric() {
 		super();

@@ -6,7 +6,9 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import projetCOO.twoWheeledVehicle.bike.Bike;
 import projetCOO.twoWheeledVehicle.bike.ElectricBike;
 import projetCOO.feature.Basket;
-import projetCOO.state.State;
+//import projetCOO.state.State;
+
+
 
 /**
  * Main of the project 

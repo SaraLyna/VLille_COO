@@ -36,6 +36,7 @@ public class Repairer{
 	
 
 	/**
+	 * Set a station
 	 * @param s
 	 */
 	public void setStation(Station s) {
@@ -46,7 +47,7 @@ public class Repairer{
 	
 	
 	/**
-	 * when a vehicle leaves the station
+	 *Telling  when a vehicle leaves the station
 	 */
 	public void leaveStation() {
 		this.getStation().setRepairer(null);

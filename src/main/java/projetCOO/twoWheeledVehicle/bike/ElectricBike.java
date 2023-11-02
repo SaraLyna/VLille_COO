@@ -14,7 +14,7 @@ public class ElectricBike extends Bike{
 	private int niveauBatterie;
 	
 	/**
-	 * Constructor
+	 * Constructor of the class
 	 * @param skin
 	 * @param station
 	 * @param capacityBatterie
@@ -36,6 +36,7 @@ public class ElectricBike extends Bike{
 	
 	
 	 /**
+	  * set the capacity max of the battery
 	 * @param capacityBatterie
 	 */
 	public void setCapacityBatterie(int capacityBatterie) {
@@ -44,7 +45,7 @@ public class ElectricBike extends Bike{
 	
 	
 	 /**
-	 * @return niveau batterie
+	 * @return battery level
 	 */
 	public int getNiveauBatterie() {
 	        return niveauBatterie;
@@ -53,6 +54,7 @@ public class ElectricBike extends Bike{
 	
 	
 	 /**
+	  * set the battery level
 	 * @param niveauBatterie
 	 */
 	public void setNiveauBatterie(int niveauBatterie) {
@@ -64,7 +66,7 @@ public class ElectricBike extends Bike{
 	
 	 /**
 	 * @param pourcentage
-	 * recharger la batterie
+	 * recharge the battery
 	 */
 	public void BatterieRecharge(int pourcentage) {
 	        if (niveauBatterie + pourcentage <= 100) {
@@ -76,7 +78,7 @@ public class ElectricBike extends Bike{
 	
 	/**
 	 * @param pourcentage
-	 * décharger la batterie
+	 * décharge the battery
 	 */
 	public void BatterieUse(int pourcentage) {
         if (niveauBatterie - pourcentage >= 0) {
@@ -87,12 +89,17 @@ public class ElectricBike extends Bike{
 	
 	/**
 	 * @return niveauBatterie
-	 * vérifier si la batterie est faible
+	 * verify if the battery is low
 	 */
 	public boolean BatterieFaible() {
         return niveauBatterie < 20; 
     }
 	
+	
+	
+	/**
+	 *ToString() method
+	 */
 	public String toString() {
 		return this.skin + " ElectricBike";
 	}

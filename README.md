@@ -104,5 +104,14 @@ Lundi 23 Octobre :
 - Mise en place de méthodes pour collecter les véhicules et redistribuer les véhicules
 - Test pour ControlCenter, Bike et Repairer
 
+### Semaine 7 :
+Mardi 31 Octobre :
 
+
+
+
+Jeudi 02 Novembre :
+- Documentation des différentes méthodes de classe
+- Modification de l'UML pour etre en concordance avec les classes du projets
+- importation du diagramme UML sous format pdf.
 

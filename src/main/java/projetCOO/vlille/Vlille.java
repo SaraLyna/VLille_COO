@@ -12,18 +12,44 @@ import projetCOO.twoWheeledVehicle.bike.Bike;
 import projetCOO.twoWheeledVehicle.bike.ElectricBike;
 import projetCOO.util.Input;
 
+
+
+/**
+ *Vlille class 
+ *represents the game itself, it's a representation of a round.
+ *Here we define the stations and the vehicles and play the round
+ */
 public class Vlille {
 
+	
+	
 	private ControlCenter c;
 	
+	
+	
+	/**
+	 * Constructor of the class Vlille
+	 * @param c
+	 */
 	public Vlille(ControlCenter c) {
 		this.c = c;
 	}
 	
+	
+	
+	/**
+	 * @return the control center concerned
+	 */
 	public ControlCenter getControlCenter() {
 		return this.c;
 	}
 	
+	
+	
+	/**
+	 * Representation on an interval of time , 
+	 * here it's one week where the vehicles are in the station
+	 */
 	public void week() {
 		for (int i = 0; i<7; i++ ) {
 			this.day();
@@ -39,6 +65,11 @@ public class Vlille {
 		}
 	}
 	
+	
+	
+	/**
+	 * An interval of time which is represented in one day
+	 */
 	public void day() {
 		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
 			for (Entry<TwoWheeledVehicle, State> v : s.getValue().getVehicles().entrySet()) {
@@ -49,6 +80,12 @@ public class Vlille {
 		
 	}
 	
+	
+	
+	/**
+	 * The probability of chance that a vehicle is been used
+	 * @param v
+	 */
 	public void event(TwoWheeledVehicle v) {
 		int prob = this.chance();
 		if (prob < 90) {
@@ -56,11 +93,23 @@ public class Vlille {
 		}
 	}
 	
+	
+	
+	/**
+	 * @param max
+	 * @param min
+	 * @return a random number
+	 */
 	public int randomNB(int max, int min) {
 		int range = max - min + 1;
 		return (int)(Math.random() * range) + min;
 	}
 	
+	
+	
+	/**
+	 * @return the chance using the random number
+	 */
 	public int chance() {
 		return this.randomNB(0, 100);
 	}
@@ -71,11 +120,19 @@ public class Vlille {
      * -------------------------------------------------------------      
      */
 	
+	
+	
+	
+	/**
+	 * the method that displays the vehicles for each station
+	 */
 	public void displayVehiclesForEachStations() {
 		for (Station s : this.c.getStationList().values()) {
 			s.displayVehicles();
 		}
 	}
+	
+	
 	
 	/**
      * -------------------------------------------------------------
@@ -83,6 +140,12 @@ public class Vlille {
      * -------------------------------------------------------------      
      */
 	
+	
+	
+	
+	/**
+	 * the method that initialize the vehicles
+	 */
 	public void initVehicules() {
 		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
 			while (s.getValue().getVehicles().size() != s.getValue().getCapacityMax()) {
@@ -99,6 +162,13 @@ public class Vlille {
 		}
 	}
 	
+	
+	
+	
+	
+	/**
+	 * the main method that runs the game using the differents methods below
+	 */
 	public void run() {
 		this.initVehicules();
 		try {

@@ -2,6 +2,7 @@ package projetCOO.util;
 
 import java.util.Scanner;
 
+
 /**
  * tool class for inputs (String or int)
  *

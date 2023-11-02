@@ -11,7 +11,7 @@ public class Folding extends FeatureDeco{
 	
 	
 	/**
-	 * Constructor
+	 * Constructor of the class
 	 */
 	public Folding(TwoWheeledVehicle v) {
 		super(v);

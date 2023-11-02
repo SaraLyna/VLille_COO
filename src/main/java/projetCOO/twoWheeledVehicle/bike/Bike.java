@@ -17,6 +17,7 @@ public class Bike implements TwoWheeledVehicle {
 	protected String skin; 
 	protected boolean isDamaged;
 
+	
 	/**
 	* Constructor of the class Bike
 	*/
@@ -26,6 +27,8 @@ public class Bike implements TwoWheeledVehicle {
 		this.isDamaged= false;
 	}
 
+	
+	
 	/**
 	 * @return station
 	 */
@@ -36,6 +39,7 @@ public class Bike implements TwoWheeledVehicle {
 	
 	
 	/**
+	 * Set a station
 	 * @param s
 	 */
 	public void setStation(Station s) {
@@ -45,6 +49,7 @@ public class Bike implements TwoWheeledVehicle {
 	
 	 
 	/**
+	 * applying a skin to the bike (color)
 	 * @param s
 	 */
 	public void applySkin(String s) {
@@ -63,7 +68,7 @@ public class Bike implements TwoWheeledVehicle {
 	
 	
    	/**
-   	 *
+   	 *the bike here is damaged
    	 */
    	public void takeDamage() {
         this.isDamaged= true;
@@ -86,6 +91,8 @@ public class Bike implements TwoWheeledVehicle {
    		}
    	}
    	
+   	
+   	
    	/**
    	 * Stole the bike.
    	 */
@@ -97,7 +104,7 @@ public class Bike implements TwoWheeledVehicle {
    	
    	
 	/**
-	 *
+	 *if the bike is not damaged he is repaired
 	 */
 	public void repair() {
 		this.isDamaged = false;		
@@ -107,7 +114,7 @@ public class Bike implements TwoWheeledVehicle {
 	
 	
 	/**
-	 *
+	 * ToString() method
 	 */
 	public String toString() {
 		return this.skin + " ClassicBike";
@@ -212,14 +219,6 @@ public class Bike implements TwoWheeledVehicle {
 		currentStation = s;
 		
 	}
-
-
-
-
-
-	
-
-
 
 	
 }

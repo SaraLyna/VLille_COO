@@ -10,7 +10,7 @@ public class Basket extends FeatureDeco{
 	
 	
 	/**
-	 * Constructor
+	 * Constructor of the class
 	 */
 	public Basket(TwoWheeledVehicle v) {
 		super(v);

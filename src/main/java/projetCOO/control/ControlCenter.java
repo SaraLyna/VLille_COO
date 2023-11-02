@@ -69,6 +69,7 @@ public class ControlCenter{
 	
 	
 	/**
+	 * Adding a station to the control center
 	 * @param station
 	 */
 	public void addStation(Station station) {
@@ -79,7 +80,7 @@ public class ControlCenter{
 	
 	
 	/**
-	 * initialize station
+	 * initialize stations
 	 */
 	public void initStation() {
 		this.stationList = new HashMap<>(); 
@@ -94,7 +95,7 @@ public class ControlCenter{
 	
 	
 	/**
-	 * method verification
+	 * verification method 
 	 */
 	public void verification() {
 		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
@@ -124,7 +125,7 @@ public class ControlCenter{
 	
 	
 	/**
-	 * @return
+	 * @return the collection of the different vehicles in a station
 	 */
 	public Map<Integer, TwoWheeledVehicle> collectVehicles() {
 		int cpt = 0;
@@ -150,7 +151,7 @@ public class ControlCenter{
 	
 	
 	/**
-	 * 
+	 * redistribution of the different vehicles in the stations in a random way
 	 */
 	public void redistribution() {
 		Map<Integer, TwoWheeledVehicle> vs = this.collectVehicles();

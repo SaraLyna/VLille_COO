@@ -5,30 +5,29 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 
 /**
- * Decorator class
+ * Decorator class of the different features added to a vehicle
  */
 public class FeatureDeco implements TwoWheeledVehicle {
 	
 	protected TwoWheeledVehicle v;
 
+	
 	/**
 	* Constructor of the class FeatureDeco
 	 * @param v 
 	*/
 	public FeatureDeco(TwoWheeledVehicle v){
-		this.v=v;
-		
+		this.v=v;	
 		
 	}
 	
 	
 	
 	/**
-	 *The method of the decorator class
+	 *The main method of the decorator class
 	 */
 	public String decorate() {
 		return this.v.toString() ;
-	
 	}
 
 
@@ -45,7 +44,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 
 
 
-	
+	@Override
 	public void repair() {
 		this.v.repair();	
 	}

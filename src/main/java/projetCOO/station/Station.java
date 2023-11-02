@@ -7,7 +7,7 @@ import projetCOO.twoWheeledVehicle.*;
 
 
 /**
-*this is the Station class representing the station
+*Station class representing the station
 *where are the vehicles located
 */
 public class Station {
@@ -56,7 +56,7 @@ public class Station {
 	
 	/**
 	 * @param Index
-	 * @return
+	 * @return a vehicle
 	 */
 	public TwoWheeledVehicle getOneVehicle(int index) throws ArrayIndexOutOfBoundsException {
 		if (index < 0 || index > this.capacityMax) {
@@ -93,6 +93,8 @@ public class Station {
 		this.repairer = r;
 	}
 	
+	
+	
 	/**
 	 * @return the number of vehicles which are available
 	 */
@@ -116,6 +118,8 @@ public class Station {
 		
 	}
 	
+	
+	
 	/**
 	 * mettre une exception here
 	 * @param vehicle
@@ -125,6 +129,8 @@ public class Station {
 		vehicles.remove(v);
 	}
 	
+	
+	
 	/**
 	 * @param v the vehicle that we want change the state.
 	 * @param s thes new vehicle's state
@@ -132,6 +138,8 @@ public class Station {
 	public void setStateVehicle(TwoWheeledVehicle v, State s) {
 		vehicles.replace(v, s);
 	}
+	
+	
 	
 	/**
 	 * increase the available vehicle number
@@ -142,6 +150,8 @@ public class Station {
 		}
 	}
 	
+	
+	
 	/**
 	 * decrease the available vehicle number
 	 */
@@ -151,8 +161,10 @@ public class Station {
 		}
 	}
 	
+	
+	
 	/**
-	 * 
+	 * the stolen vehicles
 	 */
 	public void stoleAVehicle() {
 		if (this.getAvailableVehicleCount() == 1) {
@@ -187,8 +199,10 @@ public class Station {
 		}
 	}
 	
+	
+	
 	/**
-	 *ToString()
+	 *ToString() method
 	 */
 	public String toString() {
 		return "Station "+ this.id ;
