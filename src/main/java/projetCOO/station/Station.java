@@ -1,12 +1,13 @@
 package projetCOO.station;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import projetCOO.control.ControlCenter;
 import projetCOO.control.repairer.Repairer;
-import projetCOO.state.State;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 
@@ -17,7 +18,8 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 public class Station {
 	protected int id;
 	protected int capacityMax;
-	protected Map<TwoWheeledVehicle,State> vehicles;
+	protected List<TwoWheeledVehicle> vehicles;
+	// à modifier
 	protected Map<Repairer,TwoWheeledVehicle> repairers ;
 	protected int availableVehicleNB;
 	protected ControlCenter controlCenter;
@@ -29,7 +31,7 @@ public class Station {
 			this.id = id;
 			this.controlCenter = c;
         	this.initCapacityMax();;
-        	this.vehicles = new HashMap<>();
+        	this.vehicles = new ArrayList<>();
         	this.repairers = new HashMap<>();
         	this.availableVehicleNB = this.capacityMax;
 	}
@@ -63,33 +65,9 @@ public class Station {
 	 * give the station list and the state for each bike
 	 * @return the vehicles
 	 */
-	public Map<TwoWheeledVehicle, State> getVehicles() {
+	public List<TwoWheeledVehicle> getVehicles() {
 		return vehicles;
 	}
-	
-	
-	
-	/**
-	 * @param Index
-	 * @return a vehicle
-	 */
-	public TwoWheeledVehicle getOneVehicle(int index) throws ArrayIndexOutOfBoundsException {
-		if (index < 0 || index > this.capacityMax) {
-			throw new ArrayIndexOutOfBoundsException("invalid index");
-		}
-		Iterator<TwoWheeledVehicle> i = this.vehicles.keySet().iterator();
-		int cpt = 0;
-		while (i.hasNext()) {
-			TwoWheeledVehicle v = i.next();
-			if (cpt == index) {
-				return v;
-			}
-			cpt++;
-		}
-		return null;
-	}
-
-	
 	
 	/**
 	 * gives the repairer if he is present otherwise null
@@ -113,8 +91,9 @@ public class Station {
 	 */
 	public void addVehicle(TwoWheeledVehicle v) {
 		if (vehicles.size() < capacityMax) {
-            		vehicles.put(v, State.AVAILABLE); 
+            		vehicles.add(v); 
             		v.setStation(this);
+            		
         } 
 		else {
             		System.out.println("The station is at maximum capacity. Cannot add more bikes.");
@@ -147,57 +126,7 @@ public class Station {
 	 */
 	public void removeRepairer(Repairer r) {
 		this.repairers.remove(r);
-	}
-	
-	
-	
-	/**
-	 * @param v the vehicle that we want change the state.
-	 * @param s thes new vehicle's state
-	 */
-	public void setStateVehicle(TwoWheeledVehicle v, State s) {
-		vehicles.replace(v, s);
-	}
-	
-	
-	
-	/**
-	 * increase the available vehicle number
-	 */
-	public void increaseAvailableVehicleNB() {
-		if (this.availableVehicleNB < this.capacityMax) {
-			this.availableVehicleNB = this.availableVehicleNB + 1;
-		}
-	}
-	
-	
-	
-	/**
-	 * decrease the available vehicle number
-	 */
-	public void decreaseAvailableVehicleNB() {
-		if (this.availableVehicleNB > 0) {
-			this.availableVehicleNB = this.availableVehicleNB - 1;
-		}
-	}
-	
-	
-	
-	/**
-	 * the stolen vehicles
-	 */
-	public void stoleAVehicle() {
-		if (this.getAvailableVehicleCount() == 1) {
-			for (Map.Entry<TwoWheeledVehicle, State> vs : this.vehicles.entrySet()) {
-				if (vs.getValue().equals(State.AVAILABLE)) {
-					TwoWheeledVehicle v = vs.getKey();
-					v.stole();
-					System.out.println("Warning a vehicle has been stolen in " + this.toString());
-					break;
-				}
-			}
-		}
-	}
+	}	
 	
 	/*
 	 * ask a Repairer for this station
@@ -231,8 +160,9 @@ public class Station {
 	
 	
 	public void displayVehicles() {
-		for (Map.Entry<TwoWheeledVehicle, State> set : this.vehicles.entrySet()) {
-			System.out.println(set.getKey().toString() + " : " + set.getValue().name());
+		Iterator<TwoWheeledVehicle> i = this.vehicles.iterator();
+		while (i.hasNext()) {
+			System.out.println(i.next().toString());
 		}
 		System.out.println("");
 	}

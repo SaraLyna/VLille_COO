@@ -19,7 +19,7 @@ public class StationTest {
 
 	@BeforeEach
 	public void init() {
-		this.s = new Station(1);
+		this.s = new Station(1, null);
 		for (int i = 0; i < s.getCapacityMax();i++) {
 			s.addVehicle(new Bike("default", s, 3));
 		}

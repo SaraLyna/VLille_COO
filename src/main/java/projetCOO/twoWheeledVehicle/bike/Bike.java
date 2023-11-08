@@ -1,7 +1,6 @@
 package projetCOO.twoWheeledVehicle.bike;
 
 import projetCOO.control.repairer.Repairer;
-import projetCOO.state.State;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -110,29 +109,25 @@ public class Bike implements TwoWheeledVehicle {
     }
    	
    	
+	@Override
+	public boolean isAvailable() {
+		return this.getStation().getVehicles().contains(this);
+	}
    	
-   	
-   	/**
-   	 *if the bike is available, so this bike is use
-   	 *otherwise this bike is hand over in his station 
-   	 *but if the number of use of this bike is exceeded so this bike is out of service
-   	 */
-   	public void use() {
-   		if (nbUse < useLimit) {
-   			if (this.getStation().getVehicles().get(this).equals(State.AVAILABLE)) {
-   	   			this.getStation().setStateVehicle(this, State.UNAVAILABLE);
-   	   			this.getStation().decreaseAvailableVehicleNB();
-   	   			this.nbUse++;
-   	   		}
-   	   		else {
-   	   			this.getStation().setStateVehicle(this, State.AVAILABLE);
-   	   			this.getStation().increaseAvailableVehicleNB();
-   	   		}
-   		}
-   		else {
-   			this.getStation().needRepairer(this);
-   		}
-   	}
+	@Override
+	public void startRental() {
+		if (isAvailable()) {
+	        this.getStation().removeVehicle(this);
+	        this.nbUse++;
+	    }
+		
+	}
+	
+	@Override
+	public void stopRental(Station s) {
+		this.setStation(s);
+		s.addVehicle(this);
+	}
    	
    	/**
    	 * ask a Repairer for this bike
@@ -150,9 +145,6 @@ public class Bike implements TwoWheeledVehicle {
    	public void stole() {
    		this.getStation().removeVehicle(this);
    	}
-
-
-   	
    	
 	/**
 	 *if the bike is not damaged he is repaired
@@ -161,114 +153,11 @@ public class Bike implements TwoWheeledVehicle {
 		this.isDamaged = false;		
 	}
 
-	
-	
-	
 	/**
 	 * ToString() method
 	 */
 	public String toString() {
 		return this.skin + " ClassicBike";
-	}
-
-
-
-
-	@Override
-	public String getType() {		
-		if (this instanceof ElectricBike) {
-	        return "Electric";
-	    } else {
-	        return "Classic";
-	    }
-	}
-
-
-
-
-
-	@Override
-	public void startRental() {
-		if (isAvailable()) {
-	        this.getStation().getVehicles().replace(this, State.UNAVAILABLE);
-	    }
-		
-	}
-
-
-
-
-
-	@Override
-	public void stopRental() {
-		if (!isAvailable()) {
-	        this.getStation().getVehicles().replace(this, State.AVAILABLE);
-	    }
-		
-	}
-
-
-
-
-
-	@Override
-	public boolean isAvailable() {
-		return this.getStation().getVehicles().get(this) == State.AVAILABLE;
-	}
-
-
-
-
-
-	@Override
-	public void markForRepair() {
-		if (!isDamaged()) {
-	        takeDamage();
-	    }
-		
-	}
-
-
-
-
-
-	@Override
-	public void performRepair() {
-		if (isDamaged()) {
-	        repair();
-	    }
-	}
-
-
-
-
-
-	@Override
-	public void markAsStolen() {
-		 if (isAvailable()) {
-		        this.getStation().getVehicles().replace(this, State.STOLEN);
-		    }
-		
-	}
-
-
-
-
-
-	@Override
-	public boolean isStolen() {
-		return this.getStation().getVehicles().get(this) == State.STOLEN;
-	}
-
-	@Override
-	public Station getCurrentStation(Station s) {
-		return currentStation;
-	}
-
-	@Override
-	public void attachToStation(Station s) {
-		currentStation = s;
-		
 	}
 
 	

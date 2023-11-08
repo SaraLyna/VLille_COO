@@ -1,6 +1,8 @@
 package testSara;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Map;
 
@@ -51,8 +53,8 @@ public class ControlCenterTest {
 		Bike b = (Bike) this.stationTest.getOneVehicle(0);
 		this.stationTest.setStateVehicle(b, State.OUTOFSERVICE);
 		this.c.verification();
-		this.c.sendRepairer();
-		assertTrue(this.stationTest.getRepairer() != null);
+		this.c.sendRepairer(stationTest, b, b.askRepairer());
+		assertEquals(this.stationTest.getRepairer().size(), 1);
 	}
 	
 	@Test 

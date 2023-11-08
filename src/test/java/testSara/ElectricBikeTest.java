@@ -12,7 +12,7 @@ class ElectricBikeTest {
 
 	@BeforeEach
 	void setUp() {
-		Station station = new Station(1);
+		Station station = new Station(1, null);
         electricBike = new ElectricBike("Electric", station, 3, 500);
 	}
 	

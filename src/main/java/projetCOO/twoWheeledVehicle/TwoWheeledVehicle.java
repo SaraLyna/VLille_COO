@@ -64,13 +64,6 @@ public interface TwoWheeledVehicle {
 	public void repair();
 	
 	/**
-	 * Saying if a vehicle is in use
-	 */
-	public void use();
-	
-	
-	
-	/**
 	 * Saying that a vehicle is stolen
 	 */
 	public void stole();
@@ -87,38 +80,17 @@ public interface TwoWheeledVehicle {
 	 * @return String
 	 */
 	public String toString();	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/**
-	 * Getting the type of a vehicle
-	 * @return String
-	 */
-	public String getType();
-	
 	
 	
 	/**
 	 * Starting rental
 	 */
 	public void startRental();
-	
-	
-	
+
 	/**
 	 * Stoping rental
 	 */
-	public void stopRental();
+	public void stopRental(Station s);
 	
 	
 	
@@ -135,49 +107,4 @@ public interface TwoWheeledVehicle {
 	 */
 	public boolean isAvailable();
 	
-	
-	
-	/**
-	 * mark the vehicle for repair
-	 */
-	public void markForRepair();
-	
-	
-	
-	/**
-	 * repair the vehicle by a repairer
-	 */
-	public void performRepair();
-	
-	
-	
-	/**
-	 * mark the vehicle as stolen
-	 */
-	public void markAsStolen();
-	
-	
-	
-	/**
-	 * Saying if a vehicle is stolen or not
-	 * @return bool
-	 */
-	public boolean isStolen();
-    
-    
-    /**
-     * @param s
-     * @return the current station where is the vehicle
-     */
-    public Station getCurrentStation(Station s);
-
-    
-    
-	/**
-	 * attaching a vehicle to a specific station
-	 * @param stationId
-	 */
-	void attachToStation(Station stationId);
-
-
 }

@@ -125,3 +125,9 @@ Mercredi 08 Novembre :
 - ajout d'une méthode askRepaire pour Bike qui retourne un repairer correspondant au bon vélo.
 - modification de la gestion de Repairers dans les stations ainsi que de l'nevoie de ces dernier pour qu'il puisse effectuer leurs actions.
 
+
+#### à faire :
+- changer la façon dont les vélos sont stockée dans une station, c'est à dire un vélo peut-être emprunter depuis une station et remis dans une autres
+- changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification.
+- changer l'enum d'état en un pattern State
+

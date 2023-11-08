@@ -65,12 +65,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	public void takeDamage() {
 		this.v.takeDamage();
 	}
-	
-	@Override
-	public void use() {
-		this.v.use();
-	}
-	
+
 	@Override
 	public Repairer askRepairer() {
 		return this.v.askRepairer();
@@ -80,33 +75,15 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	public void stole() {
 		this.v.stole();
 	}
-	
-
-
-
-
-	@Override
-	public String getType() {
-		
-		return null;
-	}
-
-
-
 
 	@Override
 	public void startRental() {
-		
-		
+		this.v.startRental();
 	}
 
-
-
-
 	@Override
-	public void stopRental() {
-		
-		
+	public void stopRental(Station s) {
+		this.v.stopRental(s);
 	}
 
 
@@ -117,59 +94,6 @@ public class FeatureDeco implements TwoWheeledVehicle {
 		
 		return false;
 	}
-
-
-
-
-	@Override
-	public void markForRepair() {
-		
-		
-	}
-
-
-
-
-	@Override
-	public void performRepair() {
-		
-		
-	}
-
-
-
-
-	@Override
-	public void markAsStolen() {
-		
-		
-	}
-
-
-
-
-	@Override
-	public boolean isStolen() {
-		
-		return false;
-	}
-
-
-	@Override
-	public Station getCurrentStation(Station s) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	@Override
-	public void attachToStation(Station stationId) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 
 	@Override
 	public Station getStation() {

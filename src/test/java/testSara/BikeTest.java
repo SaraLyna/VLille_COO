@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.control.ControlCenter;
 import projetCOO.state.State;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.bike.Bike;
@@ -15,10 +16,13 @@ public class BikeTest {
 
 	private Station s;
 	private Bike bike;
+	private ControlCenter c;
 
 	@BeforeEach
 	public void init() {
-		this.s = new Station(1);
+		this.c = new ControlCenter(0);
+		this.s = new Station(1,c);
+		this.c.addStation(s);
 		this.bike = new Bike(null,this.s,3);
 		this.s.addVehicle(bike);
 	}
@@ -42,7 +46,7 @@ public class BikeTest {
 		for (int i = 0; i < 6; i++) {
 			this.bike.use();
 		}
-		assertEquals(this.s.getVehicles().get(bike), State.OUTOFSERVICE);
+		assertEquals(this.s.getVehicles().get(bike), State.UNAVAILABLE);
 	}
 
 

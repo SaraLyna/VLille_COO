@@ -13,6 +13,7 @@ import java.util.Map.Entry;
 */
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
+	private Map<Repairer, Integer> repairerList; 
 	private List<Station> stationsNeedsToBeverify;
 	private int nbStation;
 	
@@ -98,13 +99,7 @@ public class ControlCenter{
 	 * verification method 
 	 */
 	public void verification() {
-		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
-			for (Entry<TwoWheeledVehicle, State> b : s.getValue().getVehicles().entrySet()) {
-				if (b.getValue().equals(State.OUTOFSERVICE) || b.getKey().isDamaged()) {
-					this.stationsNeedsToBeverify.add(s.getValue());
-				}
-			}
-		}
+
 	}
 
 	
@@ -123,20 +118,12 @@ public class ControlCenter{
 	 * @return the collection of the different vehicles in a station
 	 */
 	public Map<Integer, TwoWheeledVehicle> collectVehicles() {
-		int cpt = 0;
 		Map<Integer, TwoWheeledVehicle> vs = new HashMap<>();
 		for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
-			Iterator<Map.Entry<TwoWheeledVehicle, State>> iterator = s.getValue().getVehicles().entrySet().iterator();
+			Iterator<TwoWheeledVehicle> iterator = s.getValue().getVehicles().iterator();
 
 	        while (iterator.hasNext()) {
-	            Map.Entry<TwoWheeledVehicle, State> v = iterator.next();
-
-	            if (v.getValue() == State.AVAILABLE) {
-	            	v.getKey().setStation(null);
-	                vs.put(cpt, v.getKey());
-	                iterator.remove();;
-	                cpt++;
-	            }
+				vs.put(vs.size(), iterator.next());
 	        }
 		}
 		return vs;
