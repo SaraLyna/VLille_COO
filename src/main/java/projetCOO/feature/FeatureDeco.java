@@ -1,5 +1,6 @@
 package projetCOO.feature;
 
+import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -68,6 +69,11 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	@Override
 	public void use() {
 		this.v.use();
+	}
+	
+	@Override
+	public Repairer askRepairer() {
+		return this.v.askRepairer();
 	}
 	
 	@Override

@@ -1,5 +1,6 @@
 package projetCOO.twoWheeledVehicle.bike;
 
+import projetCOO.control.repairer.Repairer;
 import projetCOO.state.State;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -131,6 +132,14 @@ public class Bike implements TwoWheeledVehicle {
    		else {
    			this.getStation().needRepairer(this);
    		}
+   	}
+   	
+   	/**
+   	 * ask a Repairer for this bike
+   	 * @return Repairer
+   	 */
+   	public Repairer askRepairer() {
+   		return new Repairer();
    	}
    	
    	

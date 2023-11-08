@@ -203,7 +203,7 @@ public class Station {
 	 * ask a Repairer for this station
 	 */
 	public void needRepairer(TwoWheeledVehicle v) {
-		this.controlCenter.sendRepairer(this , v);
+		this.controlCenter.sendRepairer(this , v, v.askRepairer());
 	}
 	    
 	/**

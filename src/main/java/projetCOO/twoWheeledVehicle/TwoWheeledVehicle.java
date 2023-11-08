@@ -1,5 +1,6 @@
 package projetCOO.twoWheeledVehicle;
 
+import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
 
 
@@ -17,17 +18,6 @@ public interface TwoWheeledVehicle {
 	
 	
 	/**
-	 * Saying that a vehicle is damaged
-	 */
-	public void takeDamage();
-	
-	
-	/**
-	 * Saying that a vehicle is not damaged
-	 */
-	public void repair();
-	
-	/**
 	 * give the TwoWheeledVehicle's Station 
 	 * @return Station
 	 */
@@ -38,20 +28,6 @@ public interface TwoWheeledVehicle {
 	 * @param station
 	 */
 	public void setStation(Station station);
-	
-	
-	
-	/**
-	 * Saying if a vehicle is in use
-	 */
-	public void use();
-	
-	
-	
-	/**
-	 * Saying that a vehicle is stolen
-	 */
-	public void stole();
 	
 	/**
 	 * return the use number of this vehicle.
@@ -76,12 +52,51 @@ public interface TwoWheeledVehicle {
 	 */
 	public void setUseLimit(int n);
 	
+	/**
+	 * Saying that a vehicle is damaged
+	 */
+	public void takeDamage();
+	
+	
+	/**
+	 * Saying that a vehicle is not damaged
+	 */
+	public void repair();
+	
+	/**
+	 * Saying if a vehicle is in use
+	 */
+	public void use();
+	
+	
+	
+	/**
+	 * Saying that a vehicle is stolen
+	 */
+	public void stole();
+	
+	/*
+	 * ask a repairer for this vehicle.
+	 * @return Repairer
+	 */
+	public Repairer askRepairer();
+	
 	
 	/**
 	 * toString() method
 	 * @return String
 	 */
 	public String toString();	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

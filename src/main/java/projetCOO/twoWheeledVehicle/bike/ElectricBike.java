@@ -1,5 +1,7 @@
 package projetCOO.twoWheeledVehicle.bike;
 
+import projetCOO.control.repairer.Repairer;
+import projetCOO.control.repairer.RepairerElectric;
 import projetCOO.station.Station;
 
 
@@ -23,6 +25,15 @@ public class ElectricBike extends Bike{
 		super(skin,station,ul);
 		this.capacityBatterie= capacityBatterie;
 		this.niveauBatterie = 100;
+	}
+	
+	/**
+	 * ask a RepairerElcetic for this bike
+	 * @return RepairerElectic
+	 */
+	@Override
+	public Repairer askRepairer() {
+		return new RepairerElectric();
 	}
 
 	
