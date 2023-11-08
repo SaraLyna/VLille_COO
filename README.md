@@ -120,3 +120,8 @@ Jeudi 02 Novembre :
 - Mise en place de la gestion du nombre d'usage limite pour un véhicule.
 - Test pour Bike
 
+### Semaine 8 : 
+Mercredi 08 Novembre :
+- ajout d'une méthode askRepaire pour Bike qui retourne un repairer correspondant au bon vélo.
+- modification de la gestion de Repairers dans les stations ainsi que de l'nevoie de ces dernier pour qu'il puisse effectuer leurs actions.
+
