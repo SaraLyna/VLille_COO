@@ -112,7 +112,9 @@ public class Bike implements TwoWheeledVehicle {
    	
    	
    	/**
-   	 *Use the bike if this bike is available.
+   	 *if the bike is available, so this bike is use
+   	 *otherwise this bike is hand over in his station 
+   	 *but if the number of use of this bike is exceeded so this bike is out of service
    	 */
    	public void use() {
    		if (nbUse < useLimit) {
@@ -127,7 +129,7 @@ public class Bike implements TwoWheeledVehicle {
    	   		}
    		}
    		else {
-   			this.getStation().setStateVehicle(this, State.OUTOFSERVICE);
+   			this.getStation().needRepairer(this);
    		}
    	}
    	

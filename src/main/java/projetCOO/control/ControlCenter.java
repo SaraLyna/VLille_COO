@@ -85,7 +85,7 @@ public class ControlCenter{
 	public void initStation() {
 		this.stationList = new HashMap<>(); 
 		for (int i = 0;i<this.nbStation; i++) {
-			Station s = new Station(i);
+			Station s = new Station(i, this);
 			this.addStation(s);
 		}
 		
@@ -106,28 +106,14 @@ public class ControlCenter{
 			}
 		}
 	}
-	
-	
-	
-	/**
-	 *send a repairer to repair a bike
-	 */
-	public void sendRepairer() {
-		Repairer r;
-		for (int i = 0; i<this.stationsNeedsToBeverify.size(); i++) {
-			r = new Repairer();
-			this.stationsNeedsToBeverify.get(i).setRepairer(r);
-			r.setStation(this.stationsNeedsToBeverify.get(i));
-		}
-		System.out.println("repairers send");
-	}
+
 	
 	/**
 	 * send a repairer in a Station
 	 */
-	public void sendRepairer2_0(Station station) {
+	public void sendRepairer(Station station, TwoWheeledVehicle v) {
 		Repairer r = new Repairer(); 
-		station.setRepairer(r);
+		station.addRepairer(r,v);
 		r.setStation(station);
 	}
 	

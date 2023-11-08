@@ -50,7 +50,7 @@ public class Repairer{
 	 *Telling  when a vehicle leaves the station
 	 */
 	public void leaveStation() {
-		this.getStation().setRepairer(null);
+		this.getStation().removeRepairer(this);
 		this.setStation(null);
 	}
 	
@@ -59,15 +59,10 @@ public class Repairer{
    /**
     * repair the bike
     */
-	public void action() {
-		for (Map.Entry<TwoWheeledVehicle, State> v : this.station.getVehicles().entrySet()) {
-			if (v.getValue().equals(State.OUTOFSERVICE) || v.getKey().isDamaged()) {
-				v.getKey().repair();
-				v.getKey().resetNBUse();
-			}
-		}
+	public void action(TwoWheeledVehicle v) {
+		v.repair();
+		v.resetNBUse();
 		this.leaveStation();
-	  
 	}
 	
 	

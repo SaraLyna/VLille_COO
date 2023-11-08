@@ -56,8 +56,8 @@ public class Vlille {
 			if ( i == 3) {
 				this.displayVehiclesForEachStations();
 				this.c.verification();
-				this.c.sendRepairer();
-				this.repair();
+				//this.c.sendRepairer();
+//				this.repair();
 			}
 		}
 	}
@@ -97,13 +97,13 @@ public class Vlille {
 	/**
 	 * order Repairers to repair 
 	 */
-	public void repair() {
-		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
-			if (s.getValue().getRepairer() != null) {
-				s.getValue().getRepairer().action();
-			}
-		}
-	}
+//	public void repair() {
+//		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
+//			if (s.getValue().getRepairer() != null) {
+//				s.getValue().getRepairer().action();
+//			}
+//		}
+//	}
 	
 	
 	

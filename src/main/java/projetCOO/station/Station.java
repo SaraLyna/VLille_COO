@@ -1,9 +1,13 @@
 package projetCOO.station;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import projetCOO.control.ControlCenter;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.state.State;
-import projetCOO.twoWheeledVehicle.*;
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 
 /**
@@ -14,25 +18,36 @@ public class Station {
 	protected int id;
 	protected int capacityMax;
 	protected Map<TwoWheeledVehicle,State> vehicles;
-	protected Repairer repairer ;
+	protected Map<Repairer,TwoWheeledVehicle> repairers ;
 	protected int availableVehicleNB;
+	protected ControlCenter controlCenter;
 
 	/**
 	* Constructor of the class Station
 	*/
-	public Station(int id){
+	public Station(int id, ControlCenter c){
 			this.id = id;
+			this.controlCenter = c;
         	this.initCapacityMax();;
         	this.vehicles = new HashMap<>();
-        	this.repairer = null;
+        	this.repairers = new HashMap<>();
         	this.availableVehicleNB = this.capacityMax;
 	}
 	
 	/**
-	 * @return the station's id
+	 * give the the station's id
+	 * @return Int
 	 */
 	public int getId(){
 		return id;
+	}
+	
+	/**
+	 * give the ControlCenter that manages this station
+	 * @return ControlCenter
+	 */
+	public ControlCenter getControlCenter() {
+		return this.controlCenter;
 	}
 	
 	
@@ -80,20 +95,9 @@ public class Station {
 	 * gives the repairer if he is present otherwise null
 	 * @return the repairer
 	 */
-	public Repairer getRepairer() {
-		return repairer;
+	public Map<Repairer, TwoWheeledVehicle> getRepairer() {
+		return repairers;
 	}
-	
-	
-
-	/**
-	 * @param repairer the repairer to set
-	 */
-	public void setRepairer(Repairer r) {
-		this.repairer = r;
-	}
-	
-	
 	
 	/**
 	 * @return the number of vehicles which are available
@@ -127,6 +131,22 @@ public class Station {
 	public void removeVehicle(TwoWheeledVehicle v) {
 		v.setStation(null);
 		vehicles.remove(v);
+	}
+	
+	/**
+	 * mettre une exception ici 
+	 * add a Repairer for a vehicle in this station
+	 */
+	public void addRepairer(Repairer r, TwoWheeledVehicle v) {
+		this.repairers.put(r, v);
+	}
+	
+	/**
+	 * mettre une exception ici
+	 * remove a Repairer of this sation
+	 */
+	public void removeRepairer(Repairer r) {
+		this.repairers.remove(r);
 	}
 	
 	
@@ -178,8 +198,19 @@ public class Station {
 			}
 		}
 	}
-	    
 	
+	/*
+	 * ask a Repairer for this station
+	 */
+	public void needRepairer(TwoWheeledVehicle v) {
+		this.controlCenter.sendRepairer(this , v);
+	}
+	    
+	/**
+     * -------------------------------------------------------------
+     * ----------------------- Inits Methods ------------------------
+     * -------------------------------------------------------------      
+     */
 	
 	/**
 	 * Init the max vehicle capacity of the station.
@@ -191,6 +222,12 @@ public class Station {
 		int range = max - min + 1;
 		this.capacityMax = (int)(Math.random() * range) + min;
 	}
+	
+	/**
+     * -------------------------------------------------------------
+     * ----------------------- Display Methods ------------------------
+     * -------------------------------------------------------------      
+     */
 	
 	
 	public void displayVehicles() {

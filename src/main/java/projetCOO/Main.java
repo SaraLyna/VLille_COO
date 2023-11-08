@@ -47,7 +47,7 @@ public class Main {
          controlCenter.show();
          
          controlCenter.verification();
-         controlCenter.sendRepairer();
+//         controlCenter.sendRepairer();
          
          controlCenter.show();
          
