@@ -1,8 +1,8 @@
 package projetCOO.vlille;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import projetCOO.control.ControlCenter;
 import projetCOO.state.State;
@@ -69,10 +69,11 @@ public class Vlille {
 	 */
 	public void day() {
 		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
-			for (Entry<TwoWheeledVehicle, State> v : s.getValue().getVehicles().entrySet()) {
-				this.event(v.getKey());
+			Iterator<TwoWheeledVehicle> i = s.getValue().getVehicles().iterator();
+			while (i.hasNext()) {
+				this.event(i.next());
 			}
-			s.getValue().stoleAVehicle();
+			//s.getValue().stoleAVehicle();
 		}
 		
 	}
@@ -86,11 +87,11 @@ public class Vlille {
 	public void event(TwoWheeledVehicle v) {
 		int prob = this.chance();
 		if (prob < 90) {
-			v.use();
-			prob = this.chance();
-			if (prob < 15 && v.getStation().getVehicles().get(v).equals(State.UNAVAILABLE)) {
-				v.takeDamage();
-			}
+//			v.use();
+//			prob = this.chance();
+//			if (prob < 15 && v.getStation().getVehicles().get(v).equals(State.UNAVAILABLE)) {
+//				v.takeDamage();
+//			}
 		}
 	}
 	

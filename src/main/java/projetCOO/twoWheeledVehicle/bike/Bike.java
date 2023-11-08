@@ -113,16 +113,23 @@ public class Bike implements TwoWheeledVehicle {
 	public boolean isAvailable() {
 		return this.getStation().getVehicles().contains(this);
 	}
-   	
+   	/**
+   	 * mettre une exception
+   	 */
 	@Override
 	public void startRental() {
-		if (isAvailable()) {
+		if (this.station != null && this.nbUse < this.useLimit) {
 	        this.getStation().removeVehicle(this);
 	        this.nbUse++;
 	    }
-		
+		else {
+			System.out.println("met une exception");
+		}
 	}
 	
+	/**
+	 * mettre une exception ici
+	 */
 	@Override
 	public void stopRental(Station s) {
 		this.setStation(s);

@@ -34,14 +34,14 @@ public class Main {
     	
     	
     	 for (Station station : controlCenter.getStationList().values()) {
-             for (TwoWheeledVehicle bike : station.getVehicles().keySet()) {
-                 bike = new Basket(bike);
-             }
+//             for (TwoWheeledVehicle bike : station.getVehicles().keySet()) {
+//                 bike = new Basket(bike);
+//             }
          }
     	 
     	 Station station = controlCenter.getOneStation(0);
-         TwoWheeledVehicle damagedBike = station.getOneVehicle(0);
-         damagedBike.takeDamage();
+//         TwoWheeledVehicle damagedBike = station.getOneVehicle(0);
+//         damagedBike.takeDamage();
 
          
          controlCenter.show();
