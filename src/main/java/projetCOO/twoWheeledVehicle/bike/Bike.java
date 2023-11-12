@@ -1,5 +1,8 @@
 package projetCOO.twoWheeledVehicle.bike;
 
+import java.util.Map;
+
+import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -117,13 +120,13 @@ public class Bike implements TwoWheeledVehicle {
    	 * mettre une exception
    	 */
 	@Override
-	public void startRental() {
+	public void startRental() throws OutOfService{
 		if (this.station != null && this.nbUse < this.useLimit) {
 	        this.getStation().removeVehicle(this);
 	        this.nbUse++;
 	    }
 		else {
-			System.out.println("met une exception");
+			throw new OutOfService("this Bike is Out Of Service");
 		}
 	}
 	
@@ -133,15 +136,25 @@ public class Bike implements TwoWheeledVehicle {
 	@Override
 	public void stopRental(Station s) {
 		this.setStation(s);
-		s.addVehicle(this);
+		if (this.nbUse >= this.useLimit) {
+			s.addVehicleOutService(this);
+		}
+		else {
+			s.addVehicle(this);
+		}
 	}
    	
    	/**
    	 * ask a Repairer for this bike
    	 * @return Repairer
    	 */
-   	public Repairer askRepairer() {
-   		return new Repairer();
+   	public Repairer askRepairer(Map<Repairer, Boolean> repairersList) {
+   		for (Map.Entry<Repairer, Boolean> set : repairersList.entrySet()) {
+   			if (set.getKey() instanceof Repairer && repairersList.get(set.getKey()).equals(true)) {
+   				return set.getKey();
+   			}
+   		}
+   		return null;
    	}
    	
    	

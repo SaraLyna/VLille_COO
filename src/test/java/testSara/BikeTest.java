@@ -1,13 +1,15 @@
 package testSara;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.Exception.OutOfService;
 import projetCOO.control.ControlCenter;
-import projetCOO.state.State;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.bike.Bike;
 
@@ -23,30 +25,35 @@ public class BikeTest {
 		this.c = new ControlCenter(0);
 		this.s = new Station(1,c);
 		this.c.addStation(s);
-		this.bike = new Bike(null,this.s,3);
+		this.bike = new Bike("Red",this.s,3);
 		this.s.addVehicle(bike);
 	}
 	
 	@Test 
-	public void WeUseTheBike() {
-		this.bike.use();
-		assertEquals(this.s.getVehicles().get(bike), State.UNAVAILABLE);
+	public void WeUseTheBike() throws OutOfService {
+		this.bike.startRental();
+		assertFalse(this.s.getVehicles().contains(bike));
 	}
 	
 	@Test
-	public void WeHandOverTheBike() {
-		this.bike.use();
-		assertEquals(this.s.getVehicles().get(bike), State.UNAVAILABLE);
-		this.bike.use();
-		assertEquals(this.s.getVehicles().get(bike), State.AVAILABLE);
+	public void WeHandOverTheBike() throws OutOfService {
+		this.bike.startRental();
+		assertFalse(this.s.getVehicles().contains(bike));
+		this.bike.stopRental(s);
+		assertTrue(this.s.getVehicles().contains(bike));
 	}
 	
-	@Test
-	public void TheVehicleIsOutOfService() {
-		for (int i = 0; i < 6; i++) {
-			this.bike.use();
+	@Test 
+	public void TheVehicleIsOutOfService() throws OutOfService {
+		for (int i = 0; i < 3; i++) {
+			this.bike.startRental();
+			this.bike.stopRental(s);
 		}
-		assertEquals(this.s.getVehicles().get(bike), State.UNAVAILABLE);
+		assertEquals(this.s.getVehicles().size(), 0);
+		OutOfService exception = assertThrows(OutOfService.class, () -> {
+			this.bike.startRental();
+		});
+		assertEquals("this Bike is Out Of Service", exception.getMessage());
 	}
 
 

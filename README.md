@@ -123,11 +123,15 @@ Jeudi 02 Novembre :
 ### Semaine 8 : 
 Mercredi 08 Novembre :
 - ajout d'une méthode askRepaire pour Bike qui retourne un repairer correspondant au bon vélo.
-- modification de la gestion de Repairers dans les stations ainsi que de l'nevoie de ces dernier pour qu'il puisse effectuer leurs actions.
+- modification de la gestion de Repairers dans les stations ainsi que de l'envoie de ces derniers pour qu'ils puissent effectuer leurs actions.
 
+Dimanche 12 Novembre : 
+- modification des tests de Bike et Station.
+- changement de la façon dont les véhicules sont stockés dans les stations.
+- création d'une liste de véhicules hors-services dans les stations pour différencier les véhicules disponibles et les véhicules hors-services.
 
 #### à faire :
-- changer la façon dont les vélos sont stockée dans une station, c'est à dire un vélo peut-être emprunter depuis une station et remis dans une autres
+- changer la façon dont les vélos sont stockés dans une station, c'est à dire un vélo peut-être emprunter depuis une station et remis dans une autres
 - changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification.
 - changer l'enum d'état en un pattern State
 

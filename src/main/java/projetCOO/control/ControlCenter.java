@@ -13,7 +13,7 @@ import java.util.Map.Entry;
 */
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
-	private Map<Repairer, Integer> repairerList; 
+	private Map<Repairer, Boolean> repairesrList; 
 	private List<Station> stationsNeedsToBeverify;
 	private int nbStation;
 	
@@ -25,6 +25,7 @@ public class ControlCenter{
 		this.nbStation = n;
 		this.initStation();
 		this.stationsNeedsToBeverify = new ArrayList<>();
+		this.repairesrList = new HashMap<>();
 	}
 	
 	

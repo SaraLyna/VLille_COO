@@ -1,5 +1,8 @@
 package projetCOO.feature;
 
+import java.util.Map;
+
+import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -67,8 +70,8 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	}
 
 	@Override
-	public Repairer askRepairer() {
-		return this.v.askRepairer();
+	public Repairer askRepairer(Map<Repairer, Boolean> repairerList) {
+		return this.v.askRepairer(repairerList);
 	}
 	
 	@Override
@@ -77,7 +80,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	}
 
 	@Override
-	public void startRental() {
+	public void startRental() throws OutOfService {
 		this.v.startRental();
 	}
 

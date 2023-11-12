@@ -1,5 +1,7 @@
 package projetCOO.twoWheeledVehicle.bike;
 
+import java.util.Map;
+
 import projetCOO.control.repairer.Repairer;
 import projetCOO.control.repairer.RepairerElectric;
 import projetCOO.station.Station;
@@ -32,8 +34,13 @@ public class ElectricBike extends Bike{
 	 * @return RepairerElectic
 	 */
 	@Override
-	public Repairer askRepairer() {
-		return new RepairerElectric();
+	public Repairer askRepairer(Map<Repairer, Boolean> repairersList) {
+		for (Map.Entry<Repairer, Boolean> set : repairersList.entrySet()) {
+   			if (set.getKey() instanceof RepairerElectric && repairersList.get(set.getKey()).equals(true)) {
+   				return set.getKey();
+   			}
+   		}
+   		return null;
 	}
 
 	

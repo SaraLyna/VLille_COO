@@ -19,9 +19,9 @@ public class Station {
 	protected int id;
 	protected int capacityMax;
 	protected List<TwoWheeledVehicle> vehicles;
+	protected List<TwoWheeledVehicle> outService;
 	// à modifier
 	protected Map<Repairer,TwoWheeledVehicle> repairers ;
-	protected int availableVehicleNB;
 	protected ControlCenter controlCenter;
 
 	/**
@@ -32,8 +32,8 @@ public class Station {
 			this.controlCenter = c;
         	this.initCapacityMax();;
         	this.vehicles = new ArrayList<>();
+        	this.outService = new ArrayList<>();
         	this.repairers = new HashMap<>();
-        	this.availableVehicleNB = this.capacityMax;
 	}
 	
 	/**
@@ -54,7 +54,8 @@ public class Station {
 	
 	
 	/**
-	 * @return the capacityMax
+	 * gives the capacity max in this station
+	 * @return int
 	 */
 	public int getCapacityMax() {
 		return capacityMax;
@@ -62,41 +63,41 @@ public class Station {
 
 	
 	/**
-	 * give the station list and the state for each bike
-	 * @return the vehicles
+	 * gives the vehicles available list in this station
+	 * @return List<TwoWheeledVehicle>
 	 */
 	public List<TwoWheeledVehicle> getVehicles() {
 		return vehicles;
 	}
 	
 	/**
+	 * gives the vehicles list that are out of service in this station
+	 * @return List<TwoWheeledVehicle>
+	 */
+	public List<TwoWheeledVehicle> getOutService() {
+		return this.outService;
+	}
+	
+	/**
 	 * gives the repairer if he is present otherwise null
-	 * @return the repairer
+	 * @return Map<Repairer, TwoWheeledVehicle>
 	 */
 	public Map<Repairer, TwoWheeledVehicle> getRepairer() {
 		return repairers;
 	}
 	
 	/**
-	 * @return the number of vehicles which are available
-	 */
-	public int getAvailableVehicleCount() {
-        return this.availableVehicleNB;
-	 }
-	
-	
-	/**
-	 * Add a vehicle to the station.
-	 * @param bike
+	 * Add a vehicle in this station.
+	 * @param TwoWheeledVehicle
 	 */
 	public void addVehicle(TwoWheeledVehicle v) {
-		if (vehicles.size() < capacityMax) {
-            		vehicles.add(v); 
-            		v.setStation(this);
+		if (vehicles.size() + outService.size() < capacityMax) {
+            vehicles.add(v); 
+            v.setStation(this);
             		
         } 
 		else {
-            		System.out.println("The station is at maximum capacity. Cannot add more bikes.");
+            System.out.println("The station is at maximum capacity. Cannot add more bikes.");
 		}
 		
 	}
@@ -105,11 +106,30 @@ public class Station {
 	
 	/**
 	 * mettre une exception here
-	 * @param vehicle
+	 * removes a vehicles of this station
+	 * @param TwoWheeledVehicle
 	 */
 	public void removeVehicle(TwoWheeledVehicle v) {
 		v.setStation(null);
 		vehicles.remove(v);
+	}
+	
+	/**
+	 * add a vehicle out of service in this station
+	 * @param TwoWheeledVehicle
+	 */
+	public void addVehicleOutService(TwoWheeledVehicle v) {
+		this.outService.add(v);
+		v.setStation(this);
+	}
+	
+	/**
+	 * removes a vehicles who was considered as out of service of this station
+	 * @param TwoWheeledVehicle
+	 */
+	public void removeVehicleOutService(TwoWheeledVehicle v) {
+		this.outService.remove(v);
+		this.vehicles.add(v);
 	}
 	
 	/**
@@ -131,9 +151,9 @@ public class Station {
 	/*
 	 * ask a Repairer for this station
 	 */
-	public void needRepairer(TwoWheeledVehicle v) {
-		this.controlCenter.sendRepairer(this , v, v.askRepairer());
-	}
+//	public void needRepairer(TwoWheeledVehicle v) {
+//		this.controlCenter.sendRepairer(this , v, v.askRepairer());
+//	}
 	    
 	/**
      * -------------------------------------------------------------
