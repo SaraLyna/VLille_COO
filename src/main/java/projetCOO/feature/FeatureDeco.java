@@ -1,6 +1,6 @@
 package projetCOO.feature;
 
-import java.util.Map;
+import java.util.List;
 
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
@@ -70,8 +70,18 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	}
 
 	@Override
-	public Repairer askRepairer(Map<Repairer, Boolean> repairerList) {
+	public Repairer askRepairer(List<Repairer> repairerList) {
 		return this.v.askRepairer(repairerList);
+	}
+	
+	@Override
+	/**
+   	 * says if is the right type of Repairer
+   	 * @param Repairer
+   	 * @return boolean
+   	 */
+   	public boolean isGoodRepairer(Repairer r) {
+		return this.v.isGoodRepairer(r);
 	}
 	
 	@Override

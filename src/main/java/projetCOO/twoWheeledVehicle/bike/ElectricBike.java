@@ -1,6 +1,7 @@
 package projetCOO.twoWheeledVehicle.bike;
 
-import java.util.Map;
+import java.util.Iterator;
+import java.util.List;
 
 import projetCOO.control.repairer.Repairer;
 import projetCOO.control.repairer.RepairerElectric;
@@ -34,14 +35,28 @@ public class ElectricBike extends Bike{
 	 * @return RepairerElectic
 	 */
 	@Override
-	public Repairer askRepairer(Map<Repairer, Boolean> repairersList) {
-		for (Map.Entry<Repairer, Boolean> set : repairersList.entrySet()) {
-   			if (set.getKey() instanceof RepairerElectric && repairersList.get(set.getKey()).equals(true)) {
-   				return set.getKey();
+	public Repairer askRepairer(List<Repairer> repairersList) {
+		Iterator<Repairer> i = repairersList.iterator();
+   		int min = 1000000;
+   		Repairer save = null;
+   		while (i.hasNext()) {
+   			Repairer r = i.next();
+   			if (this.isGoodRepairer(r) && min > r.getNBTask()) {
+   				save = r;
+   				min = r.getNBTask();
    			}
    		}
-   		return null;
+   		return save;
 	}
+	
+	/**
+   	 * says if is the right type of Repairer
+   	 * @param Repairer
+   	 * @return boolean
+   	 */
+   	public boolean isGoodRepairer(Repairer r) {
+   		return r instanceof RepairerElectric;
+   	}
 
 	
 	 /**

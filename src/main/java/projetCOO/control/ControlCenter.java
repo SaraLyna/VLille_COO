@@ -1,11 +1,9 @@
 package projetCOO.control;
 
 import projetCOO.control.repairer.Repairer;
-import projetCOO.state.State;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import java.util.*;
-import java.util.Map.Entry;
 
 
 /**
@@ -13,7 +11,7 @@ import java.util.Map.Entry;
 */
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
-	private Map<Repairer, Boolean> repairersList; 
+	private List<Repairer> repairersList; 
 	private List<Station> stationsNeedsToBeverify;
 	private int nbStation;
 	
@@ -25,7 +23,7 @@ public class ControlCenter{
 		this.nbStation = n;
 		this.initStation();
 		this.stationsNeedsToBeverify = new ArrayList<>();
-		this.repairersList = new HashMap<>();
+		this.repairersList = new ArrayList<>();
 	}
 	
 	
@@ -42,7 +40,7 @@ public class ControlCenter{
 	 * gives the repairers list who work in this ControlCenter
 	 * @return Map<Repairer, Boolean>
 	 */
-	public Map<Repairer, Boolean> getRepairersList() {
+	public List<Repairer> getRepairersList() {
 		return this.repairersList;	
 	}
 	
@@ -80,7 +78,7 @@ public class ControlCenter{
 	 * @param Worker 
 	 */
 	public void addRepairers(Repairer r) {
-		this.repairersList.put(r, true);
+		this.repairersList.add(r);
 	}
 	
 	/*

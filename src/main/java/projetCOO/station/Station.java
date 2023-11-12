@@ -152,6 +152,12 @@ public class Station {
 	 * ask a Repairer for this station
 	 */
 	public void needRepairer(TwoWheeledVehicle v) {
+		for (Map.Entry<Repairer, TwoWheeledVehicle> set : this.getRepairer().entrySet()) {
+			if (v.isGoodRepairer(set.getKey())) {
+				this.controlCenter.sendRepairer(this , v, set.getKey());
+				break;
+			}
+		}
 		this.controlCenter.sendRepairer(this , v, v.askRepairer(this.controlCenter.getRepairersList()));
 	}
 	    

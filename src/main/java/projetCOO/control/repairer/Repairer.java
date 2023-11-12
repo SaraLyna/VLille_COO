@@ -47,7 +47,13 @@ public class Repairer{
 		this.station = s;
 	}
 	
-	
+	/**
+	 * gives the task's numbers of this repairer
+	 * @return int
+	 */
+	public int getNBTask() {
+		return this.nbTask;
+	}
 	
 	
 	/**

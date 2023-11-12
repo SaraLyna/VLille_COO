@@ -1,6 +1,6 @@
 package projetCOO.twoWheeledVehicle;
 
-import java.util.Map;
+import java.util.List;
 
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
@@ -75,7 +75,14 @@ public interface TwoWheeledVehicle {
 	 * ask a repairer for this vehicle.
 	 * @return Repairer
 	 */
-	public Repairer askRepairer(Map<Repairer, Boolean> repairersList);
+	public Repairer askRepairer(List<Repairer> repairersList);
+	
+	/**
+   	 * says if is the right type of Repairer
+   	 * @param Repairer
+   	 * @return boolean
+   	 */
+   	public boolean isGoodRepairer(Repairer r);
 	
 	
 	/**
