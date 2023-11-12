@@ -13,7 +13,7 @@ import java.util.Map.Entry;
 */
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
-	private Map<Repairer, Boolean> repairesrList; 
+	private Map<Repairer, Boolean> repairersList; 
 	private List<Station> stationsNeedsToBeverify;
 	private int nbStation;
 	
@@ -25,37 +25,25 @@ public class ControlCenter{
 		this.nbStation = n;
 		this.initStation();
 		this.stationsNeedsToBeverify = new ArrayList<>();
-		this.repairesrList = new HashMap<>();
+		this.repairersList = new HashMap<>();
 	}
 	
 	
 	
 	/**
-	 * @return stationList
+	 * gives the stations list linked to this ControlCenter
+	 * @return Map<Integer,Station>
 	 */
 	public Map<Integer,Station> getStationList() {
 		return stationList;
 	}
 	
-	
-
-	
-	/**
-	 * @param index
-	 * @return one station
+	/*
+	 * gives the repairers list who work in this ControlCenter
+	 * @return Map<Repairer, Boolean>
 	 */
-	public Station getOneStation(int index) {
-		Station s = null;
-		try {
-			for (Entry<Integer, Station> set : this.stationList.entrySet()) {
-				if (index == set.getKey()) {
-					s = set.getValue();
-				}
-			}
-		}catch(ArrayIndexOutOfBoundsException e) {
-			e.printStackTrace();
-		}
-		return s;
+	public Map<Repairer, Boolean> getRepairersList() {
+		return this.repairersList;	
 	}
 	
 	
@@ -71,12 +59,36 @@ public class ControlCenter{
 	
 	
 	/**
-	 * Adding a station to the control center
+	 * adds a station to the control center
 	 * @param station
 	 */
 	public void addStation(Station station) {
 		stationList.put(station.getId(), station);
 		
+	}
+	
+	/**
+	 * removes a station to the ControlCenter
+	 * @param station
+	 */
+	public void removeStation(Station s) {
+		this.stationList.remove(s.getId());
+	}
+	
+	/**
+	 * adds a worker to the ControlCenter
+	 * @param Worker 
+	 */
+	public void addRepairers(Repairer r) {
+		this.repairersList.put(r, true);
+	}
+	
+	/*
+	 * removes a worker of the ControlCenter
+	 * @param Worker
+	 */
+	public void removeRepairers(Repairer r) {
+		this.repairersList.remove(r);
 	}
 
 	

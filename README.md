@@ -131,7 +131,6 @@ Dimanche 12 Novembre :
 - création d'une liste de véhicules hors-services dans les stations pour différencier les véhicules disponibles et les véhicules hors-services.
 
 #### à faire :
-- changer la façon dont les vélos sont stockés dans une station, c'est à dire un vélo peut-être emprunter depuis une station et remis dans une autres
 - changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification.
 - changer l'enum d'état en un pattern State (pas sûr pour l'instant)
 
