@@ -23,7 +23,7 @@ public class ControlCenterTest {
 	@BeforeEach
 	public void init() {
 		this.c = new ControlCenter(1);
-		this.stationTest = c.getOneStation(0);
+		this.stationTest = c.getStationList().get(0);
 		for (int i = 0; i < stationTest.getCapacityMax();i++) {
 			stationTest.addVehicle(new Bike("default", stationTest, 3));
 		}

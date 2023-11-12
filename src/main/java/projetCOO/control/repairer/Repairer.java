@@ -1,5 +1,8 @@
 package projetCOO.control.repairer;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -11,6 +14,8 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 public class Repairer{
 	
 	protected Station station;
+	protected int nbTask;
+	protected Map<Integer, TwoWheeledVehicle> tasks;
 
 	
 	/**
@@ -18,6 +23,8 @@ public class Repairer{
 	 */
 	public Repairer(){
 	  this.station = null;
+	  this.nbTask = 0;
+	  this.tasks = new HashMap<>();
 	}
 	
 	
@@ -47,7 +54,7 @@ public class Repairer{
 	 *Telling  when a vehicle leaves the station
 	 */
 	public void leaveStation() {
-		this.getStation().removeRepairer(this);
+		this.getStation().removeRepairers(this);
 		this.setStation(null);
 	}
 	

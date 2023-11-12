@@ -138,6 +138,7 @@ public class Bike implements TwoWheeledVehicle {
 		this.setStation(s);
 		if (this.nbUse >= this.useLimit) {
 			s.addVehicleOutService(this);
+			s.needRepairer(this);
 		}
 		else {
 			s.addVehicle(this);
@@ -145,16 +146,24 @@ public class Bike implements TwoWheeledVehicle {
 	}
    	
    	/**
-   	 * ask a Repairer for this bike
+   	 * asks a Repairer for this bike
    	 * @return Repairer
    	 */
    	public Repairer askRepairer(Map<Repairer, Boolean> repairersList) {
    		for (Map.Entry<Repairer, Boolean> set : repairersList.entrySet()) {
-   			if (set.getKey() instanceof Repairer && repairersList.get(set.getKey()).equals(true)) {
+   			if (this.isGoodRepairer(set.getKey()) && repairersList.get(set.getKey()).equals(true)) {
    				return set.getKey();
    			}
    		}
    		return null;
+   	}
+   	
+   	/**
+   	 * says if is the right type of Repairer
+   	 * @param Repairer
+   	 */
+   	public boolean isGoodRepairer(Repairer r) {
+   		return r instanceof Repairer;
    	}
    	
    	

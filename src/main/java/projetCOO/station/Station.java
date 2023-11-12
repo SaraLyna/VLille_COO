@@ -136,7 +136,7 @@ public class Station {
 	 * mettre une exception ici 
 	 * add a Repairer for a vehicle in this station
 	 */
-	public void addRepairer(Repairer r, TwoWheeledVehicle v) {
+	public void addRepairers(Repairer r, TwoWheeledVehicle v) {
 		this.repairers.put(r, v);
 	}
 	
@@ -144,16 +144,16 @@ public class Station {
 	 * mettre une exception ici
 	 * remove a Repairer of this sation
 	 */
-	public void removeRepairer(Repairer r) {
+	public void removeRepairers(Repairer r) {
 		this.repairers.remove(r);
 	}	
 	
 	/*
 	 * ask a Repairer for this station
 	 */
-//	public void needRepairer(TwoWheeledVehicle v) {
-//		this.controlCenter.sendRepairer(this , v, v.askRepairer());
-//	}
+	public void needRepairer(TwoWheeledVehicle v) {
+		this.controlCenter.sendRepairer(this , v, v.askRepairer(this.controlCenter.getRepairersList()));
+	}
 	    
 	/**
      * -------------------------------------------------------------

@@ -39,7 +39,7 @@ public class Main {
 //             }
          }
     	 
-    	 Station station = controlCenter.getOneStation(0);
+    	 Station station = controlCenter.getStationList().get(0);
 //         TwoWheeledVehicle damagedBike = station.getOneVehicle(0);
 //         damagedBike.takeDamage();
 

@@ -21,7 +21,7 @@ class RepairerTest {
 		this.s =  new Station(0, null);
 		this.r = new Repairer();
 		this.r.setStation(s);
-		this.s.addRepairer(r, null);
+		this.s.addRepairers(r, null);
 	}
 
 	@Test

@@ -120,7 +120,7 @@ public class ControlCenter{
 	 * send a repairer in a Station
 	 */
 	public void sendRepairer(Station station, TwoWheeledVehicle v, Repairer r) {
-		station.addRepairer(r,v);
+		station.addRepairers(r,v);
 		r.setStation(station);
 	}
 	
