@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
 import projetCOO.state.State;
 import projetCOO.station.Station;
@@ -158,8 +159,9 @@ public class Vlille {
 	
 	/**
 	 * the method that initialize the vehicles
+	 * @throws OutOfLimit 
 	 */
-	public void initVehicules() {
+	public void initVehicules() throws OutOfLimit {
 		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
 			while (s.getValue().getVehicles().size() != s.getValue().getCapacityMax()) {
 				int r = this.randomNB(1,0);
@@ -181,8 +183,9 @@ public class Vlille {
 	
 	/**
 	 * the main method that runs the game using the differents methods below
+	 * @throws OutOfLimit 
 	 */
-	public void run() {
+	public void run() throws OutOfLimit {
 		this.initVehicules();
 		try {
 			System.out.print("How many week ? ");

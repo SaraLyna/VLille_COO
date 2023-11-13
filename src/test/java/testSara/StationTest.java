@@ -54,6 +54,14 @@ public class StationTest {
 		assertEquals("The station is at maximum capacity. Cannot add more bikes.", exception.getMessage());
 	}
 	
+	@Test
+	public void WeRemoveVehiculeInThisStation() {
+		Bike b = (Bike) this.s.getVehicles().get(0);
+		this.s.removeVehicle(b);
+		assertFalse(this.s.getVehicles().contains(b));
+	}
+
+	
 	@Test 
 	public void AVehicleIsUse() throws OutOfService {
 		Bike b = (Bike) this.s.getVehicles().get(0);
@@ -83,6 +91,13 @@ public class StationTest {
 		}
 		assertEquals(s.getVehicles().size(),s.getCapacityMax() - 2);
 		assertEquals(s.getOutService().size(), 2);
+	}
+	/**
+	 * à finir
+	 */
+	@Test
+	public void WeNeedRepairerInTheStation() {
+		this.s.needRepairer(null);
 	}
 	
 //	@Test

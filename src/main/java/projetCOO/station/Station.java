@@ -106,7 +106,6 @@ public class Station {
 	
 	
 	/**
-	 * mettre une exception here
 	 * removes a vehicles of this station
 	 * @param TwoWheeledVehicle
 	 */
@@ -134,23 +133,26 @@ public class Station {
 	}
 	
 	/**
-	 * mettre une exception ici 
-	 * add a Repairer for a vehicle in this station
+	 * add a Repairer for a vehicle in this Station
+	 * @param r, a Repairer who come in this Station
+	 * @param v, a Vehicle that has need a Repairer
 	 */
 	public void addRepairers(Repairer r, TwoWheeledVehicle v) {
 		this.repairers.put(r, v);
 	}
 	
 	/**
-	 * mettre une exception ici
-	 * remove a Repairer of this sation
+	 * 
+	 * remove a Repairer of this Station
+	 * @param r, a Repairer who leaves the Station
 	 */
 	public void removeRepairers(Repairer r) {
 		this.repairers.remove(r);
 	}	
 	
-	/*
-	 * ask a Repairer for this station
+	/**
+	 * ask to the control center an list of Repairers and assigned a Repairer to a Vehicle in this Station
+	 * @param v, a vehicle that has need a reparation or a technique control
 	 */
 	public void needRepairer(TwoWheeledVehicle v) {
 		for (Map.Entry<Repairer, TwoWheeledVehicle> set : this.getRepairer().entrySet()) {

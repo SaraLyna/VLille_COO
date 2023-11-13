@@ -1,5 +1,6 @@
 package projetCOO.control;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -153,7 +154,11 @@ public class ControlCenter{
 				if (s.getValue().getVehicles().size() < s.getValue().getCapacityMax()) {
 					int randomNB = (int) (Math.random() * (vs.size() + 1));
 					TwoWheeledVehicle b = vs.get(randomNB);
-					s.getValue().addVehicle(b);
+					try {
+						s.getValue().addVehicle(b);
+					} catch (OutOfLimit e) {
+						e.printStackTrace();
+					}
 					vs.remove(randomNB);
 				}
 			}

@@ -2,6 +2,7 @@ package projetCOO;
 
 import java.io.IOException;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
 import projetCOO.util.Input;
 import projetCOO.vlille.Vlille;
@@ -15,9 +16,11 @@ public class MainTest {
 			Vlille vlille = new Vlille(new ControlCenter(nbStation));
 			vlille.run();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (OutOfLimit e) {
 			e.printStackTrace();
 		}
 	}
+		
 
 }

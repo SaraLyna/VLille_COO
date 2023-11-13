@@ -127,7 +127,7 @@ public class Bike implements TwoWheeledVehicle {
    	/**
    	 * use a bike in the station where the bike is and increase the use's number of this bike.
    	 * If the bike is already used or the use's number is out of limit so throw an exception.
-   	 * @exception OutOfService
+   	 * @throws OutOfService
    	 */
 	@Override
 	public void startRental() throws OutOfService{
