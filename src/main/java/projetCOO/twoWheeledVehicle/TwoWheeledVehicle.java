@@ -2,6 +2,7 @@ package projetCOO.twoWheeledVehicle;
 
 import java.util.List;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
@@ -100,8 +101,9 @@ public interface TwoWheeledVehicle {
 
 	/**
 	 * Stoping rental
+	 * @throws OutOfLimit 
 	 */
-	public void stopRental(Station s);
+	public void stopRental(Station s) throws OutOfLimit;
 	
 	
 	

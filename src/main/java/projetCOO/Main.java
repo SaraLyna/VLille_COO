@@ -1,5 +1,6 @@
 package projetCOO;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -15,7 +16,7 @@ import projetCOO.feature.Basket;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws OutOfLimit {
     	ControlCenter controlCenter = new ControlCenter(10);
 		
     	

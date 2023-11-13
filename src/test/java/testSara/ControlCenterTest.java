@@ -9,6 +9,7 @@ import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
 import projetCOO.state.State;
 import projetCOO.station.Station;
@@ -21,7 +22,7 @@ public class ControlCenterTest {
 	private Station stationTest;
 	
 	@BeforeEach
-	public void init() {
+	public void init() throws OutOfLimit {
 		this.c = new ControlCenter(1);
 		this.stationTest = c.getStationList().get(0);
 		for (int i = 0; i < stationTest.getCapacityMax();i++) {

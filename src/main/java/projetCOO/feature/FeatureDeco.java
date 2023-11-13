@@ -2,6 +2,7 @@ package projetCOO.feature;
 
 import java.util.List;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
@@ -95,7 +96,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	}
 
 	@Override
-	public void stopRental(Station s) {
+	public void stopRental(Station s) throws OutOfLimit {
 		this.v.stopRental(s);
 	}
 

@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.ControlCenter;
 import projetCOO.control.repairer.Repairer;
@@ -26,7 +27,7 @@ public class BikeTest {
 	private ControlCenter c;
 
 	@BeforeEach
-	public void init() {
+	public void init() throws OutOfLimit {
 		this.c = new ControlCenter(0);
 		this.s = new Station(1,c);
 		this.c.addStation(s);
@@ -53,7 +54,7 @@ public class BikeTest {
 	}
 	
 	@Test
-	public void WeHandOverTheBike() throws OutOfService {
+	public void WeHandOverTheBike() throws OutOfService, OutOfLimit {
 		this.bike.startRental();
 		assertFalse(this.s.getVehicles().contains(bike));
 		this.bike.stopRental(s);
@@ -61,7 +62,7 @@ public class BikeTest {
 	}
 	
 	@Test 
-	public void TheVehicleIsOutOfService() throws OutOfService {
+	public void TheVehicleIsOutOfService() throws OutOfService, OutOfLimit {
 		for (int i = 0; i < 3; i++) {
 			this.bike.startRental();
 			this.bike.stopRental(s);

@@ -3,6 +3,7 @@ package projetCOO.twoWheeledVehicle.bike;
 import java.util.Iterator;
 import java.util.List;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.control.repairer.RepairerElectric;
@@ -142,9 +143,10 @@ public class Bike implements TwoWheeledVehicle {
 	/**
 	 * hand over the bike in a station
 	 * @param s, the new Station where the Bike is
+	 * @throws OutOfLimit 
 	 */
 	@Override
-	public void stopRental(Station s) {
+	public void stopRental(Station s) throws OutOfLimit {
 		this.setStation(s);
 		if (this.nbUse >= this.useLimit) {
 			s.addVehicleOutService(this);

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
 import projetCOO.control.repairer.Repairer;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -90,14 +91,14 @@ public class Station {
 	 * Add a vehicle in this station.
 	 * @param TwoWheeledVehicle
 	 */
-	public void addVehicle(TwoWheeledVehicle v) {
+	public void addVehicle(TwoWheeledVehicle v) throws OutOfLimit{
 		if (vehicles.size() + outService.size() < capacityMax) {
             vehicles.add(v); 
             v.setStation(this);
             		
         } 
 		else {
-            System.out.println("The station is at maximum capacity. Cannot add more bikes.");
+            throw new OutOfLimit("The station is at maximum capacity. Cannot add more bikes.");
 		}
 		
 	}

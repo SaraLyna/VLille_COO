@@ -1,11 +1,13 @@
 package testSara;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.ControlCenter;
 import projetCOO.control.repairer.Repairer;
@@ -26,7 +28,11 @@ public class StationTest {
 		this.c.addStation(s);
 		this.c.addRepairers(new Repairer());
 		for (int i = 0; i < s.getCapacityMax();i++) {
-			s.addVehicle(new Bike("default", s, 3));
+			try {
+				s.addVehicle(new Bike("default", s, 3));
+			} catch (OutOfLimit e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -40,6 +46,14 @@ public class StationTest {
 		assertEquals(s.getCapacityMax(), s.getVehicles().size());
 	}
 	
+	@Test
+	public void WeAddAVehiculeWhileTheSationIsFull() throws OutOfLimit {
+		OutOfLimit exception = assertThrows(OutOfLimit.class, () -> {
+			this.s.addVehicle(new Bike("Red",this.s,3));
+		});
+		assertEquals("The station is at maximum capacity. Cannot add more bikes.", exception.getMessage());
+	}
+	
 	@Test 
 	public void AVehicleIsUse() throws OutOfService {
 		Bike b = (Bike) this.s.getVehicles().get(0);
@@ -49,7 +63,7 @@ public class StationTest {
 	}
 	
 	@Test
-	public void AvehicleIsHandedOver() throws OutOfService {
+	public void AvehicleIsHandedOver() throws OutOfService, OutOfLimit {
 		Bike b = (Bike) this.s.getVehicles().get(0);
 		b.startRental();
 		b.stopRental(this.s);
@@ -58,7 +72,7 @@ public class StationTest {
 	}
 	
 	@Test 
-	public void TwoVehicleArentAvailable() throws OutOfService {
+	public void TwoVehicleArentAvailable() throws OutOfService, OutOfLimit {
 		Bike b1 = (Bike) this.s.getVehicles().get(0);
 		Bike b2 = (Bike) this.s.getVehicles().get(1);
 		for (int i = 0; i < 3; i++) {
