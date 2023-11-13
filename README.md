@@ -131,6 +131,11 @@ Dimanche 12 Novembre :
 - création d'une liste de véhicules hors-services dans les stations pour différencier les véhicules disponibles et les véhicules hors-services.
 - modification : avant que le centre de control envoie un réparateur, celui-ci demande au véhicule bar le bias de la station qu'elle réparateur il souhaite, si et seulement si il n'y a pas de réparteur qui correspond au souhait du véhicule 
 
+### Semaine 9 :
+
+Lundi 13 Novembre : 
+- ajout et modification de tests dans BikeTest
+
 #### à faire :
 - changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification (en cours).
 - changer l'enum d'état en un pattern State (pas sûr pour l'instant)

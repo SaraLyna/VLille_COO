@@ -2,8 +2,10 @@ package projetCOO.twoWheeledVehicle.bike;
 
 import java.util.Iterator;
 import java.util.List;
+
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.repairer.Repairer;
+import projetCOO.control.repairer.RepairerElectric;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -37,7 +39,8 @@ public class Bike implements TwoWheeledVehicle {
 	
 	
 	/**
-	 * @return station
+	 * give the station 
+	 * @return Station
 	 */
 	public Station getStation() {
 		return this.station;
@@ -47,7 +50,7 @@ public class Bike implements TwoWheeledVehicle {
 	
 	/**
 	 * Set a station
-	 * @param s
+	 * @param Station, the station where the bike is
 	 */
 	public void setStation(Station s) {
 		this.station = s;
@@ -62,7 +65,7 @@ public class Bike implements TwoWheeledVehicle {
 	}
 	
 	/**
-	 * reset the use number of this bike/
+	 * resets the use number of this bike/
 	 */
 	public void resetNBUse() {
 		this.nbUse =0;
@@ -77,7 +80,7 @@ public class Bike implements TwoWheeledVehicle {
 	}
 	
 	/**
-	 * define the use limit of this vehicle.
+	 * defines the use limit of this vehicle.
 	 * @param n the new number of use limit of this vehicle.
 	 */
 	public void setUseLimit(int n) {
@@ -97,6 +100,7 @@ public class Bike implements TwoWheeledVehicle {
 	
 	/**
 	 *tells if a bike is damaged or not
+	 *@return boolean
 	 */
 	public boolean isDamaged() {
         return isDamaged;
@@ -111,13 +115,18 @@ public class Bike implements TwoWheeledVehicle {
         this.isDamaged= true;
     }
    	
-   	
+   	/**
+   	 * says if the bike is available or not 
+   	 * @return boolean
+   	 */
 	@Override
 	public boolean isAvailable() {
-		return this.getStation().getVehicles().contains(this);
+		return this.station != null;
 	}
    	/**
-   	 * mettre une exception
+   	 * use a bike in the station where the bike is and increase the use's number of this bike.
+   	 * If the bike is already used or the use's number is out of limit so throw an exception.
+   	 * @exception OutOfService
    	 */
 	@Override
 	public void startRental() throws OutOfService{
@@ -131,7 +140,8 @@ public class Bike implements TwoWheeledVehicle {
 	}
 	
 	/**
-	 * mettre une exception ici
+	 * hand over the bike in a station
+	 * @param s, the new Station where the Bike is
 	 */
 	@Override
 	public void stopRental(Station s) {
@@ -169,7 +179,7 @@ public class Bike implements TwoWheeledVehicle {
    	 * @return boolean
    	 */
    	public boolean isGoodRepairer(Repairer r) {
-   		return r instanceof Repairer;
+   		return r instanceof Repairer && !(r instanceof RepairerElectric);
    	}
    	
    	

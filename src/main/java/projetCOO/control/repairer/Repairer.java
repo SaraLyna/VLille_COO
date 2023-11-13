@@ -57,6 +57,15 @@ public class Repairer{
 	
 	
 	/**
+	 * increase the number of tasks of this repairer
+	 * @param n, the number of tasks in addition
+	 */
+	public void increaseTasks(int n) {
+		this.nbTask = this.nbTask + n;
+	}
+	
+	
+	/**
 	 *Telling  when a vehicle leaves the station
 	 */
 	public void leaveStation() {
@@ -73,6 +82,13 @@ public class Repairer{
 		v.repair();
 		v.resetNBUse();
 		this.leaveStation();
+	}
+	
+	/**
+	 * Display the Repairer
+	 */
+	public String toString() {
+		return " I'm a Repairer";
 	}
 	
 	

@@ -1,15 +1,15 @@
 package testSara;
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.Map;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import projetCOO.Exception.OutOfService;
-import projetCOO.state.State;
+import projetCOO.control.ControlCenter;
+import projetCOO.control.repairer.Repairer;
 import projetCOO.station.Station;
-import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import projetCOO.twoWheeledVehicle.bike.Bike;
 
 
@@ -17,10 +17,14 @@ import projetCOO.twoWheeledVehicle.bike.Bike;
 public class StationTest {
 
 	private Station s;
+	private ControlCenter c;
 
 	@BeforeEach
 	public void init() {
-		this.s = new Station(1, null);
+		this.c = new ControlCenter(0);
+		this.s = new Station(1, this.c);
+		this.c.addStation(s);
+		this.c.addRepairers(new Repairer());
 		for (int i = 0; i < s.getCapacityMax();i++) {
 			s.addVehicle(new Bike("default", s, 3));
 		}
