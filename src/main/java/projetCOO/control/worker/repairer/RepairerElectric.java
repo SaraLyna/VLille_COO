@@ -1,4 +1,4 @@
-package projetCOO.control.repairer;
+package projetCOO.control.worker.repairer;
 
 /**
  *the class that represents the repairer of the electrical vehicles

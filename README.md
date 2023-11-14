@@ -136,6 +136,11 @@ Dimanche 12 Novembre :
 Lundi 13 Novembre : 
 - ajout et modification de tests dans BikeTest
 
+Mardi 14 Novembre :
+- création d'une liste de vehicules (inventaire) disponibles et une autre liste de vehicles pris (pas disponible, sur la route) dans la classe
+ControlCenter.java
+- Mise en place d'un package worker pour répertorier tous les travailleurs potentiels qui pourraient apporter quelque chose à un vehicule.
+
 #### à faire :
 - changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification (en cours).
 - changer l'enum d'état en un pattern State (pas sûr pour l'instant)

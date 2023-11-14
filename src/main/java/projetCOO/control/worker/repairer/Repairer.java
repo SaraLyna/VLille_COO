@@ -1,4 +1,4 @@
-package projetCOO.control.repairer;
+package projetCOO.control.worker.repairer;
 
 import java.util.HashMap;
 import java.util.Map;

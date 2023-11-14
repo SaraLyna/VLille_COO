@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.ControlCenter;
-import projetCOO.control.repairer.Repairer;
-import projetCOO.control.repairer.RepairerElectric;
+import projetCOO.control.worker.repairer.Repairer;
+import projetCOO.control.worker.repairer.RepairerElectric;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.bike.Bike;
 

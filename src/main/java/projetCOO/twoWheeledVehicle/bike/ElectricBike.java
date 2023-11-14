@@ -3,8 +3,8 @@ package projetCOO.twoWheeledVehicle.bike;
 import java.util.Iterator;
 import java.util.List;
 
-import projetCOO.control.repairer.Repairer;
-import projetCOO.control.repairer.RepairerElectric;
+import projetCOO.control.worker.repairer.Repairer;
+import projetCOO.control.worker.repairer.RepairerElectric;
 import projetCOO.station.Station;
 
 

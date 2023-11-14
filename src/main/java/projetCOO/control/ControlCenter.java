@@ -1,7 +1,7 @@
 package projetCOO.control;
 
 import projetCOO.Exception.OutOfLimit;
-import projetCOO.control.repairer.Repairer;
+import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import java.util.*;
@@ -14,6 +14,8 @@ public class ControlCenter{
 	private Map<Integer,Station> stationList;
 	private List<Repairer> repairersList; 
 	private List<Station> stationsNeedsToBeverify;
+	private Map<TwoWheeledVehicle, Integer> vehiclesList;
+	private Map<TwoWheeledVehicle, Integer> vehiclesOnRoad;
 	private int nbStation;
 	
 
@@ -25,6 +27,8 @@ public class ControlCenter{
 		this.initStation();
 		this.stationsNeedsToBeverify = new ArrayList<>();
 		this.repairersList = new ArrayList<>();
+		this.vehiclesList = new HashMap<>();
+		this.vehiclesOnRoad = new HashMap<>();
 	}
 	
 	
@@ -37,7 +41,7 @@ public class ControlCenter{
 		return stationList;
 	}
 	
-	/*
+	/**
 	 * gives the repairers list who work in this ControlCenter
 	 * @return Map<Repairer, Boolean>
 	 */
@@ -52,6 +56,20 @@ public class ControlCenter{
 	 */
 	public List<Station> getStationWithBikeToverify() {
 		return this.stationsNeedsToBeverify;
+	}
+	
+	/**
+	 * @return the list of all the vehicles in all stations (the available vehicles)
+	 */
+	public Map<TwoWheeledVehicle, Integer> getVehiclesList() {
+		return this.vehiclesList;
+	}
+	
+	/** 
+	 * @return the vehicles which are not available (in the road, taken)
+	 */
+	public Map<TwoWheeledVehicle, Integer> getVehiclesOnRoad() {
+		return this.vehiclesOnRoad;
 	}
 	
 	
@@ -82,12 +100,45 @@ public class ControlCenter{
 		this.repairersList.add(r);
 	}
 	
-	/*
+	/**
 	 * removes a worker of the ControlCenter
 	 * @param Worker
 	 */
 	public void removeRepairers(Repairer r) {
 		this.repairersList.remove(r);
+	}
+	
+	/**
+	 * add a vehicle which is now available in the vehicle list (inventory).
+	 */
+	public void addVehicle(TwoWheeledVehicle v) {
+		this.vehiclesList.put(v, this.vehiclesList.size());
+	}
+	
+	/**
+	 * removes a vehicle in the vehicle list if it's not available anymore, taken by someone.
+	 * @param v
+	 */
+	public void removeVehicle(TwoWheeledVehicle v) {
+		this.addVehicleOnRoad(v);
+		this.vehiclesList.remove(v);
+	}
+	
+	/**
+	 * add a vehicle which is not available in a station to the inventory of the taken vehicles.
+	 * @param v
+	 */
+	public void addVehicleOnRoad(TwoWheeledVehicle v) {
+		this.vehiclesOnRoad.put(v, this.vehiclesOnRoad.size());
+	}
+	
+	/**
+	 * removes a vehicle in the list of taken vehicles if it available.
+	 * @param v
+	 */
+	public void removeVehicleOnRoad(TwoWheeledVehicle v) {
+		this.addVehicle(v);
+		this.vehiclesOnRoad.remove(v);
 	}
 
 	
@@ -117,12 +168,14 @@ public class ControlCenter{
 	
 	/**
 	 * send a repairer in a Station
+	 * @param station
+	 * @param v
+	 * @param r
 	 */
 	public void sendRepairer(Station station, TwoWheeledVehicle v, Repairer r) {
 		station.addRepairers(r,v);
 		r.setStation(station);
 	}
-	
 	
 	
 	
