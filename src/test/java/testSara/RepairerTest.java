@@ -21,14 +21,14 @@ class RepairerTest {
 		this.s =  new Station(0, null);
 		this.r = new Repairer();
 		this.r.setStation(s);
-		this.s.addRepairers(r, null);
+		this.s.addWorker(r, null);
 	}
 
 	@Test
 	public void RepairerLeaveTheStation() {
 		this.r.leaveStation();
 		assertEquals(this.r.getStation(), null);
-		assertEquals(this.s.getRepairer(), new HashMap<Repairer, TwoWheeledVehicle>());
+		assertEquals(this.s.getWorker(), new HashMap<Repairer, TwoWheeledVehicle>());
 	}
 	
 	@Test

@@ -161,16 +161,19 @@ public class Vlille {
 	 * @throws OutOfLimit 
 	 */
 	public void initVehicules() throws OutOfLimit {
+		int serie = 0;
 		for (Map.Entry<Integer, Station> s : this.c.getStationList().entrySet()) {
 			while (s.getValue().getVehicles().size() != s.getValue().getCapacityMax()) {
 				int r = this.randomNB(1,0);
 				if (r == 0 ) {
-					Bike b = new Bike("Default", s.getValue(), 3);
+					Bike b = new Bike("Default", s.getValue(), 3, serie);
 					s.getValue().addVehicle(b);
+					serie++;
 				}
 				if (r == 1 ) {
-					ElectricBike eb = new ElectricBike("Default", s.getValue(), 3, 100);
+					ElectricBike eb = new ElectricBike("Default", s.getValue(), serie, 3, 100);
 					s.getValue().addVehicle(eb);
+					serie++;
 				}
 			}
 		}

@@ -5,6 +5,7 @@ import java.util.List;
 
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
+import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.control.worker.repairer.RepairerElectric;
 import projetCOO.station.Station;
@@ -24,17 +25,19 @@ public class Bike implements TwoWheeledVehicle {
 	protected boolean isDamaged;
 	protected int nbUse;
 	private int useLimit;
+	private int serieNumero;
 
 	
 	/**
 	* Constructor of the class Bike
 	*/
-	public Bike(String skin,Station station, int ul) {
+	public Bike(String skin,Station station, int ul, int serie) {
 		this.station = station;
 		this.skin=skin;
 		this.isDamaged= false;
 		this.nbUse = 0;
 		this.useLimit = ul;
+		this.serieNumero = serie;
 	}
 
 	
@@ -86,6 +89,14 @@ public class Bike implements TwoWheeledVehicle {
 	 */
 	public void setUseLimit(int n) {
 		this.useLimit = n;
+	}
+	
+	/**
+	 * gives the serie numero of this Bike
+	 * @return int 
+	 */
+	public int getSerieNumero() {
+		return this.serieNumero;
 	}
 	
 	 
@@ -177,11 +188,11 @@ public class Bike implements TwoWheeledVehicle {
    	
    	/**
    	 * says if is the right type of Repairer
-   	 * @param Repairer
+   	 * @param Worker
    	 * @return boolean
    	 */
-   	public boolean isGoodRepairer(Repairer r) {
-   		return r instanceof Repairer && !(r instanceof RepairerElectric);
+   	public boolean isGoodRepairer(Worker w) {
+   		return w instanceof Repairer && !(w instanceof RepairerElectric);
    	}
    	
    	

@@ -1,19 +1,14 @@
 package testSara;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
-import projetCOO.state.State;
 import projetCOO.station.Station;
-import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import projetCOO.twoWheeledVehicle.bike.Bike;
 
 public class ControlCenterTest {
@@ -26,7 +21,7 @@ public class ControlCenterTest {
 		this.c = new ControlCenter(1);
 		this.stationTest = c.getStationList().get(0);
 		for (int i = 0; i < stationTest.getCapacityMax();i++) {
-			stationTest.addVehicle(new Bike("default", stationTest, 3));
+			stationTest.addVehicle(new Bike("default", stationTest, 3,i));
 		}
 	}
 	

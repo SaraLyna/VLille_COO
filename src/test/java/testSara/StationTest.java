@@ -26,10 +26,9 @@ public class StationTest {
 		this.c = new ControlCenter(0);
 		this.s = new Station(1, this.c);
 		this.c.addStation(s);
-		this.c.addRepairers(new Repairer());
 		for (int i = 0; i < s.getCapacityMax();i++) {
 			try {
-				s.addVehicle(new Bike("default", s, 3));
+				s.addVehicle(new Bike("default", s, 3, i));
 			} catch (OutOfLimit e) {
 				e.printStackTrace();
 			}
@@ -49,7 +48,7 @@ public class StationTest {
 	@Test
 	public void WeAddAVehiculeWhileTheSationIsFull() throws OutOfLimit {
 		OutOfLimit exception = assertThrows(OutOfLimit.class, () -> {
-			this.s.addVehicle(new Bike("Red",this.s,3));
+			this.s.addVehicle(new Bike("Red",this.s,3, 1));
 		});
 		assertEquals("The station is at maximum capacity. Cannot add more bikes.", exception.getMessage());
 	}
@@ -81,6 +80,7 @@ public class StationTest {
 	
 	@Test 
 	public void TwoVehicleArentAvailable() throws OutOfService, OutOfLimit {
+		this.c.addRepairers(new Repairer());
 		Bike b1 = (Bike) this.s.getVehicles().get(0);
 		Bike b2 = (Bike) this.s.getVehicles().get(1);
 		for (int i = 0; i < 3; i++) {
@@ -97,7 +97,12 @@ public class StationTest {
 	 */
 	@Test
 	public void WeNeedRepairerInTheStation() {
-		this.s.needRepairer(null);
+		Repairer r = new Repairer();
+		this.c.addRepairers(r);
+		this.s.needRepairer(this.s.getVehicles().get(0));
+		assertEquals(this.s.getWorker().size(), 1);
+		assertTrue(this.s.getWorker().containsKey(r));
+		assertEquals(this.s,r.getStation());
 	}
 	
 //	@Test

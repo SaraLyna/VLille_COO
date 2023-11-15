@@ -1,6 +1,7 @@
 package projetCOO.control;
 
 import projetCOO.Exception.OutOfLimit;
+import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -120,7 +121,6 @@ public class ControlCenter{
 	 * @param v
 	 */
 	public void removeVehicle(TwoWheeledVehicle v) {
-		this.addVehicleOnRoad(v);
 		this.vehiclesList.remove(v);
 	}
 	
@@ -170,11 +170,11 @@ public class ControlCenter{
 	 * send a repairer in a Station
 	 * @param station
 	 * @param v
-	 * @param r
+	 * @param worker
 	 */
-	public void sendRepairer(Station station, TwoWheeledVehicle v, Repairer r) {
-		station.addRepairers(r,v);
-		r.setStation(station);
+	public void sendRepairer(Station station, TwoWheeledVehicle v, Worker worker) {
+		station.addWorker(worker,v);
+		worker.setStation(station);
 	}
 	
 	

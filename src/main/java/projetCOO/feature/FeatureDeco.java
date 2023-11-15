@@ -4,6 +4,7 @@ import java.util.List;
 
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
+import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -78,11 +79,11 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	@Override
 	/**
    	 * says if is the right type of Repairer
-   	 * @param Repairer
+   	 * @param Worker
    	 * @return boolean
    	 */
-   	public boolean isGoodRepairer(Repairer r) {
-		return this.v.isGoodRepairer(r);
+   	public boolean isGoodRepairer(Worker w) {
+		return this.v.isGoodRepairer(w);
 	}
 	
 	@Override
@@ -141,5 +142,12 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	@Override
 	public void resetNBUse() {
 		this.v.resetNBUse();
+	}
+
+
+
+	@Override
+	public int getSerieNumero() {
+		return this.v.getSerieNumero();
 	}
 }

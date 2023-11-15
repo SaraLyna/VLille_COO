@@ -24,8 +24,8 @@ public class ElectricBike extends Bike{
 	 * @param station
 	 * @param capacityBatterie
 	 */
-	public ElectricBike(String skin,Station station, int ul, int capacityBatterie){
-		super(skin,station,ul);
+	public ElectricBike(String skin,Station station, int ul, int serie, int capacityBatterie){
+		super(skin,station,ul,serie);
 		this.capacityBatterie= capacityBatterie;
 		this.niveauBatterie = 100;
 	}

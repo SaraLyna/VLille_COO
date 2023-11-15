@@ -141,6 +141,11 @@ Mardi 14 Novembre :
 ControlCenter.java
 - Mise en place d'un package worker pour répertorier tous les travailleurs potentiels qui pourraient apporter quelque chose à un vehicule.
 
+Mercredi 15 Novembre :
+- mise en place d'une classe Worker abstraite et de l'héritage entre Repairer et Worker + modification de certaines méthodes pour
+correspondre à la mise en place 
+- Tests Station 
+
 #### à faire :
 - changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification (en cours).
 - changer l'enum d'état en un pattern State (pas sûr pour l'instant)

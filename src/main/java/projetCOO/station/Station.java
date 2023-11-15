@@ -8,7 +8,7 @@ import java.util.Map;
 
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
-import projetCOO.control.worker.repairer.Repairer;
+import projetCOO.control.worker.Worker;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 
@@ -22,7 +22,7 @@ public class Station {
 	protected List<TwoWheeledVehicle> vehicles;
 	protected List<TwoWheeledVehicle> outService;
 	// à modifier
-	protected Map<Repairer,TwoWheeledVehicle> repairers ;
+	protected Map<Worker,TwoWheeledVehicle> workers ;
 	protected ControlCenter controlCenter;
 
 	/**
@@ -34,7 +34,7 @@ public class Station {
         	this.initCapacityMax();;
         	this.vehicles = new ArrayList<>();
         	this.outService = new ArrayList<>();
-        	this.repairers = new HashMap<>();
+        	this.workers = new HashMap<>();
 	}
 	
 	/**
@@ -80,11 +80,11 @@ public class Station {
 	}
 	
 	/**
-	 * gives the repairer if he is present otherwise null
-	 * @return Map<Repairer, TwoWheeledVehicle>
+	 * gives Workers in this station
+	 * @return Map<Worker, TwoWheeledVehicle>
 	 */
-	public Map<Repairer, TwoWheeledVehicle> getRepairer() {
-		return repairers;
+	public Map<Worker, TwoWheeledVehicle> getWorker() {
+		return this.workers;
 	}
 	
 	/**
@@ -95,6 +95,7 @@ public class Station {
 		if (vehicles.size() + outService.size() < capacityMax) {
             vehicles.add(v); 
             v.setStation(this);
+            this.controlCenter.addVehicle(v);
             		
         } 
 		else {
@@ -112,6 +113,7 @@ public class Station {
 	public void removeVehicle(TwoWheeledVehicle v) {
 		v.setStation(null);
 		vehicles.remove(v);
+		this.controlCenter.removeVehicle(v);
 	}
 	
 	/**
@@ -134,20 +136,20 @@ public class Station {
 	
 	/**
 	 * add a Repairer for a vehicle in this Station
-	 * @param r, a Repairer who come in this Station
+	 * @param w, a Worker who come in this Station
 	 * @param v, a Vehicle that has need a Repairer
 	 */
-	public void addRepairers(Repairer r, TwoWheeledVehicle v) {
-		this.repairers.put(r, v);
+	public void addWorker(Worker w, TwoWheeledVehicle v) {
+		this.workers.put(w, v);
 	}
 	
 	/**
 	 * 
 	 * remove a Repairer of this Station
-	 * @param r, a Repairer who leaves the Station
+	 * @param w, a Worker who leaves the Station
 	 */
-	public void removeRepairers(Repairer r) {
-		this.repairers.remove(r);
+	public void removeWorker(Worker w) {
+		this.workers.remove(w);
 	}	
 	
 	/**
@@ -155,7 +157,7 @@ public class Station {
 	 * @param v, a vehicle that has need a reparation or a technique control
 	 */
 	public void needRepairer(TwoWheeledVehicle v) {
-		for (Map.Entry<Repairer, TwoWheeledVehicle> set : this.getRepairer().entrySet()) {
+		for (Map.Entry<Worker, TwoWheeledVehicle> set : this.getWorker().entrySet()) {
 			if (v.isGoodRepairer(set.getKey())) {
 				this.controlCenter.sendRepairer(this , v, set.getKey());
 				break;

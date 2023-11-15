@@ -32,7 +32,7 @@ public class BikeTest {
 		this.s = new Station(1,c);
 		this.c.addStation(s);
 		this.c.addRepairers(new Repairer());
-		this.bike = new Bike("Red",this.s,3);
+		this.bike = new Bike("Red",this.s,3,0);
 		this.s.addVehicle(bike);
 	}
 	
