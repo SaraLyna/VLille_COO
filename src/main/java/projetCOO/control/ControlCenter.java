@@ -3,6 +3,7 @@ package projetCOO.control;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
+import projetCOO.control.worker.repairer.Planning;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import java.util.*;
@@ -18,6 +19,7 @@ public class ControlCenter{
 	private Map<TwoWheeledVehicle, Integer> vehiclesList;
 	private Map<TwoWheeledVehicle, Integer> vehiclesOnRoad;
 	private int nbStation;
+	 private Planning planning;
 	
 
 	/**
@@ -72,6 +74,15 @@ public class ControlCenter{
 	public Map<TwoWheeledVehicle, Integer> getVehiclesOnRoad() {
 		return this.vehiclesOnRoad;
 	}
+	
+	/**
+     * Set the Planning instance.
+     * @param planning 
+     */
+    public void setPlanning(Planning planning) {
+        this.planning = planning;
+    }
+
 	
 	
 	

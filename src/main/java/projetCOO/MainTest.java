@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
+import projetCOO.control.worker.repairer.Planning;
 import projetCOO.util.Input;
 import projetCOO.vlille.Vlille;
 
@@ -13,7 +14,12 @@ public class MainTest {
 		try {
 			System.out.print("How many Stations ? ");
 			int nbStation = Input.readInt();
-			Vlille vlille = new Vlille(new ControlCenter(nbStation));
+			
+			ControlCenter controlCenter = new ControlCenter(nbStation);
+            Planning planning = new Planning();
+            
+            
+			Vlille vlille = new Vlille(controlCenter);
 			vlille.run();
 		} catch (IOException e) {
 			e.printStackTrace();

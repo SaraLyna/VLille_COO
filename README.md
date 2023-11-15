@@ -145,6 +145,7 @@ Mercredi 15 Novembre :
 - mise en place d'une classe Worker abstraite et de l'héritage entre Repairer et Worker + modification de certaines méthodes pour
 correspondre à la mise en place 
 - Tests Station 
+- Création d'une classe Planning pour gérer la plannification des repairers.
 
 #### à faire :
 - changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification (en cours).
