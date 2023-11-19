@@ -201,7 +201,7 @@ public class Bike implements TwoWheeledVehicle {
    	 * Stole the bike.
    	 */
    	public void stole() {
-   		this.getStation().removeVehicle(this);
+   		this.station.stole(this);;
    	}
    	
 	/**

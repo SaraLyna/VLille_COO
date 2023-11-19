@@ -21,7 +21,6 @@ public class Station {
 	protected int capacityMax;
 	protected List<TwoWheeledVehicle> vehicles;
 	protected List<TwoWheeledVehicle> outService;
-	// à modifier
 	protected Map<Worker,TwoWheeledVehicle> workers ;
 	protected ControlCenter controlCenter;
 
@@ -44,6 +43,7 @@ public class Station {
 	public int getId(){
 		return id;
 	}
+	
 	
 	/**
 	 * give the ControlCenter that manages this station
@@ -164,6 +164,18 @@ public class Station {
 			}
 		}
 		this.controlCenter.sendRepairer(this , v, v.askRepairer(this.controlCenter.getRepairersList()));
+	}
+	
+	/**
+	 * stole a vehicle in this Station if the number of vehicle in the Station is equal to 1.
+	 * @param v, a vehicle 
+	 */
+	public void stole(TwoWheeledVehicle v) {
+		if (this.vehicles.size() == 1) {
+			this.removeVehicle(v);
+		}
+		
+		
 	}
 	    
 	/**

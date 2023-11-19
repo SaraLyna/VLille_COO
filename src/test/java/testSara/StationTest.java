@@ -114,23 +114,15 @@ public class StationTest {
 		assertEquals(this.s.getWorker().get(r), b2);
 	}
 	
-//	@Test
-//	public void VehicleIsStolen() {
-//		int count = this.s.getCapacityMax() - 1;
-//		for (Map.Entry<TwoWheeledVehicle, State> v : this.s.getVehicles().entrySet()) {
-//			if (count != 0) {
-//				v.getKey().use();
-//				count--;
-//			}
-//		}
-//		this.s.stoleAVehicle();
-//		assertEquals(this.s.getVehicles().size(), this.s.getCapacityMax() - 1);
-//	}
+	@Test
+	public void AVehicleIsStolen() throws OutOfLimit {
+		Station station = new Station(2, this.c);
+		this.c.addStation(station);
+		Bike b = new Bike(null, station, 3, 100);
+		station.addVehicle(b);
+		station.stole(b);
+		assertEquals(station.getVehicles().size(), 0);
+	}
 	
-//	@Test 
-//	public void NoVehiclesAreStolen() {
-//		this.s.stoleAVehicle();
-//		assertEquals(this.s.getVehicles().size(), this.s.getCapacityMax());
-//	}
 
 }
