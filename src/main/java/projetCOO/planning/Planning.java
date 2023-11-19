@@ -1,9 +1,10 @@
-package projetCOO.control.worker.repairer;
+package projetCOO.planning;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 public class Planning {

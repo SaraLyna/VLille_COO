@@ -3,7 +3,7 @@ package projetCOO.control;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
-import projetCOO.control.worker.repairer.Planning;
+import projetCOO.planning.Planning;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import java.util.*;

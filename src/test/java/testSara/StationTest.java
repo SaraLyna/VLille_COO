@@ -92,9 +92,7 @@ public class StationTest {
 		assertEquals(s.getVehicles().size(),s.getCapacityMax() - 2);
 		assertEquals(s.getOutService().size(), 2);
 	}
-	/**
-	 * à finir
-	 */
+
 	@Test
 	public void WeNeedRepairerInTheStation() {
 		Repairer r = new Repairer();
@@ -103,6 +101,17 @@ public class StationTest {
 		assertEquals(this.s.getWorker().size(), 1);
 		assertTrue(this.s.getWorker().containsKey(r));
 		assertEquals(this.s,r.getStation());
+	}
+	
+	@Test 
+	public void WeNeedRepairerAndTheRepairerIsStillInTheStation() {
+		Repairer r = new Repairer();
+		Bike b1 = (Bike) this.s.getVehicles().get(0);
+		Bike b2 = (Bike) this.s.getVehicles().get(1);
+		this.s.addWorker(r, b1);
+		this.s.needRepairer(b2);
+		assertEquals(this.s.getWorker().get(r), b1);
+		assertEquals(this.s.getWorker().get(r), b2);
 	}
 	
 //	@Test

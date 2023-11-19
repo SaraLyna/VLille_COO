@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
-import projetCOO.control.worker.repairer.Planning;
+import projetCOO.planning.Planning;
 import projetCOO.util.Input;
 import projetCOO.vlille.Vlille;
 

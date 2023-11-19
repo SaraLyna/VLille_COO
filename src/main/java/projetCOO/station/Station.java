@@ -157,7 +157,7 @@ public class Station {
 	 * @param v, a vehicle that has need a reparation or a technique control
 	 */
 	public void needRepairer(TwoWheeledVehicle v) {
-		for (Map.Entry<Worker, TwoWheeledVehicle> set : this.getWorker().entrySet()) {
+		for (Map.Entry<Worker, TwoWheeledVehicle> set : this.workers.entrySet()) {
 			if (v.isGoodRepairer(set.getKey())) {
 				this.controlCenter.sendRepairer(this , v, set.getKey());
 				break;
