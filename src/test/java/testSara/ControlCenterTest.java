@@ -21,7 +21,7 @@ public class ControlCenterTest {
 		this.c = new ControlCenter(1);
 		this.stationTest = c.getStationList().get(0);
 		for (int i = 0; i < stationTest.getCapacityMax();i++) {
-			stationTest.addVehicle(new Bike("default", stationTest, 3,i));
+			stationTest.addVehicle(new Bike("default", stationTest, 3));
 		}
 	}
 	

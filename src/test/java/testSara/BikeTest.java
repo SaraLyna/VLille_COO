@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.ControlCenter;
+import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.control.worker.repairer.RepairerElectric;
 import projetCOO.station.Station;
@@ -31,8 +32,8 @@ public class BikeTest {
 		this.c = new ControlCenter(0);
 		this.s = new Station(1,c);
 		this.c.addStation(s);
-		this.c.addRepairers(new Repairer());
-		this.bike = new Bike("Red",this.s,3,0);
+		this.c.addWorker(new Repairer());
+		this.bike = new Bike("Red",this.s,3);
 		this.s.addVehicle(bike);
 	}
 	
@@ -76,20 +77,20 @@ public class BikeTest {
 	
 	@Test
 	public void WeAskRepairerForTheBike() {
-		List<Repairer> repairerList = new ArrayList<>();
+		List<Worker> repairerList = new ArrayList<>();
 		Repairer r = new Repairer();
 		RepairerElectric rE = new RepairerElectric();
 		repairerList.add(rE);
 		repairerList.add(new RepairerElectric());
 		repairerList.add(r);
-		Repairer test = this.bike.askRepairer(repairerList);
+		Worker test = this.bike.askRepairer(repairerList);
 		assertEquals(r, test);
 		assertFalse(test.equals(rE));
 	}
 	
 	@Test
 	public void WeAskRepairerForTheBikeWithTheLessNumberOfTasks() {
-		List<Repairer> repairerList = new ArrayList<>();
+		List<Worker> repairerList = new ArrayList<>();
 		Repairer r1 = new Repairer();
 		Repairer r2 = new Repairer();
 		Repairer r3 = new Repairer();
@@ -99,7 +100,7 @@ public class BikeTest {
 		repairerList.add(r1);
 		repairerList.add(r2);
 		repairerList.add(r3);
-		Repairer test = this.bike.askRepairer(repairerList);
+		Worker test = this.bike.askRepairer(repairerList);
 		assertEquals(test, r3);
 	}
 	

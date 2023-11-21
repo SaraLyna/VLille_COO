@@ -2,14 +2,13 @@ package testSara;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
-import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
 class RepairerTest {
 	
@@ -21,14 +20,14 @@ class RepairerTest {
 		this.s =  new Station(0, null);
 		this.r = new Repairer();
 		this.r.setStation(s);
-		this.s.addWorker(r, null);
+		this.s.addWorker(r);
 	}
 
 	@Test
 	public void RepairerLeaveTheStation() {
 		this.r.leaveStation();
 		assertEquals(this.r.getStation(), null);
-		assertEquals(this.s.getWorker(), new HashMap<Repairer, TwoWheeledVehicle>());
+		assertEquals(this.s.getWorker(), new ArrayList<Repairer>());
 	}
 	
 	@Test

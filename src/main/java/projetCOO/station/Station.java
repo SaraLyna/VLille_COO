@@ -1,10 +1,8 @@
 package projetCOO.station;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
@@ -21,7 +19,7 @@ public class Station {
 	protected int capacityMax;
 	protected List<TwoWheeledVehicle> vehicles;
 	protected List<TwoWheeledVehicle> outService;
-	protected Map<Worker,TwoWheeledVehicle> workers ;
+	protected List<Worker> workers ;
 	protected ControlCenter controlCenter;
 
 	/**
@@ -33,7 +31,7 @@ public class Station {
         	this.initCapacityMax();;
         	this.vehicles = new ArrayList<>();
         	this.outService = new ArrayList<>();
-        	this.workers = new HashMap<>();
+        	this.workers = new ArrayList<>();
 	}
 	
 	/**
@@ -83,7 +81,7 @@ public class Station {
 	 * gives Workers in this station
 	 * @return Map<Worker, TwoWheeledVehicle>
 	 */
-	public Map<Worker, TwoWheeledVehicle> getWorker() {
+	public List<Worker> getWorker() {
 		return this.workers;
 	}
 	
@@ -139,8 +137,8 @@ public class Station {
 	 * @param w, a Worker who come in this Station
 	 * @param v, a Vehicle that has need a Repairer
 	 */
-	public void addWorker(Worker w, TwoWheeledVehicle v) {
-		this.workers.put(w, v);
+	public void addWorker(Worker w) {
+		this.workers.add(w);
 	}
 	
 	/**
@@ -157,13 +155,13 @@ public class Station {
 	 * @param v, a vehicle that has need a reparation or a technique control
 	 */
 	public void needRepairer(TwoWheeledVehicle v) {
-		for (Map.Entry<Worker, TwoWheeledVehicle> set : this.workers.entrySet()) {
-			if (v.isGoodRepairer(set.getKey())) {
-				this.controlCenter.sendRepairer(this , v, set.getKey());
+		for (Worker w : this.workers) {
+			if (v.isGoodRepairer(w)) {
+				this.controlCenter.sendWorker(this , v, w);
 				break;
 			}
 		}
-		this.controlCenter.sendRepairer(this , v, v.askRepairer(this.controlCenter.getRepairersList()));
+		this.controlCenter.sendWorker(this , v, v.askRepairer(this.controlCenter.getRepairersList()));
 	}
 	
 	/**

@@ -5,7 +5,6 @@ import java.util.List;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.worker.Worker;
-import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -72,7 +71,7 @@ public class FeatureDeco implements TwoWheeledVehicle {
 	}
 
 	@Override
-	public Repairer askRepairer(List<Repairer> repairerList) {
+	public Worker askRepairer(List<Worker> repairerList) {
 		return this.v.askRepairer(repairerList);
 	}
 	
@@ -144,10 +143,4 @@ public class FeatureDeco implements TwoWheeledVehicle {
 		this.v.resetNBUse();
 	}
 
-
-
-	@Override
-	public int getSerieNumero() {
-		return this.v.getSerieNumero();
-	}
 }

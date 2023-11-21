@@ -21,12 +21,12 @@ public class Main {
     	
     	
     	for (Station station : controlCenter.getStationList().values()) {
-            Bike bike = new Bike("Classical", station, 3,0);
+            Bike bike = new Bike("Classical", station, 3);
             station.addVehicle(bike);
         }
     	
     	for (Station station : controlCenter.getStationList().values()) {
-            ElectricBike electricBike = new ElectricBike("Electric", station, 0, 500, 3);
+            ElectricBike electricBike = new ElectricBike("Electric", station, 500, 3);
             station.addVehicle(electricBike);
         }
     	

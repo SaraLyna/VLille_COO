@@ -25,19 +25,17 @@ public class Bike implements TwoWheeledVehicle {
 	protected boolean isDamaged;
 	protected int nbUse;
 	private int useLimit;
-	private int serieNumero;
 
 	
 	/**
 	* Constructor of the class Bike
 	*/
-	public Bike(String skin,Station station, int ul, int serie) {
+	public Bike(String skin,Station station, int ul) {
 		this.station = station;
 		this.skin=skin;
 		this.isDamaged= false;
 		this.nbUse = 0;
 		this.useLimit = ul;
-		this.serieNumero = serie;
 	}
 
 	
@@ -89,14 +87,6 @@ public class Bike implements TwoWheeledVehicle {
 	 */
 	public void setUseLimit(int n) {
 		this.useLimit = n;
-	}
-	
-	/**
-	 * gives the serie numero of this Bike
-	 * @return int 
-	 */
-	public int getSerieNumero() {
-		return this.serieNumero;
 	}
 	
 	 
@@ -172,12 +162,12 @@ public class Bike implements TwoWheeledVehicle {
    	 * asks a Repairer for this bike
    	 * @return Repairer
    	 */
-   	public Repairer askRepairer(List<Repairer> repairersList) {
-   		Iterator<Repairer> i = repairersList.iterator();
+   	public Worker askRepairer(List<Worker> repairersList) {
+   		Iterator<Worker> i = repairersList.iterator();
    		int min = 1000000;
-   		Repairer save = null;
+   		Worker save = null;
    		while (i.hasNext()) {
-   			Repairer r = i.next();
+   			Worker r = i.next();
    			if (this.isGoodRepairer(r) && min > r.getNBTask()) {
    				save = r;
    				min = r.getNBTask();

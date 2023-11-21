@@ -28,7 +28,7 @@ public class StationTest {
 		this.c.addStation(s);
 		for (int i = 0; i < s.getCapacityMax();i++) {
 			try {
-				s.addVehicle(new Bike("default", s, 3, i));
+				s.addVehicle(new Bike("default", s, 3));
 			} catch (OutOfLimit e) {
 				e.printStackTrace();
 			}
@@ -48,7 +48,7 @@ public class StationTest {
 	@Test
 	public void WeAddAVehiculeWhileTheSationIsFull() throws OutOfLimit {
 		OutOfLimit exception = assertThrows(OutOfLimit.class, () -> {
-			this.s.addVehicle(new Bike("Red",this.s,3, 1));
+			this.s.addVehicle(new Bike("Red",this.s,3));
 		});
 		assertEquals("The station is at maximum capacity. Cannot add more bikes.", exception.getMessage());
 	}
@@ -58,6 +58,13 @@ public class StationTest {
 		Bike b = (Bike) this.s.getVehicles().get(0);
 		this.s.removeVehicle(b);
 		assertFalse(this.s.getVehicles().contains(b));
+	}
+	
+	@Test
+	public void WeAddWorkerInStation() {
+		Repairer r = new Repairer();
+		this.s.addWorker(r);
+		assertEquals(this.s.getWorker().size(), 1);
 	}
 
 	
@@ -80,7 +87,7 @@ public class StationTest {
 	
 	@Test 
 	public void TwoVehicleArentAvailable() throws OutOfService, OutOfLimit {
-		this.c.addRepairers(new Repairer());
+		this.c.addWorker(new Repairer());
 		Bike b1 = (Bike) this.s.getVehicles().get(0);
 		Bike b2 = (Bike) this.s.getVehicles().get(1);
 		for (int i = 0; i < 3; i++) {
@@ -96,29 +103,28 @@ public class StationTest {
 	@Test
 	public void WeNeedRepairerInTheStation() {
 		Repairer r = new Repairer();
-		this.c.addRepairers(r);
+		this.c.addWorker(r);
 		this.s.needRepairer(this.s.getVehicles().get(0));
 		assertEquals(this.s.getWorker().size(), 1);
-		assertTrue(this.s.getWorker().containsKey(r));
+		assertTrue(this.s.getWorker().contains(r));
 		assertEquals(this.s,r.getStation());
 	}
 	
 	@Test 
 	public void WeNeedRepairerAndTheRepairerIsStillInTheStation() {
 		Repairer r = new Repairer();
-		Bike b1 = (Bike) this.s.getVehicles().get(0);
+		Repairer r2 = new Repairer();
 		Bike b2 = (Bike) this.s.getVehicles().get(1);
-		this.s.addWorker(r, b1);
+		this.s.addWorker(r);
 		this.s.needRepairer(b2);
-		assertEquals(this.s.getWorker().get(r), b1);
-		assertEquals(this.s.getWorker().get(r), b2);
+		assertEquals(this.s.getWorker().get(0), r);
 	}
 	
 	@Test
 	public void AVehicleIsStolen() throws OutOfLimit {
 		Station station = new Station(2, this.c);
 		this.c.addStation(station);
-		Bike b = new Bike(null, station, 3, 100);
+		Bike b = new Bike(null, station, 3);
 		station.addVehicle(b);
 		station.stole(b);
 		assertEquals(station.getVehicles().size(), 0);

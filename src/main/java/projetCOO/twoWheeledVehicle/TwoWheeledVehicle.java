@@ -5,7 +5,6 @@ import java.util.List;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.worker.Worker;
-import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
 
 
@@ -58,12 +57,6 @@ public interface TwoWheeledVehicle {
 	public void setUseLimit(int n);
 	
 	/**
-	 * gives the serie numero of this Bike
-	 * @return int 
-	 */
-	public int getSerieNumero();
-	
-	/**
 	 * Saying that a vehicle is damaged
 	 */
 	public void takeDamage();
@@ -83,7 +76,7 @@ public interface TwoWheeledVehicle {
 	 * ask a repairer for this vehicle.
 	 * @return Repairer
 	 */
-	public Repairer askRepairer(List<Repairer> repairersList);
+	public Worker askRepairer(List<Worker> list);
 	
 	/**
    	 * says if is the right type of Repairer

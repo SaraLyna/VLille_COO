@@ -3,6 +3,7 @@ package projetCOO.twoWheeledVehicle.bike;
 import java.util.Iterator;
 import java.util.List;
 
+import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.control.worker.repairer.RepairerElectric;
 import projetCOO.station.Station;
@@ -24,8 +25,8 @@ public class ElectricBike extends Bike{
 	 * @param station
 	 * @param capacityBatterie
 	 */
-	public ElectricBike(String skin,Station station, int ul, int serie, int capacityBatterie){
-		super(skin,station,ul,serie);
+	public ElectricBike(String skin,Station station, int ul, int capacityBatterie){
+		super(skin,station,ul);
 		this.capacityBatterie= capacityBatterie;
 		this.niveauBatterie = 100;
 	}
@@ -35,12 +36,12 @@ public class ElectricBike extends Bike{
 	 * @return RepairerElectic
 	 */
 	@Override
-	public Repairer askRepairer(List<Repairer> repairersList) {
-		Iterator<Repairer> i = repairersList.iterator();
+	public Worker askRepairer(List<Worker> repairersList) {
+		Iterator<Worker> i = repairersList.iterator();
    		int min = 1000000;
-   		Repairer save = null;
+   		Worker save = null;
    		while (i.hasNext()) {
-   			Repairer r = i.next();
+   			Worker r = i.next();
    			if (this.isGoodRepairer(r) && min > r.getNBTask()) {
    				save = r;
    				min = r.getNBTask();

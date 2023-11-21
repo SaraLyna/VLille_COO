@@ -19,12 +19,12 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 */
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
-	private List<Repairer> repairersList; 
+	private List<Worker> workerList; 
 	private List<Station> stationsNeedsToBeverify;
 	private Map<TwoWheeledVehicle, Integer> vehiclesList;
 	private Map<TwoWheeledVehicle, Integer> vehiclesOnRoad;
 	private int nbStation;
-	 private Planning planning;
+	private Planning planning;
 	
 
 	/**
@@ -34,7 +34,7 @@ public class ControlCenter{
 		this.nbStation = n;
 		this.initStation();
 		this.stationsNeedsToBeverify = new ArrayList<>();
-		this.repairersList = new ArrayList<>();
+		this.workerList = new ArrayList<>();
 		this.vehiclesList = new HashMap<>();
 		this.vehiclesOnRoad = new HashMap<>();
 	}
@@ -53,8 +53,8 @@ public class ControlCenter{
 	 * gives the repairers list who work in this ControlCenter
 	 * @return Map<Repairer, Boolean>
 	 */
-	public List<Repairer> getRepairersList() {
-		return this.repairersList;	
+	public List<Worker> getRepairersList() {
+		return this.workerList;	
 	}
 	
 	
@@ -113,16 +113,16 @@ public class ControlCenter{
 	 * adds a worker to the ControlCenter
 	 * @param Worker 
 	 */
-	public void addRepairers(Repairer r) {
-		this.repairersList.add(r);
+	public void addWorker(Repairer r) {
+		this.workerList.add(r);
 	}
 	
 	/**
 	 * removes a worker of the ControlCenter
 	 * @param Worker
 	 */
-	public void removeRepairers(Repairer r) {
-		this.repairersList.remove(r);
+	public void removeWorker(Repairer r) {
+		this.workerList.remove(r);
 	}
 	
 	/**
@@ -188,9 +188,12 @@ public class ControlCenter{
 	 * @param v
 	 * @param worker
 	 */
-	public void sendRepairer(Station station, TwoWheeledVehicle v, Worker worker) {
-		station.addWorker(worker,v);
-		worker.setStation(station);
+	public void sendWorker(Station station, TwoWheeledVehicle v, Worker worker) {
+		station.addWorker(worker);
+		if (worker.getStation() == null) {
+			worker.setStation(station);
+		}
+		worker.addTask(v);
 	}
 	
 	
