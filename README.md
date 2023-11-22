@@ -147,8 +147,14 @@ correspondre à la mise en place
 - Tests Station 
 - Création d'une classe Planning pour gérer la plannification des repairers.
 
-#### à faire :
-- changer la gestion des repairers, avoir une liste de repairer prédéfinis et faire en sorte de gérer une plannification (en cours).
-- changer l'enum d'état en un pattern State (pas sûr pour l'instant)
-- continuer les tests (ajouter et modifier certains ) 
 
+### Semaine 10 :
+- Mise en place des sous classes de Planning, histoire de gérer les tests
+- Une classe PlanningSystem et FakePlanning
+- La classe State pour l'instant n'a plus aucune utilité, on laisse quand meme histoire de dire qu'on a commencé avec.
+
+
+### a faire :
+- Continuer les tests unitaires
+- Continuer le code des classes de planning
+- Vérifier l'UML une derniere fois
