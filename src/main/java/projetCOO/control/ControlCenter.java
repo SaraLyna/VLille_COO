@@ -81,6 +81,14 @@ public class ControlCenter{
 	}
 	
 	/**
+	 * gives the planning of this control center
+	 * @return Planning
+	 */
+	public Planning getPlanning() {
+		return this.planning;
+	}
+	
+	/**
      * Set the Planning instance.
      * @param planning 
      */
@@ -234,6 +242,15 @@ public class ControlCenter{
 					vs.remove(randomNB);
 				}
 			}
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void run() {
+		for (Worker w : this.workerList) {
+			w.action();
 		}
 	}
 	
