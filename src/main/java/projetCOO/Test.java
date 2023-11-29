@@ -1,5 +1,6 @@
 package projetCOO;
 
+import projetCOO.Exception.AlreadyExisting;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
 import projetCOO.control.worker.repairer.Repairer;
@@ -12,13 +13,15 @@ public class Test {
 		ControlCenter c = new ControlCenter(0);
 		Station s = new Station(1, c);
 		Repairer r = new Repairer();
-		c.addStation(s);
-		for (int i = 0; i < s.getCapacityMax();i++) {
-			try {
+		try {
+			c.addStation(s);
+			for (int i = 0; i < s.getCapacityMax();i++) {
 				s.addVehicle(new Bike("default", s, 3));
-			} catch (OutOfLimit e) {
-				e.printStackTrace();
 			}
+		} catch (AlreadyExisting e1) {
+			e1.printStackTrace();
+		} catch (OutOfLimit e) {
+			e.printStackTrace();
 		}
 		Bike b1 = (Bike) s.getVehicles().get(0);
 		s.addWorker(r);

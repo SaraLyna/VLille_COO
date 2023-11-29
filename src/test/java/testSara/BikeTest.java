@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.Exception.AlreadyExisting;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.ControlCenter;
@@ -31,7 +32,11 @@ public class BikeTest {
 	public void init() throws OutOfLimit {
 		this.c = new ControlCenter(0);
 		this.s = new Station(1,c);
-		this.c.addStation(s);
+		try {
+			this.c.addStation(s);
+		} catch (AlreadyExisting e) {
+			e.printStackTrace();
+		}
 		this.c.addWorker(new Repairer());
 		this.bike = new Bike("Red",this.s,3);
 		this.s.addVehicle(bike);

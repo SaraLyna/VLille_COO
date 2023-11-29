@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import projetCOO.Exception.NotExisting;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.ControlCenter;
 import projetCOO.control.worker.Worker;
@@ -112,6 +113,7 @@ public class Station {
 		v.setStation(null);
 		vehicles.remove(v);
 		this.controlCenter.removeVehicle(v);
+		this.controlCenter.addVehicleOnRoad(v);
 	}
 	
 	/**
@@ -155,13 +157,17 @@ public class Station {
 	 * @param v, a vehicle that has need a reparation or a technique control
 	 */
 	public void needRepairer(TwoWheeledVehicle v) {
-		for (Worker w : this.workers) {
-			if (v.isGoodRepairer(w)) {
-				this.controlCenter.sendWorker(this , v, w);
-				break;
+		try {
+			for (Worker w : this.workers) {
+				if (v.isGoodRepairer(w)) {
+					this.controlCenter.sendWorker(this , v, w);
+					break;
+				}
 			}
+			this.controlCenter.sendWorker(this , v, v.askRepairer(this.controlCenter.getWorkerList()));
+		}catch (NotExisting e) {
+			e.printStackTrace();
 		}
-		this.controlCenter.sendWorker(this , v, v.askRepairer(this.controlCenter.getRepairersList()));
 	}
 	
 	/**

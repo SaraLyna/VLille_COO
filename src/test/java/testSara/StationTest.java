@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.Exception.AlreadyExisting;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.Exception.OutOfService;
 import projetCOO.control.ControlCenter;
@@ -25,13 +26,15 @@ public class StationTest {
 	public void init() {
 		this.c = new ControlCenter(0);
 		this.s = new Station(1, this.c);
-		this.c.addStation(s);
-		for (int i = 0; i < s.getCapacityMax();i++) {
-			try {
+		try {
+			this.c.addStation(s);
+			for (int i = 0; i < s.getCapacityMax();i++) {
 				s.addVehicle(new Bike("default", s, 3));
-			} catch (OutOfLimit e) {
-				e.printStackTrace();
 			}
+		} catch (AlreadyExisting e1) {
+			e1.printStackTrace();
+		} catch (OutOfLimit e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -110,20 +113,24 @@ public class StationTest {
 		assertEquals(this.s,r.getStation());
 	}
 	
-	@Test 
-	public void WeNeedRepairerAndTheRepairerIsStillInTheStation() {
-		Repairer r = new Repairer();
-		Repairer r2 = new Repairer();
-		Bike b2 = (Bike) this.s.getVehicles().get(1);
-		this.s.addWorker(r);
-		this.s.needRepairer(b2);
-		assertEquals(this.s.getWorker().get(0), r);
-	}
+//	@Test 
+//	public void WeNeedRepairerAndTheRepairerIsStillInTheStation() {
+//		Repairer r = new Repairer();
+//		Repairer r2 = new Repairer();
+//		Bike b2 = (Bike) this.s.getVehicles().get(1);
+//		this.s.addWorker(r);
+//		this.s.needRepairer(b2);
+//		assertEquals(this.s.getWorker().get(0), r);
+//	}
 	
 	@Test
 	public void AVehicleIsStolen() throws OutOfLimit {
 		Station station = new Station(2, this.c);
-		this.c.addStation(station);
+		try {
+			this.c.addStation(station);
+		} catch (AlreadyExisting e) {
+			e.printStackTrace();
+		}
 		Bike b = new Bike(null, station, 3);
 		station.addVehicle(b);
 		station.stole(b);

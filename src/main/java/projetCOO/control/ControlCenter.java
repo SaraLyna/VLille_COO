@@ -6,10 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import projetCOO.Exception.AlreadyExisting;
+import projetCOO.Exception.NotExisting;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
-import projetCOO.planning.Planning;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -20,11 +21,9 @@ import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 public class ControlCenter{
 	private Map<Integer,Station> stationList;
 	private List<Worker> workerList; 
-	private List<Station> stationsNeedsToBeverify;
 	private Map<TwoWheeledVehicle, Integer> vehiclesList;
 	private Map<TwoWheeledVehicle, Integer> vehiclesOnRoad;
 	private int nbStation;
-	private Planning planning;
 	
 
 	/**
@@ -33,7 +32,6 @@ public class ControlCenter{
 	public ControlCenter(int n){
 		this.nbStation = n;
 		this.initStation();
-		this.stationsNeedsToBeverify = new ArrayList<>();
 		this.workerList = new ArrayList<>();
 		this.vehiclesList = new HashMap<>();
 		this.vehiclesOnRoad = new HashMap<>();
@@ -53,17 +51,8 @@ public class ControlCenter{
 	 * gives the repairers list who work in this ControlCenter
 	 * @return Map<Repairer, Boolean>
 	 */
-	public List<Worker> getRepairersList() {
+	public List<Worker> getWorkerList() {
 		return this.workerList;	
-	}
-	
-	
-	
-	/**
-	 * @return station with bike to verify
-	 */
-	public List<Station> getStationWithBikeToverify() {
-		return this.stationsNeedsToBeverify;
 	}
 	
 	/**
@@ -79,33 +68,20 @@ public class ControlCenter{
 	public Map<TwoWheeledVehicle, Integer> getVehiclesOnRoad() {
 		return this.vehiclesOnRoad;
 	}
-	
-	/**
-	 * gives the planning of this control center
-	 * @return Planning
-	 */
-	public Planning getPlanning() {
-		return this.planning;
-	}
-	
-	/**
-     * Set the Planning instance.
-     * @param planning 
-     */
-    public void setPlanning(Planning planning) {
-        this.planning = planning;
-    }
 
-	
-	
-	
 	
 	/**
 	 * adds a station to the control center
 	 * @param station
+	 * @exception AlreadyExisting
 	 */
-	public void addStation(Station station) {
-		stationList.put(station.getId(), station);
+	public void addStation(Station station) throws AlreadyExisting{
+		if (this.stationList.containsKey(station.getId()) || this.stationList.containsValue(station) ) {
+			throw new AlreadyExisting("the Station already exists or the a Station has the same ID");
+		}
+		else {
+			stationList.put(station.getId(), station);
+		}
 		
 	}
 	
@@ -174,7 +150,11 @@ public class ControlCenter{
 		this.stationList = new HashMap<>(); 
 		for (int i = 0;i<this.nbStation; i++) {
 			Station s = new Station(i, this);
-			this.addStation(s);
+			try {
+				this.addStation(s);
+			} catch (AlreadyExisting e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
@@ -196,12 +176,23 @@ public class ControlCenter{
 	 * @param v
 	 * @param worker
 	 */
-	public void sendWorker(Station station, TwoWheeledVehicle v, Worker worker) {
-		station.addWorker(worker);
-		if (worker.getStation() == null) {
-			worker.setStation(station);
+	public void sendWorker(Station station, TwoWheeledVehicle v, Worker worker) throws NotExisting{
+		if (!this.stationList.containsValue(station)) {
+			throw new NotExisting("The Station doesn't exists");
 		}
-		worker.addTask(v);
+		else if (!this.workerList.contains(worker)) {
+			throw new NotExisting("The Worker doesn't exists");
+		}
+		else if (!this.vehiclesList.containsKey(v)) {
+			throw new NotExisting("The Vehicle doesn't exists");
+		}
+		else {
+			station.addWorker(worker);
+			if (worker.getStation() == null) {
+				worker.setStation(station);
+			}
+			worker.addTask(v);
+		}
 	}
 	
 	
@@ -216,6 +207,7 @@ public class ControlCenter{
 
 	        while (iterator.hasNext()) {
 				vs.put(vs.size(), iterator.next());
+				iterator.remove();
 	        }
 		}
 		return vs;

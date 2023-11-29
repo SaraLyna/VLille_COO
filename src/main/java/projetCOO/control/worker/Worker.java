@@ -46,6 +46,14 @@ public abstract class Worker {
 	}
 	
 	/**
+	 * gives taks of the worker
+	 * @return Map<Station, List<TwoWheeledVehicle>>
+	 */
+	public Map<Station, List<TwoWheeledVehicle>> getTasks() {
+		return this.tasks;
+	}
+	
+	/**
 	 * leaves the station
 	 */
 	public void leaveStation() {

@@ -153,6 +153,13 @@ correspondre à la mise en place
 - Une classe PlanningSystem et FakePlanning
 - La classe State pour l'instant n'a plus aucune utilité, on laisse quand meme histoire de dire qu'on a commencé avec.
 
+## Semaine 11 : 
+
+Mercredi 29 Novembre :
+- tests ControlCenter
+- Ajout d'exception  
+- suppression de Plannig
+
 
 ### a faire :
 - Continuer les tests unitaires
