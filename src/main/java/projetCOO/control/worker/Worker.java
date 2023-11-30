@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import projetCOO.Time.Time;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 
@@ -13,6 +14,7 @@ public abstract class Worker {
 	private Station station;
 	protected int nbTask;
 	protected Map<Station, List<TwoWheeledVehicle>> tasks;
+	protected Map<Time, Station> planning;
 	
 	public Worker() {
 		this.station = null;
