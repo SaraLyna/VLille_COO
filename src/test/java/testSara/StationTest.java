@@ -110,7 +110,6 @@ public class StationTest {
 		this.s.needRepairer(this.s.getVehicles().get(0));
 		assertEquals(this.s.getWorker().size(), 1);
 		assertTrue(this.s.getWorker().contains(r));
-		assertEquals(this.s,r.getStation());
 	}
 	
 //	@Test 

@@ -165,6 +165,8 @@ Dimanche 03 Décembre :
 - Création d'une classe Pair, pour créer un tuple avec deux valeurs
 - Création d'une classe Planning et FakePlanning pour plannifier les tâche d'un Worker
 - modification de la classe Worker 
+- Test Pair
+- début Test Planning
 
 
 ### a faire :

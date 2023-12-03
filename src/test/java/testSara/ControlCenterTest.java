@@ -141,8 +141,9 @@ public class ControlCenterTest {
 		this.c.addWorker(r);
 		this.c.sendWorker(stationTest, b, r);
 		assertEquals(1,this.stationTest.getWorker().size());
-		assertEquals(1,r.getTasks().size());
-		assertEquals(this.stationTest,r.getStation());
+		assertEquals(1,r.getPlanning().getStationToVisit().size());
+		assertEquals(1, r.getPlanning().getPlanning().size());
+		assertEquals(1,r.getPlanning().getPlanning().get(stationTest).getSecond().size());
 	}
 	
 	@Test 
