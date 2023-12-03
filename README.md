@@ -160,6 +160,12 @@ Mercredi 29 Novembre :
 - Ajout d'exception  
 - suppression de Plannig
 
+Dimanche 03 Décembre :
+- Création d'une classe Time, pour créer un temps avec jours et heure 
+- Création d'une classe Pair, pour créer un tuple avec deux valeurs
+- Création d'une classe Planning et FakePlanning pour plannifier les tâche d'un Worker
+- modification de la classe Worker 
+
 
 ### a faire :
 - Continuer les tests unitaires

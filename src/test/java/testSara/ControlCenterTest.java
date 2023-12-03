@@ -1,6 +1,7 @@
 package testSara;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -180,23 +181,13 @@ public class ControlCenterTest {
 		assertEquals(this.stationTest.getVehicles().size(), 0);
 	}
 	
-//	@Test 
-//	public void OneVehicleStillInStationTest() {
-//		int tailleInit = this.stationTest.getVehicles().size();
-//		Bike b = (Bike) this.stationTest.getOneVehicle(0);
-//		b.use();
-//		Map<Integer, TwoWheeledVehicle> vehiclesCollected = this.c.collectVehicles();
-//		assertEquals(vehiclesCollected.size(),tailleInit - 1);
-//		assertEquals(this.stationTest.getVehicles().size(), 1);
-//	}
-	
-//	@Test
-//	public void WhenVehiclesAreCollectedVehiclesArentInStation() {
-//		Bike b = (Bike) this.stationTest.getOneVehicle(0);
-//		Map<Integer, TwoWheeledVehicle> vehiclesCollected = this.c.collectVehicles();
-//		assertTrue(vehiclesCollected.containsValue(b));
-//		assertEquals(b.getStation(), null);
-//		assertFalse(this.stationTest.getVehicles().containsKey(b));
-//	}
+	@Test
+	public void WhenVehiclesAreCollectedVehiclesArentInStation() {
+		Bike b = (Bike) this.stationTest.getVehicles().get(0);
+		Map<Integer, TwoWheeledVehicle> vehiclesCollected = this.c.collectVehicles();
+		assertTrue(vehiclesCollected.containsValue(b));
+		assertEquals(b.getStation(), null);
+		assertFalse(this.stationTest.getVehicles().contains(b));
+	}
 
 }

@@ -13,6 +13,7 @@ import projetCOO.control.worker.Worker;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+import projetCOO.twoWheeledVehicle.bike.Bike;
 
 
 /**
@@ -188,9 +189,6 @@ public class ControlCenter{
 		}
 		else {
 			station.addWorker(worker);
-			if (worker.getStation() == null) {
-				worker.setStation(station);
-			}
 			worker.addTask(v);
 		}
 	}
@@ -206,7 +204,9 @@ public class ControlCenter{
 			Iterator<TwoWheeledVehicle> iterator = s.getValue().getVehicles().iterator();
 
 	        while (iterator.hasNext()) {
-				vs.put(vs.size(), iterator.next());
+	        	Bike b = (Bike) iterator.next();
+	        	b.setStation(null);
+				vs.put(vs.size(), b);
 				iterator.remove();
 	        }
 		}

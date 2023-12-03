@@ -1,9 +1,16 @@
 package projetCOO.control.worker.repairer;
 
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import projetCOO.control.worker.Worker;
+import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+import projetCOO.util.Pair;
+import projetCOO.util.Time;
 
 
 
@@ -31,8 +38,8 @@ public class Repairer extends Worker{
 	/**
 	 * verifies the other vehicles of the Station
 	 */
-	public void verifyOtherVehicle() {
-		for (TwoWheeledVehicle v : this.getStation().getVehicles()) {
+	public void verifyOtherVehicle(Station s) {
+		for (TwoWheeledVehicle v : s.getVehicles()) {
 			if (v.isDamaged()) {
 				this.addTask(v);
 			}
@@ -44,12 +51,22 @@ public class Repairer extends Worker{
     */
 	@Override
 	public void action() {
-		this.verifyOtherVehicle();
-		Iterator<TwoWheeledVehicle> i = this.tasks.get(super.getStation()).iterator();
-		while (i.hasNext()) {
-			this.controlVehicle(i.next());
+		for (Map.Entry<Station, Pair<Time,  List<TwoWheeledVehicle>>> set : this.planning.getPlanning().entrySet()) {
+			Time t = set.getValue().getFirst();
+			Station s = set.getKey();
+			List<TwoWheeledVehicle> vs = set.getValue().getSecond();
+			DayOfWeek d = t.getDay();
+			int h = t.getHour();
+			if (LocalDateTime.now().getDayOfWeek().equals(d) && (LocalDateTime.now().getHour() >= h) ) {
+				this.verifyOtherVehicle(s);
+				Iterator<TwoWheeledVehicle> i = vs.iterator();
+				while (i.hasNext()) {
+					this.controlVehicle(i.next());
+					i.remove();
+				}
+				this.planning.removePlanningAndStationToVisit(s);
+			}
 		}
-		this.leaveStation();
 	}
 	
 	/**

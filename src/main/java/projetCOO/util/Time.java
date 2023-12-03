@@ -1,4 +1,4 @@
-package projetCOO.Time;
+package projetCOO.util;
 
 import java.time.DayOfWeek;
 
