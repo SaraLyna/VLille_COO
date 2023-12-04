@@ -1,6 +1,8 @@
 package testSara;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.DayOfWeek;
@@ -11,6 +13,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import projetCOO.Exception.NotExisting;
 import projetCOO.planning.Planning;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -44,6 +47,9 @@ public class PlanningTest {
 		assertEquals(0,p.getPlanning().size());
 	}
 	
+	/**
+	 * revoir certaine chose
+	 */
 	@Test 
 	public void WeHaveNewTaskInNewStation() {
 		Station s = new Station(0,null);
@@ -56,6 +62,33 @@ public class PlanningTest {
 		assertEquals(14, p.getPlanning().get(s).getFirst().getHour());
 		assertEquals(this.d, p.getPlanning().get(s).getFirst().getDay());
 		assertEquals(1, p.getPlanning().get(s).getSecond().size());
+	}
+	
+	@Test 
+	public void WeRemoveTask() {
+		Station s = new Station(0,null);
+		Bike b = new Bike(null, s, 0);
+		Pair<Time,List<TwoWheeledVehicle>> pair = new Pair<Time, List<TwoWheeledVehicle>>(this.t, new ArrayList<TwoWheeledVehicle>());
+		pair.getSecond().add(b);
+		p.addTask(b);
+		try {
+			p.removeTask(b);
+		} catch (NotExisting e) {
+			e.printStackTrace();
+		}
+		assertEquals(0,p.getPlanning().size());
+		assertFalse(p.getPlanning().containsKey(s));
+		assertFalse(p.getPlanning().containsValue(pair));
+	}
+	
+	@Test 
+	public void WeWantRemoveTaskButNotStationExisting() throws NotExisting {
+		Station s = new Station(0,null);
+		Bike b = new Bike(null, s, 0);
+		NotExisting exception = assertThrows(NotExisting.class, () -> {
+			p.removeTask(b);
+		});
+		assertEquals("Not task existing", exception.getMessage());
 	}
 
 }

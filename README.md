@@ -168,6 +168,10 @@ Dimanche 03 Décembre :
 - Test Pair
 - début Test Planning
 
+## Semaine 12 :
+Lundi 04 Décembre :
+- continuation des test de Planning
+
 
 ### a faire :
 - Continuer les tests unitaires

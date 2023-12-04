@@ -74,7 +74,12 @@ public class Planning {
 		if (!this.planning.containsKey(task.getStation())) {
 			throw new NotExisting("Not task existing");
 		}
-		this.planning.get(task.getStation()).getSecond().remove(task);
+		else if (this.planning.get(task.getStation()).getSecond().size() == 1) {
+			this.removePlanningAndStationToVisit(task.getStation());
+		}
+		else {
+			this.planning.get(task.getStation()).getSecond().remove(task);
+		}
 	}
 	
 	/**
