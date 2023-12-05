@@ -181,4 +181,10 @@ Mardi  Décembre :
 - Mise à jour du diagramme UML et finition
 
 
+
+
+## Explication du fonctionnement du projet et des classes :
+la classe Planning sert surtout à faire les tests unitaires, c'est une classe qu'on a créé dans le but de faire un vrai temps afin d'attribuer les taches aux  réparateurs et planifier leur emploi du temps, et une deuxieme classe FakePlanning qui sert de faux temps pour faciliter les tests (création d'un faux temps).
+
+La classe MockWorker sert d'alternative à la classe Worker (comme c'est une classe abstraite les tests dessus en sont pas possibles) alors MockWorker est la afin de faciliter la création de stations pour les tests unitaires.
 -Fin du projet
