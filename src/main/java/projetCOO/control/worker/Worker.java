@@ -8,6 +8,9 @@ public abstract class Worker {
 	protected int nbTask;
 	protected Planning planning;
 	
+	/**
+	 * Constructor of the class
+	 */
 	public Worker() {
 		this.nbTask = 0;
 		this.planning = new Planning();
@@ -29,6 +32,9 @@ public abstract class Worker {
 		return this.planning;
 	}
 	
+	/**
+	 * @param p
+	 */
 	public void setPlanning(Planning p) {
 		this.planning = p;
 	}
@@ -41,6 +47,10 @@ public abstract class Worker {
 		this.nbTask = this.nbTask + n;
 	}
 	
+	/**
+	 * add a task to the planning
+	 * @param v
+	 */
 	public void addTask(TwoWheeledVehicle v) {
 		this.planning.addTask(v);
 	}
@@ -50,5 +60,8 @@ public abstract class Worker {
 	 */
 	public abstract void action();
 
+	/**
+	 * method tostring() to display something
+	 */
 	public abstract String toString();
 }
