@@ -143,4 +143,11 @@ public class FeatureDeco implements TwoWheeledVehicle {
 		this.v.resetNBUse();
 	}
 
+
+
+	@Override
+	public void setNBUse(int n) {
+		this.v.setNBUse(n);
+	}
+
 }

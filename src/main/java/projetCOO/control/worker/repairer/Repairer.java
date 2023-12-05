@@ -48,7 +48,7 @@ public class Repairer extends Worker{
 	}
  
    /**
-    * repair the vehicle
+    * if it's time for the repairer to worker, the repairer will verifies vehicles in the station then repairs vehicles that need to be repair
     */
 	@Override
 	public void action() {
@@ -64,6 +64,7 @@ public class Repairer extends Worker{
 				while (i.hasNext()) {
 					this.controlVehicle(i.next());
 					i.remove();
+					this.increaseTasks(-1);
 				}
 				try {
 					this.planning.removePlanningAndStationToVisit(s);

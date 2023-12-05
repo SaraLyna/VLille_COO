@@ -37,7 +37,13 @@ public interface TwoWheeledVehicle {
 	 * return the use number of this vehicle.
 	 * @return int
 	 */
-	public int getNBUse();	
+	public int getNBUse();
+	
+	/**
+	 * sets the nb uses of this vehicle
+	 * @param int
+	 */
+	public void setNBUse(int n);
 	
 	/**
 	 * reset the use number of this bike/

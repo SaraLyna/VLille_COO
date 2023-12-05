@@ -67,6 +67,14 @@ public class Bike implements TwoWheeledVehicle {
 	}
 	
 	/**
+	 * sets the nb uses of this bike
+	 * @param int
+	 */
+	public void setNBUse(int n) {
+		this.nbUse = n;
+	}
+	
+	/**
 	 * resets the use number of this bike/
 	 */
 	public void resetNBUse() {

@@ -53,6 +53,7 @@ public abstract class Worker {
 	 */
 	public void addTask(TwoWheeledVehicle v) {
 		this.planning.addTask(v);
+		this.increaseTasks(1);
 	}
 	
 	/**
