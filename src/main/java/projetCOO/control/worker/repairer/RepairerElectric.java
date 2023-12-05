@@ -1,5 +1,8 @@
 package projetCOO.control.worker.repairer;
 
+import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+import projetCOO.twoWheeledVehicle.bike.ElectricBike;
+
 /**
  *the class that represents the repairer of the electrical vehicles
  */
@@ -41,4 +44,16 @@ public class RepairerElectric extends Repairer{
 	    // Get the electric specialty
 	    return null;
 	}
+	
+	
+	/**
+	 * control a vehicle.
+	 * @param v
+	 */
+	public void controlVehicle(ElectricBike v) {
+		super.controlVehicle(v);
+		v.BatterieRecharge(100);
+	}
+	
+	
 }

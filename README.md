@@ -174,7 +174,7 @@ Lundi 04 Décembre :
 
 Mardi  Décembre :
 - Suppression de la classe Statejava car elle ne sert plus à rien
-- Fin des tests unitaires 
+- Fin des tests unitaires
 - Fin du codage de la classe Planning et Fakeplanning
 - Mise à jour du diagramme UML et finition
 

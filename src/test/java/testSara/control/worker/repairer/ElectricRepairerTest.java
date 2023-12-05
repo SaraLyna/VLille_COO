@@ -11,18 +11,19 @@ import projetCOO.Mock.MockStation;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.planning.FakePlanning;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
+import projetCOO.twoWheeledVehicle.bike.ElectricBike;
 
-class RepairerTest {
+class ElectricRepairerTest {
 	
 	private Repairer r;
-	private TwoWheeledVehicle b;
+	private ElectricBike b;
 	private MockStation s;
 
 	@BeforeEach
 	public void init() {
 		this.s =  new MockStation();
 		this.r = new Repairer();
-		this.b = s.getVehicles().get(0);
+		this.b = (ElectricBike) s.getVehicles().get(4);
 	}
 	
 	@Test
@@ -58,6 +59,14 @@ class RepairerTest {
 			assertEquals(0, s.getVehicles().get(i).getNBUse());
 		}
 		assertEquals(0, r.getNBTask());
+	}
+	
+	@Test
+	public void controlVehicleTest() {
+		assertEquals(0,b.getNiveauBatterie());
+		b.BatterieRecharge(100);
+		assertEquals(100,b.getNiveauBatterie());
+		
 	}
 
 }
