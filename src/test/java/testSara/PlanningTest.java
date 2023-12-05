@@ -90,5 +90,34 @@ public class PlanningTest {
 		});
 		assertEquals("Not task existing", exception.getMessage());
 	}
+	
+	@Test 
+	public void WeAddNewPlanning() {
+		Station s = new Station(0,null);
+		Bike b = new Bike(null, s, 0);
+		this.p.addPlanning(s, b);
+		assertEquals(1,this.p.getPlanning().size());
+		assertTrue(this.p.getPlanning().get(s).getSecond().contains(b));
+		assertTrue(this.p.getPlanning().containsKey(s));
+	}
+	
+	@Test
+	public void WeRemovePlanning() throws NotExisting {
+		Station s = new Station(0,null);
+		Bike b = new Bike(null, s, 0);
+		p.addPlanning(s, b);
+		p.removePlanningAndStationToVisit(s);
+		assertEquals(0,p.getPlanning().size());
+		assertFalse(this.p.getPlanning().containsKey(s));
+	}
+	
+	@Test
+	public void WeRemovePlanningButStationNotExisting() {
+		Station s = new Station(0,null);
+		NotExisting exception = assertThrows(NotExisting.class, () -> {
+			p.removePlanningAndStationToVisit(s);
+		});
+		assertEquals("Not task existing", exception.getMessage());
+	}
 
 }

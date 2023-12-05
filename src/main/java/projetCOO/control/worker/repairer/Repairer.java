@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import projetCOO.Exception.NotExisting;
 import projetCOO.control.worker.Worker;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
@@ -64,7 +65,11 @@ public class Repairer extends Worker{
 					this.controlVehicle(i.next());
 					i.remove();
 				}
-				this.planning.removePlanningAndStationToVisit(s);
+				try {
+					this.planning.removePlanningAndStationToVisit(s);
+				} catch (NotExisting e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}

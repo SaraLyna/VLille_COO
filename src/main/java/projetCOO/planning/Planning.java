@@ -70,11 +70,11 @@ public class Planning {
 	 * @param task
 	 * @throws NotExisting
 	 */
-	public void removeTask(TwoWheeledVehicle task) throws NotExisting{
+	public void removeTask(TwoWheeledVehicle task) throws NotExisting {
 		if (!this.planning.containsKey(task.getStation())) {
 			throw new NotExisting("Not task existing");
 		}
-		else if (this.planning.get(task.getStation()).getSecond().size() == 1) {
+		if (this.planning.get(task.getStation()).getSecond().size() <= 1) {
 			this.removePlanningAndStationToVisit(task.getStation());
 		}
 		else {
@@ -83,7 +83,7 @@ public class Planning {
 	}
 	
 	/**
-	 * add a new planning to This Planning 
+	 * add a new planning to this Planning 
 	 * @param s
 	 * @param v
 	 */
@@ -98,9 +98,14 @@ public class Planning {
 	 * removes a planning in this Planning
 	 * @param s
 	 */
-	public void removePlanningAndStationToVisit(Station s) {
-		this.planning.remove(s);
-		this.removeStationToVisit(s);
+	public void removePlanningAndStationToVisit(Station s) throws NotExisting {
+		if (!this.planning.containsKey(s)) {
+			throw new NotExisting("Not task existing");
+		}
+		else {
+			this.planning.remove(s);
+			this.removeStationToVisit(s);
+		}
 	}
 
 }
