@@ -30,7 +30,15 @@ java -classpath classes projetCOO
 
 
 --Exécution des tests :
- java -jar junit-console.jar -classpath test/testSara:classes -scan-classpath
+java -jar junit-console.jar -classpath test/testSara:classes -scan-classpath  
+
+
+-- avec Maven :
+Maven test
+ou 
+Maven verify
+
+ 
 
 --jar:
 --Création:
@@ -187,4 +195,13 @@ Mardi  Décembre :
 la classe Planning sert surtout à faire les tests unitaires, c'est une classe qu'on a créé dans le but de faire un vrai temps afin d'attribuer les taches aux  réparateurs et planifier leur emploi du temps, et une deuxieme classe FakePlanning qui sert de faux temps pour faciliter les tests (création d'un faux temps).
 
 La classe MockWorker sert d'alternative à la classe Worker (comme c'est une classe abstraite les tests dessus en sont pas possibles) alors MockWorker est la afin de faciliter la création de stations pour les tests unitaires.
+
+et concernant la classe MockStation elle est juste là pour faciliter l'écriture des tests (éviter de réécrire à chaque fois les @BeforeEach ...)
+
+Comme le Main n'a pas été demandé pour ce projet, on a testé nos classes et méthodes grace à Maven en lançant maven test
+ou directement sur Eclipse en lançant Maven test ou bien Maven Verify
+
+
+Tous les tests sont passés avec succès, aucun warning, aucune erreur
+
 -Fin du projet
