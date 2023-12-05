@@ -174,6 +174,8 @@ Lundi 04 Décembre :
 
 Mardi  Décembre :
 - Suppression de la classe Statejava car elle ne sert plus à rien
+- Test de ElectricRepairerTest fini
+- Création d'une classe Mock pour gérer les stations et les workers
 - Fin des tests unitaires
 - Fin du codage de la classe Planning et Fakeplanning
 - Mise à jour du diagramme UML et finition
