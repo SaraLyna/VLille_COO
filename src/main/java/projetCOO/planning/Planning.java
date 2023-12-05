@@ -17,6 +17,9 @@ public class Planning {
 	protected Map<Station, Pair<Time,  List<TwoWheeledVehicle>>> planning;
 	protected List<Station> stationToVisit;
 	
+	/**
+	 * Constructor of the class
+	 */
 	public Planning() {
 		this.planning = new HashMap<>();
 		this.stationToVisit = new ArrayList<>();

@@ -31,15 +31,15 @@ public class Main {
         }
     	
     	
-    	 for (Station station : controlCenter.getStationList().values()) {
-//             for (TwoWheeledVehicle bike : station.getVehicles().keySet()) {
-//                 bike = new Basket(bike);
-//             }
-         }
-    	 
-    	 Station station = controlCenter.getStationList().get(0);
-//         TwoWheeledVehicle damagedBike = station.getOneVehicle(0);
-//         damagedBike.takeDamage();
+//    	 for (Station station : controlCenter.getStationList().values()) {
+////             for (TwoWheeledVehicle bike : station.getVehicles().keySet()) {
+////                 bike = new Basket(bike);
+////             }
+//         }
+//    	 
+//    	 Station station = controlCenter.getStationList().get(0);
+////         TwoWheeledVehicle damagedBike = station.getOneVehicle(0);
+////         damagedBike.takeDamage();
 
          
          controlCenter.show();

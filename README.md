@@ -172,8 +172,11 @@ Dimanche 03 Décembre :
 Lundi 04 Décembre :
 - continuation des test de Planning
 
+Mardi  Décembre :
+- Suppression de la classe Statejava car elle ne sert plus à rien
+- Fin des tests unitaires 
+- Fin du codage de la classe Planning et Fakeplanning
+- Mise à jour du diagramme UML et finition
 
-### a faire :
-- Continuer les tests unitaires
-- Continuer le code des classes de planning
-- Vérifier l'UML une derniere fois
+
+-Fin du projet

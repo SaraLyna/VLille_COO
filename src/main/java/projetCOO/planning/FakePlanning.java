@@ -13,6 +13,9 @@ import projetCOO.util.Time;
 
 public class FakePlanning extends Planning{
 
+	/**
+	 * Constructor of the class
+	 */
 	public FakePlanning() {
 		super();
 	}
