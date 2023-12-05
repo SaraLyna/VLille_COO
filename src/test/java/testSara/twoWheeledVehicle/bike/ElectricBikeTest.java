@@ -29,6 +29,7 @@ class ElectricBikeTest {
         assertEquals(70, electricBike.getNiveauBatterie());
     }
     
+    @Test
     void testEstBatterieFaible() {
         electricBike.setNiveauBatterie(15);
         assertTrue(electricBike.BatterieFaible());
