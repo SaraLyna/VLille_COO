@@ -238,7 +238,7 @@ public class ControlCenter{
 	}
 	
 	/**
-	 * 
+	 * the method who does the action
 	 */
 	public void run() {
 		for (Worker w : this.workerList) {
