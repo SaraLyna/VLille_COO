@@ -190,5 +190,13 @@ public class ControlCenterTest {
 		assertEquals(b.getStation(), null);
 		assertFalse(this.stationTest.getVehicles().contains(b));
 	}
+	
+	@Test 
+	public void WhenVehiclesAreredistributedNotStationIsEmpty() {
+		c.redistribution();
+		for (Map.Entry<Integer, Station> set : c.getStationList().entrySet()) {
+			assertFalse(set.getValue().getVehicles().size());
+		}
+	}
 
 }
