@@ -13,38 +13,24 @@ Ce projet consiste à concevoir une simulation d'un système de location de vél
 
 
 ## How To
+# Ceci est un projet maven
 
---Documentation:
-javadoc -sourcepath src -d doc -subpackages main/java/projetCOO/Main
-
-
---Compilation:
-javac -sourcepath src -d classes src/main/java/projetCOO/Main/*.java
-
---Compiltion Tests : 
-javac -classpath junit-console.jar:classes src/test/java/testSara/*.java
- 
- 
---Exécution:
-java -classpath classes projetCOO
+- Documentation:
+` maven doc `
 
 
---Exécution des tests :
-java -jar junit-console.jar -classpath test/testSara:classes -scan-classpath  
+- Compilation:
+` maven `
 
-
--- avec Maven :
-Maven test
+- Tests :
+` maven test `
 ou 
-Maven verify
+` maven verify `
 
  
+- jar:
 
---jar:
---Création:
-jar cvfm Vlille.jar manifest-tpX -C classes
---Exécution:
-java -jar Vlille.jar
+
 
 ## UML
 

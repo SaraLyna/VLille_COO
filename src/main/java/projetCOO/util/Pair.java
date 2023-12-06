@@ -5,7 +5,7 @@ public class Pair<T, U> {
 	private T first;
 	private U second;
 	
-	/*
+	/**
 	 * constructor class that constructs a Pair of two element 
 	 * 
 	 */
