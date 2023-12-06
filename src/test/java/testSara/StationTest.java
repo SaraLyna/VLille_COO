@@ -112,15 +112,14 @@ public class StationTest {
 		assertTrue(this.s.getWorker().contains(r));
 	}
 	
-//	@Test 
-//	public void WeNeedRepairerAndTheRepairerIsStillInTheStation() {
-//		Repairer r = new Repairer();
-//		Repairer r2 = new Repairer();
-//		Bike b2 = (Bike) this.s.getVehicles().get(1);
-//		this.s.addWorker(r);
-//		this.s.needRepairer(b2);
-//		assertEquals(this.s.getWorker().get(0), r);
-//	}
+	@Test 
+	public void WeNeedRepairerAndTheRepairerIsStillInTheStation() {
+		Repairer r = new Repairer();
+		Bike b2 = (Bike) this.s.getVehicles().get(1);
+		this.s.addWorker(r);
+		this.s.needRepairer(b2);
+		assertEquals(this.s.getWorker().get(0), r);
+	}
 	
 	@Test
 	public void AVehicleIsStolen() throws OutOfLimit {

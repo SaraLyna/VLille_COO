@@ -1,6 +1,5 @@
 package projetCOO.control.worker.repairer;
 
-import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import projetCOO.twoWheeledVehicle.bike.ElectricBike;
 
 /**

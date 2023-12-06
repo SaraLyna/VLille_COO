@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import projetCOO.Mock.MockStation;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.planning.FakePlanning;
-import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import projetCOO.twoWheeledVehicle.bike.ElectricBike;
 
 class ElectricRepairerTest {

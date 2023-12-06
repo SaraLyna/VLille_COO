@@ -192,14 +192,15 @@ Mardi  Décembre :
 
 
 ## Explication du fonctionnement du projet et des classes :
-la classe Planning sert surtout à faire les tests unitaires, c'est une classe qu'on a créé dans le but de faire un vrai temps afin d'attribuer les taches aux  réparateurs et planifier leur emploi du temps, et une deuxieme classe FakePlanning qui sert de faux temps pour faciliter les tests (création d'un faux temps).
+la classe Planning sert à faire la plannification des taches pour les workers, dés qu'une nouvelle tache est ajoutée dans une station qui n'était pas prévue dans la routine du worker, ça l'envoie directement à Planning qui la plannifie pour le lendemain à 14H.
+compte à FakePlanning elle sert surtout à faire les tests unitaires, c'est une classe qu'on a créé dans le but de gérer le temps pour les workers afin d'attribuer les taches aux  réparateurs et plannifier leur emploi du temps, elle sert de faux temps pour faciliter les tests unitaires.
 
-La classe MockWorker sert d'alternative à la classe Worker (comme c'est une classe abstraite les tests dessus en sont pas possibles) alors MockWorker est la afin de faciliter la création de stations pour les tests unitaires.
+La classe MockWorker sert d'alternative à la classe Worker (comme c'est une classe abstraite les tests dessus ne sont pas possibles) alors MockWorker est là afin de faciliter la création de stations pour les tests unitaires.
 
 et concernant la classe MockStation elle est juste là pour faciliter l'écriture des tests (éviter de réécrire à chaque fois les @BeforeEach ...)
 
 Comme le Main n'a pas été demandé pour ce projet, on a testé nos classes et méthodes grace à Maven en lançant maven test
-ou directement sur Eclipse en lançant Maven test ou bien Maven Verify
+ou directement sur Eclipse en lançant Maven test ou bien Maven Verify.
 
 
 Tous les tests sont passés avec succès, aucun warning, aucune erreur
