@@ -186,6 +186,8 @@ Mercredi 06 Décembre :
 - Supression des getters et setters inutiles.
 
 
+-- a faire :
+continuer test sur controlcenter
 
 ## Explication du fonctionnement du projet et des classes :
 la classe Planning sert à faire la plannification des taches pour les workers, dés qu'une nouvelle tache est ajoutée dans une station qui n'était pas prévue dans la routine du worker, ça l'envoie directement à Planning qui la plannifie pour le lendemain à 14H.
