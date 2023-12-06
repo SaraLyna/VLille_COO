@@ -10,7 +10,6 @@ import projetCOO.Exception.AlreadyExisting;
 import projetCOO.Exception.NotExisting;
 import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.worker.Worker;
-import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
 import projetCOO.twoWheeledVehicle.bike.Bike;
@@ -98,16 +97,16 @@ public class ControlCenter{
 	 * adds a worker to the ControlCenter
 	 * @param Worker 
 	 */
-	public void addWorker(Repairer r) {
-		this.workerList.add(r);
+	public void addWorker(Worker w) {
+		this.workerList.add(w);
 	}
 	
 	/**
 	 * removes a worker of the ControlCenter
 	 * @param Worker
 	 */
-	public void removeWorker(Repairer r) {
-		this.workerList.remove(r);
+	public void removeWorker(Worker w) {
+		this.workerList.remove(w);
 	}
 	
 	/**
@@ -163,13 +162,6 @@ public class ControlCenter{
 	
 	
 	
-	/**
-	 * verification method 
-	 */
-	public void verification() {
-
-	}
-
 	
 	/**
 	 * send a repairer in a Station
@@ -195,7 +187,7 @@ public class ControlCenter{
 	
 	
 	
-	/**
+	/**- jar:
 	 * @return the collection of the different vehicles in a station
 	 */
 	public Map<Integer, TwoWheeledVehicle> collectVehicles() {

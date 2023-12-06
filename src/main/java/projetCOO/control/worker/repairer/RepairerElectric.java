@@ -30,21 +30,6 @@ public class RepairerElectric extends Repairer{
 	
 	
 	
-	//we can also add these methods to make the electric repairer more interesting
-	public void performElectricRepair() {
-	    // Add code to perform electric repairs
-	}
-	
-	public void setElectricSpecialty(String specialty) {
-	    // Set the electric specialty
-	}
-
-	public String getElectricSpecialty() {
-	    // Get the electric specialty
-	    return null;
-	}
-	
-	
 	/**
 	 * control a vehicle.
 	 * @param v
