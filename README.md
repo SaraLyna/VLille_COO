@@ -16,19 +16,23 @@ Ce projet consiste à concevoir une simulation d'un système de location de vél
 # Ceci est un projet maven
 
 - Documentation:
-` maven doc `
+` mvn javadoc:javadoc `
 
 
 - Compilation:
-` maven `
+` mvn compile `
 
 - Tests :
-` maven test `
+` mvn test `
 ou 
-` maven verify `
+` mvn verify `
 
- 
-- jar:
+
+- clean :
+` mvn clean `
+
+- jar :
+` mvn package `
 
 
 
@@ -166,7 +170,7 @@ Dimanche 03 Décembre :
 Lundi 04 Décembre :
 - continuation des test de Planning
 
-Mardi  Décembre :
+Mardi 05 Décembre :
 - Suppression de la classe Statejava car elle ne sert plus à rien
 - Test de ElectricRepairerTest fini
 - Création d'une classe Mock pour gérer les stations et les workers
@@ -174,6 +178,12 @@ Mardi  Décembre :
 - Fin du codage de la classe Planning et Fakeplanning
 - Mise à jour du diagramme UML et finition
 
+Mercredi 06 Décembre :
+- Suppression des main inutiles
+- Suppression supression des classes inutiles
+- Mise à jour du makefile
+- Mise à jour de l'UML
+- Supression des getters et setters inutiles.
 
 
 
