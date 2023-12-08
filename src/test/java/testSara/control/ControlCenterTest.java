@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import projetCOO.Exception.AlreadyExisting;
 import projetCOO.Exception.NotExisting;
 import projetCOO.Exception.OutOfLimit;
+import projetCOO.Mock.MockControlCenter;
 import projetCOO.control.ControlCenter;
 import projetCOO.control.worker.repairer.Repairer;
 import projetCOO.station.Station;
@@ -193,9 +194,10 @@ public class ControlCenterTest {
 	
 	@Test 
 	public void WhenVehiclesAreredistributedNotStationIsEmpty() {
-		c.redistribution();
-		for (Map.Entry<Integer, Station> set : c.getStationList().entrySet()) {
-			assertFalse(set.getValue().getVehicles().size());
+		MockControlCenter mc = new MockControlCenter();
+		mc.redistribution();
+		for (Map.Entry<Integer, Station> set : mc.getStationList().entrySet()) {
+			assertFalse(set.getValue().getVehicles().isEmpty());
 		}
 	}
 

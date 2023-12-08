@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import projetCOO.Exception.AlreadyExisting;
 import projetCOO.Exception.NotExisting;
@@ -12,7 +13,6 @@ import projetCOO.Exception.OutOfLimit;
 import projetCOO.control.worker.Worker;
 import projetCOO.station.Station;
 import projetCOO.twoWheeledVehicle.TwoWheeledVehicle;
-import projetCOO.twoWheeledVehicle.bike.Bike;
 
 
 /**
@@ -196,7 +196,7 @@ public class ControlCenter{
 			Iterator<TwoWheeledVehicle> iterator = s.getValue().getVehicles().iterator();
 
 	        while (iterator.hasNext()) {
-	        	Bike b = (Bike) iterator.next();
+	        	TwoWheeledVehicle b = iterator.next();
 	        	b.setStation(null);
 				vs.put(vs.size(), b);
 				iterator.remove();
@@ -214,16 +214,16 @@ public class ControlCenter{
 	public void redistribution() {
 		Map<Integer, TwoWheeledVehicle> vs = this.collectVehicles();
 		while (!vs.isEmpty()) {
-			for (Map.Entry<Integer, Station> s : this.stationList.entrySet()) {
-				if (s.getValue().getVehicles().size() < s.getValue().getCapacityMax()) {
-					int randomNB = (int) (Math.random() * (vs.size() + 1));
-					TwoWheeledVehicle b = vs.get(randomNB);
+			for (int i = 0; i < this.stationList.size(); i++) {
+				if (this.stationList.get(i).getVehicles().size() < this.stationList.get(i).getCapacityMax()) {
+					Optional<Integer> n = vs.keySet().stream().findAny();
+					TwoWheeledVehicle b = vs.get(n.get());
 					try {
-						s.getValue().addVehicle(b);
+						this.stationList.get(i).addVehicle(b);
 					} catch (OutOfLimit e) {
 						e.printStackTrace();
 					}
-					vs.remove(randomNB);
+					vs.remove(n.get());
 				}
 			}
 		}
